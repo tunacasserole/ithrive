@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Indications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Underwriter</th> -->
+      <th>State</th>
+      <th>Effective</th>
+      <!-- <th>Expire date</th> -->
+      <!-- <th>Wholesale agency</th> -->
+      <th>Retail Brokerage</th>
+      <!-- <th>Placement fee</th> -->
+      <!-- <th>Employee payroll</th> -->
+      <!-- <th>Owner payroll</th> -->
+      <!-- <th>Total payroll</th> -->
+      <!-- <th>Sub out commercial</th> -->
+      <!-- <th>Sub out residential</th> -->
+      <!-- <th>Gross receipts current</th> -->
+      <!-- <th>Description of operations</th> -->
+      <!-- <th>Type of contractor</th> -->
+      <!-- <th>Type al requested</th> -->
+      <!-- <th>Limits selected</th> -->
+      <!-- <th>Insured ops</th> -->
+      <!-- <th>Limits</th> -->
+      <!-- <th>Rating factor</th> -->
+      <th>Applicant Name</th>
+      <th>Applicant DBA</th>
+  <!--     <th>Zip</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>Email</th>
+      <th>Fax</th>
+      <th>Phone</th>
+      <th>State code</th>
+      <th>Gf comments</th>
+      <th>Approval comments</th>
+      <th>Pdf natural url</th>
+      <th>Pdf tracking url</th>
+      <th>Mgu</th> -->
+      <th>Total Policy Cost</th>
+
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indications.each do |indication| %>
+      <tr>
+        <!-- <td><%= indication.underwriter_id %></td> -->
+        <td><%= indication.state %></td>
+        <td><%= indication.effective_date %></td>
+<!--         <td><%= indication.expire_date %></td>
+        <td><%= indication.wholesale_agency_id %></td> -->
+        <td><%= indication.retail_agency_id %></td>
+        <!-- <td><%= indication.placement_fee %></td> -->
+        <!-- <td><%= indication.employee_payroll %></td> -->
+        <!-- <td><%= indication.owner_payroll %></td> -->
+        <!-- <td><%= indication.total_payroll %></td> -->
+        <!-- <td><%= indication.sub_out_commercial %></td> -->
+        <!-- <td><%= indication.sub_out_residential %></td> -->
+        <!-- <td><%= indication.gross_receipts_current %></td> -->
+        <!-- <td><%= indication.description_of_operations %></td> -->
+        <!-- <td><%= indication.type_of_contractor %></td> -->
+        <!-- <td><%= indication.type_al_requested %></td> -->
+        <!-- <td><%= indication.limits_selected %></td> -->
+        <!-- <td><%= indication.insured_ops %></td> -->
+        <!-- <td><%= indication.limits %></td> -->
+        <!-- <td><%= indication.rating_factor %></td> -->
+        <td><%= indication.name %></td>
+        <td><%= indication.dba %></td>
+        <!-- <td><%= indication.zip %></td> -->
+        <!-- <td><%= indication.address1 %></td> -->
+        <!-- <td><%= indication.address2 %></td> -->
+        <!-- <td><%= indication.city %></td> -->
+        <!-- <td><%= indication.email %></td> -->
+        <!-- <td><%= indication.fax %></td> -->
+        <!-- <td><%= indication.phone %></td> -->
+        <!-- <td><%= indication.state_code %></td> -->
+        <!-- <td><%= indication.gf_comments %></td> -->
+        <!-- <td><%= indication.approval_comments %></td> -->
+        <!-- <td><%= indication.pdf_natural_url %></td> -->
+        <!-- <td><%= indication.pdf_tracking_url %></td> -->
+        <!-- <td><%= indication.mgu_id %></td> -->
+        <td><%= indication.total_policy_cost %></td>
+        <td><%= link_to 'Show', indication %></td>
+        <td><%= link_to 'Edit', edit_indication_path(indication) %></td>
+        <td><%= link_to 'Destroy', indication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indication', new_indication_path %>

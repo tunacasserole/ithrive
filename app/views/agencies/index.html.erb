@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+<section id="content">
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+          <h3>Work with Agencies</h3>
+      </div>
+
+      </br>
+
+      <!-- Top Search Content -->
+      <div id="top-search-wrap">
+          <div class="tsw-inner">
+              <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+              <input type="text", placeholder="Search Agencies">
+          </div>
+      </div>
+
+      </br>
+
+      <div class="table-responsive">
+          <table id="data-table-basic" class="table table-striped">
+              <thead>
+                  <tr>
+                      <th data-column-id="agencyName">Agency Name</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% @agencies.each do |agency| %>
+                  <tr>
+                    <td><%= agency.name %></td>
+                    <td><%= link_to 'Show', agency %></td>
+                    <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
+                    <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+        <br>
+        <%= link_to 'New Agency', new_agency_path %>
+      </div>
+    </div>
+
+    <ul class="pagination lv-pagination">
+        <li>
+            <a href="" aria-label="Previous">
+                <i class="zmdi zmdi-chevron-left"></i>
+            </a>
+        </li>
+        <li class="active"><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+        <li>
+            <a href="" aria-label="Next">
+                <i class="zmdi zmdi-chevron-right"></i>
+            </a>
+        </li>
+    </ul>
+
+  </div>
+
+
+</section>

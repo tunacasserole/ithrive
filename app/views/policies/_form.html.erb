@@ -1,0 +1,23 @@
+<%= simple_form_for(@policy) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :state %>
+    <%= f.input :number %>
+    <%= f.input :dba %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :wholesale_id %>
+    <%= f.input :wholesale_rep_id %>
+    <%= f.input :retail_id %>
+    <%= f.input :retail_rep_id %>
+    <%= f.input :uw_id %>
+    <%= f.input :mgu_id %>
+    <%= f.input :program_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

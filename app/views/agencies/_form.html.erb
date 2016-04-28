@@ -1,0 +1,27 @@
+<%= content_tag(:br) %>
+<%= simple_form_for(@agency) do |f| %>
+  <fieldset>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.label :type_of, 'type of agency' %>
+        <%= f.select :type_of, ['retail','wholesale','mgu'], {:include_blank => true}, {class: 'form-control floating-label', placeholder: 'type', disabled: false} %>
+      </div>
+      <%= f.input :name %>
+      <%= f.input :dba %>
+      <%= f.input :display_name %>
+      <%= f.input :address1 %>
+      <%= f.input :address2 %>
+      <%= f.input :zip %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :fax %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  </fieldset>
+
+<% end %>

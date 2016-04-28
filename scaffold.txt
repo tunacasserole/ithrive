@@ -1,0 +1,247 @@
+scaffold
+
+agency
+ id:integer
+ type_of:string
+ name:string
+ dba:string
+ display_name:string
+ address1:string
+ address2:string
+ zip:string
+ email:string
+ phone:string
+ fax:string
+
+agent
+ agency_id
+ first_name
+ last_name
+ email
+ phone
+
+email
+ state
+ reply_to
+ from
+ from_name
+ cc
+ html
+ subject
+ to
+ to_name
+
+indication
+ underwriter_id:integer
+ state:string
+ effective_date:date
+ expire_date:date
+ wholesale_agency_id:integer
+ retail_agency_id:integer
+ placement_fee:integer
+ employee_payroll:integer
+ owner_payroll:integer
+ total_payroll:integer
+ sub_out_commercial:boolean
+ sub_out_residential:boolean
+ gross_receipts_current:integer
+ description_of_operations:string
+ type_of_contractor:string
+ type_al_requested:string
+ limits_selected:string
+ insured_ops:string
+ limits:string
+ rating_factor:string
+ dba:string
+ name:string
+ zip:string
+ address1:string
+ address2:string
+ city:string
+ email:string
+ fax:string
+ phone:string
+ state_code:string
+ gf_comments:string
+ approval_comments:string
+ pdf_natural_url:string
+ pdf_tracking_url:string
+ mgu_id:integer
+ total_cost:decimal{8,2}
+
+
+
+message
+ content
+ avatar
+ from
+ from_email
+ to
+ sent_date
+
+policy
+ name:string
+ state:string
+ effective_date:date
+ number:string
+ dba:string
+ phone:string
+ email:string
+ wholesale_id:integer
+ wholesale_rep_id:integer
+ retail_id:integer
+ retail_rep_id:integer
+ uw_id:integer
+ mgu_id:integer
+ program_id:integer
+ total_cost:decimal{8,2}
+
+program_class_code
+name
+number
+description
+minimum_premium
+active_from
+active_to
+tag
+
+program_connect
+state
+program_id:integer
+mgu_id:integer
+default_uw_id:integer
+wholesale_id
+agency_id
+default_wholesale_rep_id
+default_wholesales_fee
+default_wholesale_com
+default_retail_fee
+default_retail_com
+
+program
+name
+description
+abbreviation
+rating
+mgu_id
+default_uw
+program_logo
+rater_url
+carrier_name
+
+program_state
+rater
+state
+state_code
+owner_payroll
+is_active
+
+Territory
+zip
+territory
+city
+state
+
+workflow
+parent_id
+parent_type
+state
+name
+type_of
+
+
+
+
+{
+  "_un": "test",
+  "_pwd": "test",
+  "mguID": "55ba5475064760b6cb9e1afe",
+  "underwriter_ID": "55e74b4d086568eb7aa8cb1a",
+  "effDate": "2016-03-22T04:00:00.000Z",
+  "expDate": "2017-03-24T05:00:00.000Z",
+  "wholesaleAgency": {
+    "agencyID": "55ba5475064760b6cb9e1afe",
+    "producerID": "56461bf81f9d817131dcb9b8"
+  },
+  "retailAgency": {
+    "agencyID": "56cb5435d8b893f153263cc6",
+    "producerID": "56cb94a5d8b893f153263d15"
+  },
+  "classCodes": [
+    {
+      "classCodeNumber": 94569,
+      "payroll": 36500,
+      "classCodeDesc": "94569 FLOOR COVERING INSTALLATION – NOT CERAMIC TILE OR STONE",
+      "minPremium": 0
+    }
+  ],
+  "appData": {
+    "typeOfContractor": "artisan",
+    "typeAIRequested": "blanket",
+    "ownerPayroll": 33500,
+    "employeePayroll": 3000,
+    "totalPayroll": 36500,
+    "subOutResidential": 0,
+    "subOutCommercial": 0,
+    "newResidentialCon": false,
+    "yearContinuous": false,
+    "limitsSelected": "121",
+    "grossReceiptsCurr": 40000
+  },
+  "insured": {
+    "dba": "",
+    "name": "Test Carpet Cleaner",
+    "city": "BLOOMINGTON",
+    "state": "IL",
+    "zip": "61701"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

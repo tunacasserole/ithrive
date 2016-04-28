@@ -1,0 +1,46 @@
+<%= simple_form_for(@indication) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :underwriter_id %>
+    <%= f.input :state %>
+    <%= f.input :effective_date %>
+    <%= f.input :expire_date %>
+    <%= f.input :wholesale_agency_id %>
+    <%= f.input :retail_agency_id %>
+    <%= f.input :placement_fee %>
+    <%= f.input :employee_payroll %>
+    <%= f.input :owner_payroll %>
+    <%= f.input :total_payroll %>
+    <%= f.input :sub_out_commercial %>
+    <%= f.input :sub_out_residential %>
+    <%= f.input :gross_receipts_current %>
+    <%= f.input :description_of_operations %>
+    <%= f.input :type_of_contractor %>
+    <%= f.input :type_al_requested %>
+    <%= f.input :limits_selected %>
+    <%= f.input :insured_ops %>
+    <%= f.input :limits %>
+    <%= f.input :rating_factor %>
+    <%= f.input :dba %>
+    <%= f.input :name %>
+    <%= f.input :zip %>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <%= f.input :city %>
+    <%= f.input :email %>
+    <%= f.input :fax %>
+    <%= f.input :phone %>
+    <%= f.input :state_code %>
+    <%= f.input :gf_comments %>
+    <%= f.input :approval_comments %>
+    <%= f.input :pdf_natural_url %>
+    <%= f.input :pdf_tracking_url %>
+    <%= f.input :mgu_id %>
+    <%= f.input :total_policy_cost %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

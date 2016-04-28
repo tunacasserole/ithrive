@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Policies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Name</th> -->
+      <th>Status</th>
+      <th>Effective Date</th>
+      <th>Retail Brokerage</th>
+      <th>Applicant Name</th>
+      <th>Total Cost</th>
+      <!-- <th>Number</th> -->
+      <!-- <th>Dba</th> -->
+      <!-- <th>Phone</th> -->
+      <!-- <th>Email</th> -->
+      <!-- <th>Wholesale</th> -->
+      <!-- <th>Wholesale rep</th> -->
+      <!-- <th>Retail</th> -->
+      <!-- <th>Retail rep</th> -->
+      <!-- <th>Uw</th> -->
+      <!-- <th>Mgu</th> -->
+      <!-- <th>Program</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @policies.each do |policy| %>
+      <tr>
+        <td><%= policy.state %></td>
+        <td><%= policy.effective_date %></td>
+        <td><%= policy.retail_id %></td>
+        <td><%= policy.name %></td>
+        <td><%= policy.total_cost %></td>
+        <!-- <td><%= policy.number %></td> -->
+        <!-- <td><%= policy.dba %></td> -->
+        <!-- <td><%= policy.phone %></td> -->
+        <!-- <td><%= policy.email %></td> -->
+        <!-- <td><%= policy.wholesale_id %></td> -->
+        <!-- <td><%= policy.wholesale_rep_id %></td> -->
+        <!-- <td><%= policy.retail_id %></td> -->
+        <!-- <td><%= policy.retail_rep_id %></td> -->
+        <!-- <td><%= policy.uw_id %></td> -->
+        <!-- <td><%= policy.mgu_id %></td> -->
+        <!-- <td><%= policy.program_id %></td> -->
+        <td><%= link_to 'Show', policy %></td>
+        <td><%= link_to 'Edit', edit_policy_path(policy) %></td>
+        <td><%= link_to 'Destroy', policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policy', new_policy_path %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_profile.user_id %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user_profile.last_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @user_profile.phone_number %>
+</p>
+
+<p>
+  <strong>Facebook user:</strong>
+  <%= @user_profile.facebook_user %>
+</p>
+
+<p>
+  <strong>Twitter handle:</strong>
+  <%= @user_profile.twitter_handle %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @user_profile.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @user_profile.address_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_profile.state %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @user_profile.postal_code %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @user_profile.mobile_number %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>
