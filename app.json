@@ -1,0 +1,13 @@
+{
+  "name": "bindit",
+  "description": "Insurance quoting application",
+  "keywords": [
+    "dokku",
+    "rails"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
