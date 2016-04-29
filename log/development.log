@@ -45577,3 +45577,42 @@ Processing by AgenciesController#edit as HTML
   Rendered layouts/_navigation.html.erb (5.8ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 240ms (Views: 217.1ms | ActiveRecord: 6.8ms)
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/aaron/sandbox/bindit/config/initializers/devise.rb:3)
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/aaron/sandbox/bindit/config/initializers/devise.rb:3)
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/aaron/sandbox/bindit/config/initializers/devise.rb:3)
