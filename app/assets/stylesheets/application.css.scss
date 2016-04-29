@@ -39,7 +39,7 @@ td {
     background-color: #ff9800 !important;
 }
 
-waves-effect {
+.waves-effect {
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -57,4 +57,12 @@ waves-effect {
 
 h3 {
     font-variant: small-caps;
+}
+
+#top-search-wrap {
+    margin-left: 40px;
+}
+
+.pagination {
+    margin-left: 50px;
 }

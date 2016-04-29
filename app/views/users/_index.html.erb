@@ -9,31 +9,30 @@
         </div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Agency</th>
-            <th>Phone number</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @users.each do |user| %>
+      <div class="table-responsive">
+        <table id="data-table-basic" class="table table-striped">
+          <thead>
             <tr>
-              <td><%= user.email %></td>
-              <td><%= user.name %></td>
-              <td><%= user.role %></td>
-              <td><%= user.agency.name %></td>
-              <td><%= user.phone_number %></td>
-              <td><%= link_to 'Show', user %></td>
-              <td><%= link_to 'Edit', edit_user_path(user) %></td>
-              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th data-column-id="agencyName">Email</th>
+              <th data-column-id="agencyName">Name</th>
+              <th data-column-id="agencyName">Role</th>
+              <th data-column-id="agencyName">Agency</th>
+              <th data-column-id="agencyName">Phone</th>
             </tr>
-          <% end %>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= user.name %></td>
+                <td><%= user.role %></td>
+                <td><%= user.agency.name if user.agency %></td>
+                <td><%= user.phone_number %></td>
+                <td><%= link_to 'Show', user %></td>
+                <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
         </tbody>
       </table>
       <br>
