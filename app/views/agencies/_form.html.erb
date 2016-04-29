@@ -1,27 +1,41 @@
-<%= content_tag(:br) %>
-<%= simple_form_for(@agency) do |f| %>
-  <fieldset>
-    <%= f.error_notification %>
+<section id="content">
+  <div class="container">
+    <div class="card">
+      <div class="container-fluid" style="margin-top: 20px">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color: #F44336;">
+            <h3 class="panel-title"  style="color: #fff;">  <%= @agency.name || 'New Agency ' %>  </h3>
+          </div>
+        </div>
+      <%= simple_form_for(@agency) do |f| %>
+        <fieldset>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <div class="form-group">
+              <%= f.label :type_of, 'type of agency' %>
+              <%= f.select :type_of, ['retail','wholesale','mgu'], {:include_blank => true}, {class: 'form-control floating-label', placeholder: 'type', disabled: false} %>
+            </div>
+            <%= f.input :name %>
+            <%= f.input :dba %>
+            <%= f.input :display_name %>
+            <%= f.input :address1 %>
+            <%= f.input :address2 %>
+            <%= f.input :zip %>
+            <%= f.input :email %>
+            <%= f.input :phone %>
+            <%= f.input :fax %>
+          </div>
 
-    <div class="form-inputs">
-      <div class="form-group">
-        <%= f.label :type_of, 'type of agency' %>
-        <%= f.select :type_of, ['retail','wholesale','mgu'], {:include_blank => true}, {class: 'form-control floating-label', placeholder: 'type', disabled: false} %>
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-primary pull-right" %>
+          </div>
+        </fieldset>
+        <%= link_to 'Show', @agency %> |
+        <%= link_to 'Back', agencies_path %>
+
+      <% end %>
       </div>
-      <%= f.input :name %>
-      <%= f.input :dba %>
-      <%= f.input :display_name %>
-      <%= f.input :address1 %>
-      <%= f.input :address2 %>
-      <%= f.input :zip %>
-      <%= f.input :email %>
-      <%= f.input :phone %>
-      <%= f.input :fax %>
-    </div>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
     </div>
-  </fieldset>
-
-<% end %>
+  </div>
+</section>

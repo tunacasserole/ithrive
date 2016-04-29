@@ -10,6 +10,7 @@ class AgenciesController < ApplicationController
   # GET /agencies/1
   # GET /agencies/1.json
   def show
+    @users = @agency.users
   end
 
   # GET /agencies/new
@@ -19,6 +20,7 @@ class AgenciesController < ApplicationController
 
   # GET /agencies/1/edit
   def edit
+    @users = @agency.users
   end
 
   # POST /agencies

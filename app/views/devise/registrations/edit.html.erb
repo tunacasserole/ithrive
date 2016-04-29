@@ -9,6 +9,8 @@
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :agency_id %>
+      <%= f.collection_select(:agency_id, Agency.all, :id, :name) %>
       <% if devise_mapping.confirmable? && @user.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= @user.unconfirmed_email %></div>
       <% end %>

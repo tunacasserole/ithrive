@@ -1,5 +1,80 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<section id="content">
+  <div class="container">
+    <div class="card">
+      <div class="container-fluid" style="margin-top: 20px">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color: #F44336;">
+            <h3 class="panel-title"  style="color: #fff;">  <%= @user.name %>  </h3>
+          </div>
+        </div>
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
 
+        <p>
+          <strong>Name:</strong>
+          <%= @user.name %>
+        </p>
 
+        <p>
+          <strong>Role:</strong>
+          <%= @user.role %>
+        </p>
+
+        <p>
+          <strong>Agency:</strong>
+          <%= @user.agency_id %>
+        </p>
+
+        <p>
+          <strong>Foreign creds:</strong>
+          <%= @user.foreign_creds %>
+        </p>
+
+        <p>
+          <strong>Facebook user:</strong>
+          <%= @user.facebook_user %>
+        </p>
+
+        <p>
+          <strong>Twitter handle:</strong>
+          <%= @user.twitter_handle %>
+        </p>
+
+        <p>
+          <strong>Address 1:</strong>
+          <%= @user.address_1 %>
+        </p>
+
+        <p>
+          <strong>Address 2:</strong>
+          <%= @user.address_2 %>
+        </p>
+
+        <p>
+          <strong>City:</strong>
+          <%= @user.city %>
+        </p>
+
+        <p>
+          <strong>State:</strong>
+          <%= @user.state %>
+        </p>
+
+        <p>
+          <strong>Postal code:</strong>
+          <%= @user.postal_code %>
+        </p>
+
+        <p>
+          <strong>Phone number:</strong>
+          <%= @user.phone_number %>
+        </p>
+
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Back', users_path %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<section id="content">
+  <div class="container">
+    <div class="card">
+      <div class="container-fluid" style="margin-top: 20px">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color: #F44336;">
+            <h3 class="panel-title"  style="color: #fff;">  <%= @user.name || 'New User ' %>  </h3>
+          </div>
+        </div>
+
+      </br>
+
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <div class="form-group">
+            <%= f.input :email %>
+            <%= f.input :name %>
+            <%= f.label :role %>
+            <%= f.select :role, ['consumer','retailer','wholesaler','underwriter'], {:include_blank => true}, {class: 'form-control floating-label', placeholder: 'Role' } %>
+            <br>
+            <%= f.label :agency_id %>
+            <%= f.select :agency_id, Agency.order(:name).collect {|a| [ a.name, a.id ] }, {:include_blank => true}, {class: 'form-control floating-label', placeholder: 'Agency' } %>
+            <br>
+            <%= f.input :facebook_user %>
+            <%= f.input :twitter_handle %>
+            <%= f.input :phone_number %>
+            <%= f.input :address_1 %>
+            <%= f.input :address_2 %>
+            <%= f.input :city %>
+            <%= f.input :state %>
+            <%= f.input :postal_code %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-primary pull-right" %>
+        </div>
+      <% end %>
+      <%= link_to 'Show', @user %> |
+      <%= link_to 'Back', users_path %>
+
+    </div>
+  </div>
+</section>

@@ -1,59 +1,68 @@
-<p id="notice"><%= notice %></p>
+<section id="content">
+  <div class="container">
+    <div class="card">
+      <div class="container-fluid" style="margin-top: 20px">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="background-color: #F44336;">
+            <h3 class="panel-title"  style="color: #fff;">  <%= @agency.name %>  </h3>
+          </div>
+        </div>
+        <p>
+          <strong>Type:</strong>
+          <%= @agency.type_of %>
+        </p>
 
-<p>
-  <strong>Id:</strong>
-  <%= @agency.id %>
-</p>
+        <p>
+          <strong>Name:</strong>
+          <%= @agency.name %>
+        </p>
 
-<p>
-  <strong>Type of:</strong>
-  <%= @agency.type_of %>
-</p>
+        <p>
+          <strong>Dba:</strong>
+          <%= @agency.dba %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @agency.name %>
-</p>
+        <p>
+          <strong>Display name:</strong>
+          <%= @agency.display_name %>
+        </p>
 
-<p>
-  <strong>Dba:</strong>
-  <%= @agency.dba %>
-</p>
+        <p>
+          <strong>Address1:</strong>
+          <%= @agency.address1 %>
+        </p>
 
-<p>
-  <strong>Display name:</strong>
-  <%= @agency.display_name %>
-</p>
+        <p>
+          <strong>Address2:</strong>
+          <%= @agency.address2 %>
+        </p>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @agency.address1 %>
-</p>
+        <p>
+          <strong>Zip:</strong>
+          <%= @agency.zip %>
+        </p>
 
-<p>
-  <strong>Address2:</strong>
-  <%= @agency.address2 %>
-</p>
+        <p>
+          <strong>Email:</strong>
+          <%= @agency.email %>
+        </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @agency.zip %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @agency.phone %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @agency.email %>
-</p>
+        <p>
+          <strong>Fax:</strong>
+          <%= @agency.fax %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @agency.phone %>
-</p>
+        <%= link_to 'Edit', edit_agency_path(@agency) %> |
+        <%= link_to 'Back', agencies_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>
-  <strong>Fax:</strong>
-  <%= @agency.fax %>
-</p>
-
-<%= link_to 'Edit', edit_agency_path(@agency) %> |
-<%= link_to 'Back', agencies_path %>
+  <%= render 'users/index' %>

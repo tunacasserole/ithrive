@@ -150,6 +150,8 @@ name
 type_of
 
 
+r g scaffold user email:string encrypted_password:string reset_password_token:string reset_password_sent_at:datetime remember_created_at:datetime sign_in_count:int current_sign_in_at:datetime last_sign_in_at:datetime current_sign_in_ip:string last_sign_in_ip:string name:string role:string agency_id:string foreign_creds:string facebook_user:string twitter_handle:string address_1:string address_2:string city:string state:string postal_code:string phone_number:string
+
 
 
 {

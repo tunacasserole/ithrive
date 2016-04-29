@@ -23,3 +23,38 @@ table {
 td {
   padding: 10px 0;
 }
+.btn-icon {
+    border-radius: 50%;
+    width: 40px;
+    line-height: 42px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+}
+.btn {
+    border: 0;
+    text-transform: uppercase;
+}
+.bgm-orange {
+    background-color: #ff9800 !important;
+}
+
+waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all .3s ease-out;
+}
+
+h3 {
+    font-variant: small-caps;
+}
