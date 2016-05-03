@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'font-awesome-rails'
+gem 'material_icons'
 
 group :development do
   gem 'web-console', '~> 2.0'

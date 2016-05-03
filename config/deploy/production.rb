@@ -59,3 +59,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+config.serve_static_files = false

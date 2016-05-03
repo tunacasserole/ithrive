@@ -1,0 +1,56 @@
+<aside id="sidebar" class="sidebar c-overflow">
+    <!-- User Menu Section -->
+    <div class="profile-menu">
+        <a href="">
+            <!-- Profile Picture -->
+            <div class="profile-pic">
+                <img src='/assets/avatars/man1.png' </img>
+            </div>
+            <!-- Users full name -->
+            <div class="profile-info f-500" style="font-size:medium">
+                <%= current_user.name  if current_user %>
+                <i class="zmdi zmdi-settings"></i>
+            </div>
+        </a>
+        <% if user_signed_in? %>
+            <ul class="main-menu">
+                <!-- OPTION: View Profile -->
+                <li><%= link_to("<i class='zmdi zmdi-assignment-account'></i> Profile".html_safe, edit_user_path(current_user, anchor: "tab-profile")) %></li>
+                <!-- OPTION: Signout -->
+                <li><%= link_to("<i class='zmdi zmdi-power'></i> Sign Out".html_safe, destroy_user_session_path, :method=>'delete') %></li>
+            </ul>
+        <% else %>
+            <ul class="main-menu">
+                <li><%= link_to 'Sign in', new_user_session_path %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            </ul>
+        <% end %>
+    </div>
+    <!-- Main Menu Section -->
+    <ul class="main-menu">
+        <!-- OPTION: Dashboard -->
+        <li>
+            `<%= link_to("<i class='zmdi zmdi-view-dashboard'></i> Dashboard".html_safe, root_path) %>
+        </li>
+        <!-- OPTION: Option 1 -->
+        <li>
+            <a href="#"><i class="zmdi zmdi zmdi-collection-item-1"></i>Option 1</a>
+        </li>
+        <!-- OPTION GROUP: Option Group 1 -->
+        <li class="sub-menu" data-menu-id="Option1">
+            <a href=""><i class="zmdi zmdi-settings"></i>Option Group 1</a>
+            <ul>
+                <li><a href="#">Option A</a></li>
+                <li><a href="#">Option B</a></li>
+            </ul>
+        </li>
+        <!-- Manage Users -->
+        <li class="sub-menu" data-menu-id="Accounts">
+            <a href=""><i class="zmdi zmdi-accounts"></i>User Management</a>
+            <ul>
+                <li><%= link_to("Users", users_path) %></li>
+                <li><%= link_to("Agencies", agencies_path) %></li>
+            </ul>
+        </li>
+    </ul>
+</aside>

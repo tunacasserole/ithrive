@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Bind It" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bind It" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bind It!</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <%= stylesheet_link_tag "application.css", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-  </body>
+</head>
+<body>
+    <%= render partial: 'core/header' %>
+    <section id="main" data-layout="layout-1">
+        <%= render partial: 'core/navigator' %>
+        <%= yield %>
+    </section>
+    <%= render partial: 'core/footer' %>
+    <%= yield :modal %>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+            <p>please wait...</p>
+        </div>
+    </div>
+    <%= javascript_include_tag "application.js", "data-turbolinks-track" => true  %>
+    <%= yield :body_end %>
+    <script>
+    $(document).ready(function(){
+    $('.actionBar .actions > button').wrap( "<div class='btn-group'></div>" );
+    });
+    </script>
+</body>
 </html>

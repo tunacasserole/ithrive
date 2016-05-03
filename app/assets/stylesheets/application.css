@@ -1,0 +1,51 @@
+/*
+ *= require material_icons
+ *= require bower_components/animate.css/animate.min
+ *= require bower_components/bootstrap-sweetalert/lib/sweet-alert
+ *= require bower_components/material-design-iconic-font/dist/css/material-design-iconic-font
+ *= require bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min
+ *= require bower_components/bootstrap-select/dist/css/bootstrap-select
+ *= require bower_components/nouislider/distribute/jquery.nouislider.min
+ *= require bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min
+ *= require farbtastic/farbtastic
+ *= require bower_components/chosen/chosen.min
+ *= require bower_components/select2/select2.min
+ *= require summernote/dist/summernote
+ *= require bower_components/fullcalendar/dist/fullcalendar.min
+ *= require bootgrid/jquery.bootgrid.min
+
+ *= require formvalidationio/formValidation.min
+
+ *= require app
+ *= require application
+
+ *= require overrides
+ */
+
+label {
+  float: left;
+}
+
+.input-group {
+    position: relative;
+    display: block;
+    border-collapse: separate;
+}
+
+body.login-content:before {
+  background-image: url(desktops/slide1.jpg) !important;
+  background-color: #607D8B;
+  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+ body.login-content img {
+  height: 120px !important;
+}
+
+.profile-menu > a {
+    background: url(profile-menu.png) no-repeat left top;
+    background-size: 100%;
+}
