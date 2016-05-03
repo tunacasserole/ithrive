@@ -258,7 +258,7 @@ th {
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url(<%= font_path('Material-Design-Iconic-Font.woff?v=2.1.0') %>) format('woff'), url(<%= font_path('Material-Design-Iconic-Font.ttf?v=2.1.0')%>) format('truetype');
+  src: url(font-path('Material-Design-Iconic-Font.woff?v=2.1.0') ) format('woff'), url(font-path('Material-Design-Iconic-Font.ttf?v=2.1.0')) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -266,8 +266,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(<%= font_path('glyphicons-halflings-regular.eot') %>);
-  src: url(<%= font_path('glyphicons-halflings-regular.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('glyphicons-halflings-regular.woff2') %>) format('woff2'), url(<%= font_path('glyphicons-halflings-regular.woff') %>) format('woff'), url(<%= font_path('glyphicons-halflings-regular.ttf') %>) format('truetype'), url(<%= font_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') %>) format('svg');
+  src: url(font-path('glyphicons-halflings-regular.eot') );
+  src: url(font-path('glyphicons-halflings-regular.eot?#iefix') ) format('embedded-opentype'), url(font-path('glyphicons-halflings-regular.woff2') ) format('woff2'), url(font-path('glyphicons-halflings-regular.woff') ) format('woff'), url(font-path('glyphicons-halflings-regular.ttf') ) format('truetype'), url(font-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') ) format('svg');
 }
 .glyphicon {
   position: relative;
@@ -7187,8 +7187,8 @@ button.close {
  */
 @font-face {
   font-family: roboto;
-  src: url(<%= font_path('roboto/Roboto-Light-webfont.eot') %>);
-  src: url(<%= font_path('roboto/Roboto-Light-webfont.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('roboto/Roboto-Light-webfont.woff') %>) format('woff'), url(<%= font_path('roboto/Roboto-Light-webfont.ttf') %>) format('truetype'), url(<%= font_path('roboto/Roboto-Light-webfont.svg#icon') %>) format('svg');
+  src: url(font-path('roboto/Roboto-Light-webfont.eot') );
+  src: url(font-path('roboto/Roboto-Light-webfont.eot?#iefix') ) format('embedded-opentype'), url(font-path('roboto/Roboto-Light-webfont.woff') ) format('woff'), url(font-path('roboto/Roboto-Light-webfont.ttf') ) format('truetype'), url(font-path('roboto/Roboto-Light-webfont.svg#icon') ) format('svg');
   font-weight: 300;
   font-style: normal;
 }
@@ -7197,8 +7197,8 @@ button.close {
  */
 @font-face {
   font-family: roboto;
-  src: url(<%= font_path('roboto/Roboto-Regular-webfont.eot') %>);
-  src: url(<%= font_path('roboto/Roboto-Regular-webfont.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('roboto/Roboto-Regular-webfont.woff') %>) format('woff'), url(<%= font_path('roboto/Roboto-Regular-webfont.ttf') %>) format('truetype'), url(<%= font_path('roboto/Roboto-Regular-webfont.svg#icon') %>) format('svg');
+  src: url(font-path('roboto/Roboto-Regular-webfont.eot') );
+  src: url(font-path('roboto/Roboto-Regular-webfont.eot?#iefix') ) format('embedded-opentype'), url(font-path('roboto/Roboto-Regular-webfont.woff') ) format('woff'), url(font-path('roboto/Roboto-Regular-webfont.ttf') ) format('truetype'), url(font-path('roboto/Roboto-Regular-webfont.svg#icon') ) format('svg');
   font-weight: 400;
   font-style: normal;
 }
@@ -7207,8 +7207,8 @@ button.close {
  */
 @font-face {
   font-family: roboto;
-  src: url(<%= font_path('roboto/Roboto-Medium-webfont.eot') %>);
-  src: url(<%= font_path('roboto/Roboto-Medium-webfont.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('roboto/Roboto-Medium-webfont.woff') %>) format('woff'), url(<%= font_path('roboto/Roboto-Medium-webfont.ttf') %>) format('truetype'), url(<%= font_path('roboto/Roboto-Medium-webfont.svg#icon') %>) format('svg');
+  src: url(font-path('roboto/Roboto-Medium-webfont.eot') );
+  src: url(font-path('roboto/Roboto-Medium-webfont.eot?#iefix') ) format('embedded-opentype'), url(font-path('roboto/Roboto-Medium-webfont.woff') ) format('woff'), url(font-path('roboto/Roboto-Medium-webfont.ttf') ) format('truetype'), url(font-path('roboto/Roboto-Medium-webfont.svg#icon') ) format('svg');
   font-weight: 500;
   font-style: normal;
 }
@@ -7217,8 +7217,8 @@ button.close {
  */
 @font-face {
   font-family: roboto;
-  src: url(<%= font_path('roboto/Roboto-Bold-webfont.eot') %>);
-  src: url(<%= font_path('roboto/Roboto-Bold-webfont.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('roboto/Roboto-Bold-webfont.woff') %>) format('woff'), url(<%= font_path('roboto/Roboto-Bold-webfont.ttf') %>) format('truetype'), url(<%= font_path('roboto/Roboto-Bold-webfont.svg#icon') %>) format('svg');
+  src: url(font-path('roboto/Roboto-Bold-webfont.eot') );
+  src: url(font-path('roboto/Roboto-Bold-webfont.eot?#iefix') ) format('embedded-opentype'), url(font-path('roboto/Roboto-Bold-webfont.woff') ) format('woff'), url(font-path('roboto/Roboto-Bold-webfont.ttf') ) format('truetype'), url(font-path('roboto/Roboto-Bold-webfont.svg#icon') ) format('svg');
   font-weight: 700;
   font-style: normal;
 }
@@ -7227,8 +7227,8 @@ button.close {
  */
 @font-face {
   font-family: shadowsintolight;
-  src: url(<%= font_path('shadowsintolight/shadowsintolight-webfont.eot') %>);
-  src: url(<%= font_path('shadowsintolight/shadowsintolight-webfont.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('shadowsintolight/shadowsintolight-webfont.woff') %>) format('woff'), url(<%= font_path('shadowsintolight/shadowsintolight-webfont.ttf') %>) format('truetype'), url(<%= font_path('shadowsintolight/shadowsintolight-webfont.svg#icon') %>) format('svg');
+  src: url(font-path('shadowsintolight/shadowsintolight-webfont.eot') );
+  src: url(font-path('shadowsintolight/shadowsintolight-webfont.eot?#iefix') ) format('embedded-opentype'), url(font-path('shadowsintolight/shadowsintolight-webfont.woff') ) format('woff'), url(font-path('shadowsintolight/shadowsintolight-webfont.ttf') ) format('truetype'), url(font-path('shadowsintolight/shadowsintolight-webfont.svg#icon') ) format('svg');
   font-weight: 400;
   font-style: normal;
 }
@@ -7237,8 +7237,8 @@ button.close {
  */
 @font-face {
   font-family: weather-icons;
-  src: url(<%= font_path('weather-icons/weather-icons.eot') %>);
-  src: url(<%= font_path('weather-icons/weather-icons.eot?#iefix') %>) format('embedded-opentype'), url(<%= font_path('weather-icons/weather-icons.woff') %>) format('woff'), url(<%= font_path('weather-icons/weather-icons.ttf') %>) format('truetype'), url(<%= font_path('weather-icons/weather-icons.svg#icon') %>) format('svg');
+  src: url(font-path('weather-icons/weather-icons.eot') );
+  src: url(font-path('weather-icons/weather-icons.eot?#iefix') ) format('embedded-opentype'), url(font-path('weather-icons/weather-icons.woff') ) format('woff'), url(font-path('weather-icons/weather-icons.ttf') ) format('truetype'), url(font-path('weather-icons/weather-icons.svg#icon') ) format('svg');
   font-weight: 400;
   font-style: normal;
 }
