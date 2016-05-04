@@ -13,7 +13,6 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
-# gem 'puma'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -31,4 +30,7 @@ group :development, :test do
   gem 'pry-rails'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
+end
