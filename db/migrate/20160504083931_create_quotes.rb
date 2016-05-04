@@ -1,8 +1,6 @@
 class CreateQuotes < ActiveRecord::Migration
   def change
     create_table :quotes do |t|
-      t.string :user_id
-      t.string :state
       t.string :program
       t.string :mga
       t.string :mga_contact
