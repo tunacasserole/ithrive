@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504083931) do
+ActiveRecord::Schema.define(version: 20160505083931) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "type_of",      limit: 255
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 20160504083931) do
     t.boolean  "waiver"
     t.datetime "created_at",                                                         null: false
     t.datetime "updated_at",                                                         null: false
+    t.string   "user_id",                        limit: 255
+    t.string   "state",                          limit: 255
   end
 
   create_table "users", force: :cascade do |t|
