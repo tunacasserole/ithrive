@@ -1,7 +1,7 @@
 <%= form_for(@quote, url: (@quote.new_record? ? quotes_path : quote_path(id: @quote.id)), method: (@quote.new_record? ? :post : :patch)) do |f| %>
     <% disabled = !@quote.new_record? %>
     <h4>General Information</h4>
-    <p class="p-b-10">
+    <p >
         Complete the details below to receive a quote from ATM Insurance.
     </p>
     <div class="input-group m-b-10">
@@ -18,10 +18,54 @@
             <%= f.date_field(:effective_date, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
         </div>
     </div>
+    <br>
+    <b>Select Class Codes (up to 4)</b>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :cc1, 'Class Code' %>
+            <%= f.select :cc1, GlobalConstants::ATM_CLASS_CODES.reverse.map { |cc| cc[1] }, {:include_blank => true}, { class: 'form-control' } %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :cc1_receipts, 'Gross Receipts' %>
+            <%= f.text_field :cc1_receipts, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :cc2, 'Class Code' %>
+            <%= f.select :cc2, GlobalConstants::ATM_CLASS_CODES.reverse.map { |cc| cc[1] }, {:include_blank => true}, { class: 'form-control' } %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :cc2_receipts, 'Gross Receipts' %>
+            <%= f.text_field :cc2_receipts, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :cc3, 'Class Code' %>
+            <%= f.select :cc3, GlobalConstants::ATM_CLASS_CODES.reverse.map { |cc| cc[1] }, {:include_blank => true}, { class: 'form-control' } %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :cc3_receipts, 'Gross Receipts' %>
+            <%= f.text_field :cc3_receipts, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.label :cc4, 'Class Code' %>
+            <%= f.select :cc4, GlobalConstants::ATM_CLASS_CODES.reverse.map { |cc| cc[1] }, {:include_blank => true}, { class: 'form-control' } %>
+        </div>
+        <div class="col-md-6">
+            <%= f.label :cc4_receipts, 'Gross Receipts' %>
+            <%= f.text_field :cc4_receipts, class: 'form-control' %>
+        </div>
+    </div>
     <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">
-            <%= f.label :state, 'Physical State (State of Domicile)' %>
+            <%= f.label :state_of_residence, 'Physical State (State of Domicile)' %>
             <%= f.select :state_of_residence, GlobalConstants::US_STATES, {:include_blank => true}, { class: 'form-control' } %>
         </div>
     </div>
