@@ -1,0 +1,254 @@
+<div>
+    <div class="pmb-block">
+        <div class="pmbb-header">
+            <h4>Personal Summary</h4>
+
+            <ul class="actions">
+                <% if true %>
+                <li><a data-pmb-action="edit" href=""><i class="zmdi zmdi-edit"></i></a></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="pmbb-body">
+            <div class="pmbb-view">
+                Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.
+            </div>
+            <% if true %>
+            <div class="pmbb-edit">
+                <div class="fg-line">
+                    <textarea class="form-control" rows="5" placeholder="Summary...">Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.</textarea>
+                </div>
+                <div class="m-t-10">
+                    <button class="btn btn-link">Save</button>
+                    <button data-pmb-action="reset" class="btn btn-link">Cancel</button>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="pmb-block">
+        <div class="pmbb-header">
+            <h4></i> Basic Information</h4>
+
+            <ul class="actions">
+                <% if true %>
+                <li><a data-pmb-action="edit" href=""><i class="zmdi zmdi-edit"></i></a></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="pmbb-body">
+            <div class="pmbb-view">
+                <dl class="dl-horizontal">
+                    <dt>Full Name</dt>
+                    <d@d><%= user.name || 'Unknown' %></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Email</dt>
+                    <d@d><%= user.email || 'Unknown' %></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Role</dt>
+                    <d@d><%= user.role || 'Unknown' %></dd>
+                </dl>
+            </div>
+            <% if true %>
+            <div class="pmbb-edit">
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Full Name</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. Mallinda Hollaway">
+                    </div>
+
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Email</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. Mallinda Hollaway">
+                    </div>
+
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Role</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <select class="form-control">
+                            <option>Consumer</option>
+                            <option>Broker</option>
+                            <option>Wholesaler</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                    </dd>
+                </dl>
+                <div class="m-t-30">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                    <button data-pmb-action="reset" class="btn btn-link btn-sm">Cancel</button>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="pmb-block">
+        <div class="pmbb-header">
+            <h4>Contact Information</h4>
+
+            <ul class="actions">
+                <% if true %>
+                <li><a data-pmb-action="edit" href=""><i class="zmdi zmdi-edit"></i></a></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="pmbb-body">
+            <div class="pmbb-view">
+                <dl class="dl-horizontal">
+                    <dt>Mobile Phone</dt>
+                    <dd>00971 12345678 9</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Email Address</dt>
+                    <dd>malinda.h@gmail.com</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Twitter</dt>
+                    <dd>@malinda</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Facebook</dt>
+                    <dd>malinda.hollaway</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>LinkedIn</dt>
+                    <dd>malinda.hollaway</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Skype</dt>
+                    <dd>malinda.hollaway</dd>
+                </dl>
+            </div>
+
+            <div class="pmbb-edit">
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Mobile Phone</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. 00971 12345678 9">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Email Address</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="email" class="form-control" placeholder="eg. malinda.h@gmail.com">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Twitter</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. @malinda">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Skype</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. malinda.hollaway">
+                    </div>
+                    </dd>
+                </dl>
+
+                <div class="m-t-30">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                    <button data-pmb-action="reset" class="btn btn-link btn-sm">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pmb-block">
+        <div class="pmbb-header">
+            <h4>Address Information</h4>
+
+            <ul class="actions">
+                <% if true %>
+                <li><a data-pmb-action="edit" href=""><i class="zmdi zmdi-edit"></i></a></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="pmbb-body">
+            <div class="pmbb-view">
+                <dl class="dl-horizontal">
+                    <dt>Address Line 1</dt>
+                    <dd>Somewhere Street</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Address Line 2</dt>
+                    <dd></dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>City</dt>
+                    <dd>Somewhere Ville</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>State/Province</dt>
+                    <dd>Colorado</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Postal Code</dt>
+                    <dd>80016</dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Country</dt>
+                    <dd>United States</dd>
+                </dl>
+            </div>
+            <% if true %>
+            <div class="pmbb-edit">
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Mobile Phone</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. 00971 12345678 9">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Email Address</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="email" class="form-control" placeholder="eg. malinda.h@gmail.com">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Twitter</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. @malinda">
+                    </div>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt class="p-t-10">Skype</dt>
+                    <dd>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="eg. malinda.hollaway">
+                    </div>
+                    </dd>
+                </dl>
+
+                <div class="m-t-30">
+                    <button class="btn btn-primary btn-sm">Save</button>
+                    <button data-pmb-action="reset" class="btn btn-link btn-sm">Cancel</button>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

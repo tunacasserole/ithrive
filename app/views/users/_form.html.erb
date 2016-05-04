@@ -1,7 +1,7 @@
-<%= form_for(user, url: (user.new_record? ? users_path : users_path(id: user.id)), method: (user.new_record? ? :post : :patch)) do |f| %>
+<%= form_for(@user, url: (@user.new_record? ? users_path : users_path(id: @user.id)), method: (@user.new_record? ? :post : :patch)) do |f| %>
     <h4>General Information</h4>
     <p class="p-b-20">
-      Complete the details below to create and maintain a user.
+      Complete the details below to create and maintain a @user.
     </p>
     <div class="input-group m-b-20">
         <span class="input-group-addon"></span>

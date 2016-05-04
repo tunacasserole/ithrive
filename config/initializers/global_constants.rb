@@ -94,6 +94,24 @@ module GlobalConstants
                 [10010,"10010 AIR CONDITIONING EQUIPMENT – DEALERS OR DISTRIBUTORS ONLY"],
                 [90089,"90089 ADVERTISING SIGN COMPANIES – OUTDOOR"]].freeze
 
+  ATM_STATES = Array[ ["AK", "Alaska"],
+                ["AL", "Alabama"],
+                ["AZ", "Arizona"],
+                ["CA", "California"],
+                ["FL", "Florida"],
+                ["GA", "Georgia"],
+                ["IL", "Illinois"],
+                ["KS", "Kansas"],
+                ["MN", "Minnesota"],
+                ["NJ", "New Jersey"],
+                ["NM", "New Mexico"],
+                ["OH", "Ohio"],
+                ["OR", "Oregon"],
+                ["PA", "Pennsylvania"],
+                ["TN", "Tennessee"],
+                ["TX", "Texas"],
+                ["WA", "Washington"]].freeze
+
   US_STATES = Array[ ["AK", "Alaska"],
                 ["AL", "Alabama"],
                 ["AR", "Arkansas"],

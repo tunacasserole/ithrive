@@ -214,97 +214,59 @@ type_of
 r g scaffold user email:string encrypted_password:string reset_password_token:string reset_password_sent_at:datetime remember_created_at:datetime sign_in_count:int current_sign_in_at:datetime last_sign_in_at:datetime current_sign_in_ip:string last_sign_in_ip:string name:string role:string agency_id:string foreign_creds:string facebook_user:string twitter_handle:string address_1:string address_2:string city:string state:string postal_code:string phone_number:string
 
 
-
-{
-  "_un": "test",
-  "_pwd": "test",
-  "mguID": "55ba5475064760b6cb9e1afe",
-  "underwriter_ID": "55e74b4d086568eb7aa8cb1a",
-  "effDate": "2016-03-22T04:00:00.000Z",
-  "expDate": "2017-03-24T05:00:00.000Z",
-  "wholesaleAgency": {
-    "agencyID": "55ba5475064760b6cb9e1afe",
-    "producerID": "56461bf81f9d817131dcb9b8"
-  },
-  "retailAgency": {
-    "agencyID": "56cb5435d8b893f153263cc6",
-    "producerID": "56cb94a5d8b893f153263d15"
-  },
-  "classCodes": [
-    {
-      "classCodeNumber": 94569,
-      "payroll": 36500,
-      "classCodeDesc": "94569 FLOOR COVERING INSTALLATION – NOT CERAMIC TILE OR STONE",
-      "minPremium": 0
-    }
-  ],
-  "appData": {
-    "typeOfContractor": "artisan",
-    "typeAIRequested": "blanket",
-    "ownerPayroll": 33500,
-    "employeePayroll": 3000,
-    "totalPayroll": 36500,
-    "subOutResidential": 0,
-    "subOutCommercial": 0,
-    "newResidentialCon": false,
-    "yearContinuous": false,
-    "limitsSelected": "121",
-    "grossReceiptsCurr": 40000
-  },
-  "insured": {
-    "dba": "",
-    "name": "Test Carpet Cleaner",
-    "city": "BLOOMINGTON",
-    "state": "IL",
-    "zip": "61701"
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ATM INDICATION MODEL
+new_mga_id_f:3589
+new_mga_user_id:7670
+new_mga_user_id_f:7670
+new_agency_id_f:3589
+new_agency_id:3589
+new_user_id_f:7670
+new_user_id:7670
+mga_agency_name:BindDesk
+mga_agency_address_1:2535 Kettner Blvd
+mga_agency_address_2:#3B3
+mga_agency_city:San Diego
+mga_agency_state:CA
+mga_agency_zip:92101
+mga_agency_phone:
+mga_agency_email:
+mga_agency_contactperson:
+mga_agency_contact_first_name:
+mga_agency_contact_last_name:
+agency_name:BindDesk
+agency_address_1:2535 Kettner Blvd
+agency_address_2:#3B3
+agency_city:San Diego
+agency_state:CA
+agency_zip:92101
+agency_phone:877-465-7473
+agency_email:quotes@binddesk.com
+agency_contactperson:Greg Liewald
+agency_contact_first_name:Greg
+agency_contact_last_name:Liewald
+effective_date:05/04/2016
+applicant_company_name:TEST
+applicant_state:OH
+classification_id_1:11207
+gross_receipts_1:20000
+classification_id_2:
+gross_receipts_2:
+classification_id_3:
+gross_receipts_3:
+classification_id_4:
+gross_receipts_4:
+limit_requested:1000/1000/1000
+sir_box:2500
+loss_runs_available:Yes
+years_as_current:6
+years_experience:9
+renewal_box:No
+perc_subout:0
+broker_fee_box:100
+placement_fee_box:100
+blanket_endorsement:
+ind_aio_box:yes
+x:117
+y:12
+rating_all_good:TRUE
+formaction:get_rate
