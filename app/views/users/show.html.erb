@@ -1,80 +1,46 @@
+<ol class="breadcrumb">
+    <li><a href="<%= users_path %>">Users</a></li>
+    <li class="active">Edit User</li>
+</ol>
 <section id="content">
-  <div class="container">
-    <div class="card">
-      <div class="container-fluid" style="margin-top: 20px">
-        <div class="panel panel-default">
-          <div class="panel-heading" style="background-color: #F44336;">
-            <h3 class="panel-title"  style="color: #fff;">  <%= @user.name %>  </h3>
-          </div>
+    <div class="container">
+
+        <div class="card" id="profile-main">
+            <%= render partial: "users/summary", locals: { user: @user } %>
+
+            <div class="pm-body clearfix">
+                <ul id="user-tabs" class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                    <li role="presentation" class="active">
+                        <a class="col-sx-4" href="#tab-profile" aria-controls="tab-1" role="tab" data-toggle="tab">
+                            Profile
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="col-sx-4" href="#tab-account" aria-controls="tab-1" role="tab" data-toggle="tab">
+                            Account
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="col-sx-4" href="#tab-user-roles" aria-controls="tab-1" role="tab" data-toggle="tab">
+                            Roles
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="tab-content" style="min-height: 600px; padding-left: 20px;">
+                    <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-profile"><%= render partial: "users/form", locals: { user: @user } %></div>
+                    <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-account"><%= render partial: "devise/registrations/form", locals: { user: @user } %></div>
+                    <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-user-roles"></div>
+                </div>
+            </div>
         </div>
-        <p>
-          <strong>Email:</strong>
-          <%= @user.email %>
-        </p>
-
-        <p>
-          <strong>Name:</strong>
-          <%= @user.name %>
-        </p>
-
-        <p>
-          <strong>Role:</strong>
-          <%= @user.role %>
-        </p>
-
-        <p>
-          <strong>Agency:</strong>
-          <%= @user.agency_id %>
-        </p>
-
-        <p>
-          <strong>Foreign creds:</strong>
-          <%= @user.foreign_creds %>
-        </p>
-
-        <p>
-          <strong>Facebook user:</strong>
-          <%= @user.facebook_user %>
-        </p>
-
-        <p>
-          <strong>Twitter handle:</strong>
-          <%= @user.twitter_handle %>
-        </p>
-
-        <p>
-          <strong>Address 1:</strong>
-          <%= @user.address_1 %>
-        </p>
-
-        <p>
-          <strong>Address 2:</strong>
-          <%= @user.address_2 %>
-        </p>
-
-        <p>
-          <strong>City:</strong>
-          <%= @user.city %>
-        </p>
-
-        <p>
-          <strong>State:</strong>
-          <%= @user.state %>
-        </p>
-
-        <p>
-          <strong>Postal code:</strong>
-          <%= @user.postal_code %>
-        </p>
-
-        <p>
-          <strong>Phone number:</strong>
-          <%= @user.phone_number %>
-        </p>
-
-        <%= link_to 'Edit', edit_user_path(@user) %> |
-        <%= link_to 'Back', users_path %>
-      </div>
     </div>
-  </div>
 </section>
+
+<%= content_for :body_end  do %>
+<script>
+$(function() {
+registerTabPanel('#user-tabs');
+});
+</script>
+<% end %>

@@ -13,7 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
-gem 'puma'
+# gem 'puma'
 
 group :development do
   gem 'web-console', '~> 2.0'

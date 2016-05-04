@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429001909) do
+ActiveRecord::Schema.define(version: 20160504083931) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "type_of",      limit: 255
@@ -85,6 +85,49 @@ ActiveRecord::Schema.define(version: 20160429001909) do
     t.integer  "program_id",       limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string   "program",                        limit: 255
+    t.string   "mga",                            limit: 255
+    t.string   "mga_contact",                    limit: 255
+    t.string   "agency",                         limit: 255
+    t.string   "agent",                          limit: 255
+    t.string   "insured_name",                   limit: 255
+    t.string   "state_of_residence",             limit: 255
+    t.string   "cc1",                            limit: 255
+    t.decimal  "cc1_receipts",                               precision: 8, scale: 2
+    t.string   "cc2",                            limit: 255
+    t.decimal  "cc2_receipts",                               precision: 8, scale: 2
+    t.string   "cc3",                            limit: 255
+    t.decimal  "cc3_receipts",                               precision: 8, scale: 2
+    t.string   "cc4",                            limit: 255
+    t.decimal  "cc4_receipts",                               precision: 8, scale: 2
+    t.string   "limits",                         limit: 255
+    t.string   "self_insured_retentions",        limit: 255
+    t.boolean  "has_loss_runs"
+    t.string   "years_in_business",              limit: 255
+    t.string   "years_in_trade",                 limit: 255
+    t.boolean  "is_guardian_renewal"
+    t.decimal  "sub_out_percentage",                         precision: 8, scale: 2
+    t.decimal  "broker_fee",                                 precision: 8, scale: 2
+    t.decimal  "retail_producer_fee",                        precision: 8, scale: 2
+    t.date     "effective_date"
+    t.string   "blanket_endorsements",           limit: 255
+    t.boolean  "ai"
+    t.boolean  "ai_completed_ops_commercial"
+    t.boolean  "ai_permit_endorsement"
+    t.boolean  "exclusion_work_for_association"
+    t.boolean  "other_entity_exclusion"
+    t.boolean  "per_project_aggregate"
+    t.boolean  "plex_endorsement"
+    t.boolean  "primary_wording"
+    t.boolean  "terrorism"
+    t.boolean  "torch_down"
+    t.boolean  "tract_homes"
+    t.boolean  "waiver"
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
   end
 
   create_table "users", force: :cascade do |t|

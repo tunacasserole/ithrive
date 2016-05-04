@@ -1,0 +1,95 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  program: MyString
+  mga: MyString
+  mga_contact: MyString
+  agency: MyString
+  agent: MyString
+  effective_date: 2016-05-04
+  insured_name: MyString
+  state_of_residence: MyString
+  cc1: MyString
+  cc1_receipts: 
+  cc1_receipts: 
+  cc2: MyString
+  cc2_receipts: 
+  cc2_receipts: 
+  cc3: MyString
+  cc3_receipts: 
+  cc3_receipts: 
+  cc4: MyString
+  cc4_receipts: 
+  cc4_receipts: 
+  limits: MyString
+  self_insured_retentions: MyString
+  has_loss_runs: false
+  years_in_business: MyString
+  years_in_trade: MyString
+  is_guardian_renewal: false
+  sub_out_percentage: 
+  sub_out_percentage: 
+  broker_fee: 
+  broker_fee: 
+  retail_producer_fee: 
+  retail_producer_fee: 
+  blanket_endorsements: MyString
+  ai: false
+  ai_completed_ops_commercial: false
+  ai_permit_endorsement: false
+  exclusion_work_for_association: false
+  other_entity_exclusion: false
+  per_project_aggregate: false
+  plex_endorsement: false
+  primary_wording: false
+  terrorism: false
+  torch_down: false
+  tract_homes: false
+  waiver: false
+
+two:
+  program: MyString
+  mga: MyString
+  mga_contact: MyString
+  agency: MyString
+  agent: MyString
+  effective_date: 2016-05-04
+  insured_name: MyString
+  state_of_residence: MyString
+  cc1: MyString
+  cc1_receipts: 
+  cc1_receipts: 
+  cc2: MyString
+  cc2_receipts: 
+  cc2_receipts: 
+  cc3: MyString
+  cc3_receipts: 
+  cc3_receipts: 
+  cc4: MyString
+  cc4_receipts: 
+  cc4_receipts: 
+  limits: MyString
+  self_insured_retentions: MyString
+  has_loss_runs: false
+  years_in_business: MyString
+  years_in_trade: MyString
+  is_guardian_renewal: false
+  sub_out_percentage: 
+  sub_out_percentage: 
+  broker_fee: 
+  broker_fee: 
+  retail_producer_fee: 
+  retail_producer_fee: 
+  blanket_endorsements: MyString
+  ai: false
+  ai_completed_ops_commercial: false
+  ai_permit_endorsement: false
+  exclusion_work_for_association: false
+  other_entity_exclusion: false
+  per_project_aggregate: false
+  plex_endorsement: false
+  primary_wording: false
+  terrorism: false
+  torch_down: false
+  tract_homes: false
+  waiver: false

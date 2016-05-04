@@ -1,5 +1,66 @@
 scaffold
 
+blanket_endorsements
+ blanket_ai_ongoing
+ blanket_ai_completed_ops_commercial
+ blanket_primary_wording
+ blanket_waiver_of_subrogation
+ blanket_ai_completed_ops_commercial_plus_waiver
+ blanket_ai_completed_ops_commercial_plus_primary_wording
+ blanket_primary_wording_plus_waiver
+ blanket_ai_completed_ops_commercial_plus_primary_wording_plus_waiver
+ no_blanket
+
+class_codes
+ code
+ description
+ rate
+
+
+rails g scaffold quotes
+ program:string
+ mga:string
+ mga_contact:string
+ agency:string
+ agent:string
+ effective_date:date
+ insured_name:string
+ state_of_residence:string
+ cc1:string
+ cc1_receipts:decimal{8,2}
+ cc2:string
+ cc2_receipts:decimal{8,2}
+ cc3:string
+ cc3_receipts:decimal{8,2}
+ cc4:string
+ cc4_receipts:decimal{8,2}
+ limits:string
+ self_insured_retentions:string
+ has_loss_runs:boolean
+ years_in_business:string
+ years_in_trade:string
+ is_guardian_renewal:boolean
+ sub_out_percentage:decimal{8,2}
+ broker_fee:decimal{8,2}
+ retail_producer_fee:decimal{8,2}
+ blanket_endorsements:string
+ ai:boolean
+ ai_completed_ops_commercial:boolean
+ ai_permit_endorsement:boolean
+ exclusion_work_for_association:boolean
+ other_entity_exclusion:boolean
+ per_project_aggregate:boolean
+ plex_endorsement:boolean
+ primary_wording:boolean
+ terrorism:boolean
+ torch_down:boolean
+ tract_homes:boolean
+ waiver:boolean
+
+rails g scaffold quote program:string mga:string mga_contact:string agency:string agent:string effective_date:date insured_name:string state_of_residence:string cc1:string cc1_receipts:decimal{8,2} cc2:string cc2_receipts:decimal{8,2} cc3:string cc3_receipts:decimal{8,2} cc4:string cc4_receipts:decimal{8,2} limits:string self_insured_retentions:string has_loss_runs:boolean years_in_business:string years_in_trade:string is_guardian_renewal:boolean sub_out_percentage:decimal{8,2} broker_fee:decimal{8,2} retail_producer_fee:decimal{8,2} blanket_endorsements:string ai:boolean ai_completed_ops_commercial:boolean ai_permit_endorsement:boolean exclusion_work_for_association:boolean other_entity_exclusion:boolean per_project_aggregate:boolean plex_endorsement:boolean primary_wording:boolean terrorism:boolean torch_down:boolean tract_homes:boolean waiver:boolean
+
+
+
 agency
  id:integer
  type_of:string
