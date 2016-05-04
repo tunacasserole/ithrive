@@ -1,45 +1,40 @@
 <aside id="sidebar" class="sidebar c-overflow">
-    <!-- User Menu Section -->
     <ul class="main-menu">
       <div class="profile-menu">
         <a href="">
-            <!-- Profile Picture -->
-            <div class="profile-pic">
-                <img src='/assets/avatars/man1.png' </img>
-            </div>
-            <!-- Users full name -->
-            <div class="profile-info f-500" style="font-size:medium">
-                <%= current_user.name  if current_user %>
-            </div>
+            <div class="profile-pic"><img src='/assets/avatars/man1.png'</img></div>
+            <div class="profile-info f-500" style="font-size:medium"><%= current_user.name  if current_user %></div>
         </a>
       </div>
-        <li><%= link_to("<i class='zmdi zmdi-view-dashboard'></i> Dashboard".html_safe, dashboard_path(current_user)) if current_user %></li>
-        <li class="sub-menu" data-menu-id="my_settings">
-            <a href=""><i class="zmdi zmdi-settings"></i>My Settings</a>
+      <li><%= link_to("<i class='zmdi zmdi-view-dashboard'></i> Dashboard".html_safe, dashboard_path(current_user)) if current_user %></li>
+      <li class="sub-menu" data-menu-id="my_settings">
+          <a href=""><i class="zmdi zmdi-settings"></i>Settings</a>
+              <ul>
+                <% if user_signed_in? %>
+                    <li><%= link_to("<i class='zmdi zmdi-assignment-account'></i> Profile".html_safe, edit_user_path(current_user, anchor: "tab-profile")) %></li>
+                    <li><%= link_to("<i class='zmdi zmdi-power'></i> Sign Out".html_safe, destroy_user_session_path, :method=>'delete') %></li>
+                <% else %>
+                    <li><%= link_to 'Sign in', new_user_session_path %></li>
+                    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                <% end %>
+              </ul>
+      </li>
+      <% if user_signed_in? %>
+          <li class="sub-menu" data-menu-id="Quotes">
+              <a href=""><i class="zmdi zmdi-shopping-basket"></i>Work with Quotes</a>
+              <ul>
+                  <li><%= link_to("New Quote", new_quote_path) %></li>
+                  <li><%= link_to("Quotes", quotes_path) %></li>
+                  <li><%= link_to("ATM Rater", "http://binddesk.atminsurance.com/ListInspections.asp?s=IP") %></li>
+              </ul>
+          </li>
+          <li class="sub-menu" data-menu-id="Accounts">
+              <a href=""><i class="zmdi zmdi-accounts"></i>User Management</a>
                 <ul>
-                     <% if user_signed_in? %>
-                        <li><%= link_to("<i class='zmdi zmdi-assignment-account'></i> Profile".html_safe, edit_user_path(current_user, anchor: "tab-profile")) %></li>
-                        <li><%= link_to("<i class='zmdi zmdi-power'></i> Sign Out".html_safe, destroy_user_session_path, :method=>'delete') %></li>
-                    <% else %>
-                        <li><%= link_to 'Sign in', new_user_session_path %></li>
-                        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-                    <% end %>
+                    <li><%= link_to("Users", users_path) %></li>
+                    <li><%= link_to("Agencies", agencies_path) %></li>
                 </ul>
-        </li>
-        <li class="sub-menu" data-menu-id="Quotes">
-            <a href=""><i class="zmdi zmdi-shopping-basket"></i>Work with Quotes</a>
-            <ul>
-                <li><%= link_to("New Quote", new_quote_path) %></li>
-                <li><%= link_to("Quotes", quotes_path) %></li>
-                <li><%= link_to("ATM Rater", "http://binddesk.atminsurance.com/ListInspections.asp?s=IP") %></li>
-            </ul>
-        </li>
-        <li class="sub-menu" data-menu-id="Accounts">
-            <a href=""><i class="zmdi zmdi-accounts"></i>User Management</a>
-            <ul>
-                <li><%= link_to("Users", users_path) %></li>
-                <li><%= link_to("Agencies", agencies_path) %></li>
-            </ul>
-        </li>
+          </li>
+      <% end %>
     </ul>
 </aside>
