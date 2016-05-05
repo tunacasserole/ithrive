@@ -1,5 +1,5 @@
 <%= form_for(@user, :as => @user, :url => registration_path(@user), :html => { :method => :put, :role => 'form'}) do |f| %>
-  <h4>Maintain Account</h4>
+  <h2>Maintain Account</h2>
   <p>Use this form to update your password or cancel your account</p>
   <br>
   <fieldset>
@@ -45,7 +45,7 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
   <br>
-  <h3>Cancel Account</h3>
+  <h4>Cancel Account</h4>
   <p>Unhappy? We'll be sad to see you go.</p>
   <div class="form-actions">
     <%= f.button :cancel, class: "btn btn-primary", :data => { :confirm => "Are you sure?" }, :method => :delete %>
@@ -60,6 +60,4 @@ registerTabPanel('#user-tabs');
 </script>
 <% end %>
 
-<div class="authform">
 
-</div>
