@@ -80,6 +80,7 @@ Rails.application.configure do
     user_name: "aaron@buildit.io",
     password: "CrossFit"
   }
+
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => "cloud.bindit.io" }
   config.action_mailer.delivery_method = :smtp
