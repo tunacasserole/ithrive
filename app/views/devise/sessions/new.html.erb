@@ -1,13 +1,13 @@
 <body class="login-content">
   <div class="lc-block toggled" id="l-login">
-    <small class="has-error help-block"> <%= devise_error_messages! %> </small>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
       <h2>Sign In</h2>
-      <br>
       <div class="input-group m-b-20">
         <div class="form-group has-error">
           <div class="fg-line">
-            <label class="control-label"><%= devise_error_messages! %> </label>
+            <% flash.each do |name, msg| %>
+               <small class="has-error help-block"> <%= msg if msg.is_a?(String)   %> </small>
+            <% end %>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
         <span class="input-group-addon"></span>
         <div class="fg-line">
           <%= f.label :email, class: 'pull-left' %>
-          <%= f.email_field :email, required: true, autofocus: true, class: 'form-control' %>
+          <%= f.email_field :email, required: true, class: 'form-control' %>
         </div>
       </div>
 

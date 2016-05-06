@@ -5,9 +5,11 @@
       <p>We'll send password reset instructions.</p>
       <div class="input-group m-b-20">
         <div class="form-group has-error">
-          <div class="fg-line">
-            <label class="control-label" ><%= devise_error_messages! %> </label>
-          </div>
+            <div class="fg-line">
+              <% resource.errors.full_messages.each do |e| %>
+                <small class="has-error help-block"> <%= e %> </small>
+              <% end %>
+            </div>
         </div>
       </div>
       <div class="input-group m-b-20">
