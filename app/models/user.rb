@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 # VALIDATIONS (Start) ===================================================================
   validates  :email,                                  :presence  => true
-  validates  :name,                                   :presence  => true
+  # validates  :name,                                   :presence  => true
 # VALIDATIONS (End)
 
 # DEFAULTS (Start) ======================================================================

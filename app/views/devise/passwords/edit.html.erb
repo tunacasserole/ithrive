@@ -7,7 +7,7 @@
             <span class="input-group-addon"></span>
             <div class="fg-line">
               <%= f.label :password %>
-              <%= f.password_field(:password, autofocus: true, required: true, class: 'form-control', placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)) %>
+              <%= f.password_field(:password, required: true, class: 'form-control', placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)) %>
             </div>
           </div>
           <div class="input-group m-b-20">

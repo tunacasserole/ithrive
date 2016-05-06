@@ -1,15 +1,12 @@
 <body class="login-content">
     <div class="lc-block toggled" id="l-register">
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-          <h2>Sign Up</h2>
-          <div class="fg-line form-group">
-            <%= devise_error_messages! %>
-          </div>
+          <small class="has-error help-block"> <%= devise_error_messages! %> </small>
           <div class="input-group m-b-20">
             <span class="input-group-addon"></span>
             <div class="fg-line">
               <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %>
+              <%= f.email_field :email, required: true, class: 'form-control' %>
             </div>
           </div>
           <div class="input-group m-b-20">

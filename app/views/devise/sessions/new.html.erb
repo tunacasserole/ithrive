@@ -1,9 +1,16 @@
 <body class="login-content">
   <div class="lc-block toggled" id="l-login">
+    <small class="has-error help-block"> <%= devise_error_messages! %> </small>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
       <h2>Sign In</h2>
       <br>
-      <%= devise_error_messages! %>
+      <div class="input-group m-b-20">
+        <div class="form-group has-error">
+          <div class="fg-line">
+            <label class="control-label"><%= devise_error_messages! %> </label>
+          </div>
+        </div>
+      </div>
       <div class="input-group m-b-20">
         <span class="input-group-addon"></span>
         <div class="fg-line">
