@@ -4,17 +4,18 @@ class Quote < ActiveRecord::Base
   after_initialize :set_default_values
   before_save :run_validations
 
-  validates_numericality_of :total_receipts, :greater_than => 19999
+  # validates_numericality_of :total_receipts, :greater_than => 19999
 
   def set_default_values
     self.state = 'new'
   end
 
   def total_receipts
-    total_receipts = self.cc1_receipts
-    total_receipts += self.cc2_receipts if self.cc2_receipts
-    total_receipts += self.cc3_receipts if self.cc3_receipts
-    total_receipts += self.cc4_receipts if self.cc4_receipts
+
+    total_receipts = self.cc1_receipts.to_i
+    total_receipts += self.cc2_receipts.to_i if self.cc2_receipts
+    total_receipts += self.cc3_receipts.to_i if self.cc3_receipts
+    total_receipts += self.cc4_receipts.to_i if self.cc4_receipts
   end
 
   def run_validations

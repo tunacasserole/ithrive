@@ -4,7 +4,20 @@
     <p >
         Complete the details below to receive a quote from ATM Insurance.
     </p>
-    <%= render partial: 'rate' if @quote.premium%>
+    <div class="input-group m-b-10">
+        <span class="input-group-addon"></span>
+        <div class="fg-line">
+            <%= f.label :premium %>
+            <%= f.text_field :premium, class: 'form-control', placeholder: 'full name of the insured' %>
+        </div>
+    </div>
+    <div class="input-group m-b-10">
+        <span class="input-group-addon"></span>
+        <div class="fg-line">
+            <%= f.label :effective_date %>
+            <%= f.date_field(:effective_date, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
+        </div>
+    </div>
    <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">

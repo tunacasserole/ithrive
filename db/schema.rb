@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505083931) do
+ActiveRecord::Schema.define(version: 20160506103931) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "type_of",      limit: 255
@@ -130,6 +130,12 @@ ActiveRecord::Schema.define(version: 20160505083931) do
     t.datetime "updated_at",                                                         null: false
     t.string   "user_id",                        limit: 255
     t.string   "state",                          limit: 255
+    t.decimal  "premium",                                    precision: 8, scale: 2
+    t.decimal  "program_fee",                                precision: 8, scale: 2
+    t.decimal  "inspection_fee",                             precision: 8, scale: 2
+    t.decimal  "surplus_lines_tax",                          precision: 8, scale: 2
+    t.decimal  "stamping_fee",                               precision: 8, scale: 2
+    t.decimal  "total_policy_cost",                          precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|

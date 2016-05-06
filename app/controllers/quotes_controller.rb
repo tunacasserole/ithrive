@@ -10,6 +10,7 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+
   end
 
   # GET /quotes/new
@@ -26,10 +27,16 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
+    b=Bot.new
+    b.get_rate
+    @quote.premium =  b.premium
+    @quote.total_policy_cost = b.total_policy_cost
+
+
 
     respond_to do |format|
       if @quote.save
-        format.html { redirect_to @quote, notice: 'Quote was successfully created.' }
+        format.html { redirect_to @quote, notice: b.total_policy_cost }
         format.json { render :show, status: :created, location: @quote }
       else
         format.html { render :new }

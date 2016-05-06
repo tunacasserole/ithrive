@@ -13,6 +13,11 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'nokogiri'
+gem 'mechanize'
+gem 'watir'
+gem 'watir-webdriver'
+gem 'headless'
 
 group :development do
   gem 'web-console', '~> 2.0'
