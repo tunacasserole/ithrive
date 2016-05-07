@@ -21,15 +21,16 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body p-25">
+                        <%= render partial: 'rate' if @quote.premium%>
                         <%= render partial: 'form' %>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <h5>Creating Quotes</h5>
-                <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
-                <h6>Sub-Heading Here</h6>
-                <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
+              <h5>Creating Quotes</h5>
+              <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
+              <h6>Sub-Heading Here</h6>
+              <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
             </div>
         </div>
     </div>

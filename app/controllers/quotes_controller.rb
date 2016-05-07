@@ -15,7 +15,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes/new
   def new
-    @quote = Quote.new
+    @quote = Quote.new(insured_name: 'TEST', effective_date: Date.today, cc1: "91111 Air Conditioning Systems", cc2: "91127 Alarm Installation &amp; Repair (no monitori", cc3: "91523 Cleaning - Outside Building", cc4: "91340 Carpentry Framing", cc1_receipts: 10000, cc2_receipts: 10000, cc3_receipts: 10000, cc4_receipts: 10000, state_of_residence: 'CA', limits: '500/1000/500', self_insured_retentions: '5000', has_loss_runs: true, years_in_business: '5', years_in_trade: '5', sub_out_percentage: '10', broker_fee: '100', retail_producer_fee: '50' )
     @user=current_user
   end
 
@@ -28,7 +28,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     b=Bot.new(@quote)
-    rates = b.get_rate
+    rates = b.get_rates
 
     respond_to do |format|
       if @quote.save
