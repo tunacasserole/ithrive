@@ -67,14 +67,28 @@ class Bot
   end
 
   def fill_endorsements
-
+    e=@quote.blanket_endorsements
+    endorsement_value = GlobalConstants::ATM_BLANKET_ENDORSEMENTS.keep_if {|abe| e == abe[1]}[0][0]
+    @browser.radio(:value => endorsement_value).set
+    @browser.checkbox(:name => 'ind_ai_box').set if @quote.ai
+    # @browser.checkbox(:name => 'ind_aio_box').set if @quote.ai_completed_ops_commercial #disabled
+    @browser.checkbox(:name => 'ind_permit_box').set if @quote.ai_permit_endorsement
+    @browser.checkbox(:name => 'ind_work_box').set if @quote.exclusion_work_for_association
+    @browser.checkbox(:name => 'ind_entity_box').set if @quote.other_entity_exclusion
+    @browser.checkbox(:name => 'ind_agg_box').set if @quote.per_project_aggregate
+    @browser.checkbox(:name => 'ind_plex_box').set if @quote.plex_endorsement
+    @browser.checkbox(:name => 'ind_pw_box').set if @quote.primary_wording
+    @browser.checkbox(:name => 'ind_terrorism_box').set if @quote.terrorism
+    @browser.checkbox(:name => 'ind_torch_box').set if @quote.torch_down
+    @browser.checkbox(:name => 'ind_tract_box').set if @quote.tract_homes
+    @browser.checkbox(:name => 'ind_ws_box').set if @quote.waiver
   end
 
   def fill_rapid_rater
     fill_defaults
     fill_class_codes
     fill_coverage
-    # fill_endorsements
+    fill_endorsements
 
     @browser.button(alt: 'Get Rate').click
     sleep 1
@@ -91,7 +105,6 @@ class Bot
 
   def to_price(fee_string)
     fee_string
-
   end
 
   def extract_rates

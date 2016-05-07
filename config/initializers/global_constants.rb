@@ -1,15 +1,14 @@
 module GlobalConstants
 
   ATM_BLANKET_ENDORSEMENTS = [
-                'Blanket Additional Insured - Ongoing Operations included',
-                'Blanket Additional Insured - Completed Ops - Commercial Work Only $250',
-                'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Waiver of Subrogation $400',
-                'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Primary Wording $400',
-                'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Primary Wording plus Blanket Waiver of Subrogation $500',
-                'Blanket Primary Wording Endorsement $250',
-                'Blanket Waiver of Subrogation Endorsement $250',
-                'Blanket Primary Wording plus Blanket Waiver of Subrogation $400',
-                'No Blanket'
+    ['aio', 'Blanket Additional Insured - Completed Ops - Commercial Work Only $250'],
+    ['ai_ws', 'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Waiver of Subrogation $400'],
+    ['ai_pw', 'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Primary Wording $400'],
+    ['ai_pw_ws', 'Blanket Additional Insured - Completed Ops - Commercial Work Only plus Blanket Primary Wording plus Blanket Waiver of Subrogation $500'],
+    ['pw', 'Blanket Primary Wording Endorsement $250'],
+    ['ws', 'Blanket Waiver of Subrogation Endorsement $250'],
+    ['pw_ws', 'Blanket Primary Wording plus Blanket Waiver of Subrogation $400'],
+    ['', 'No Blanket']
   ]
 
 ATM_CLASS_CODES =

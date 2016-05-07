@@ -181,7 +181,7 @@
         <span class="input-group-addon"></span>
         <div class="fg-line">
             <%= f.label :blanket_endorsements, 'Select your desired blanket endorsement package:' %>
-            <%= f.select :blanket_endorsements, GlobalConstants::ATM_BLANKET_ENDORSEMENTS, {:include_blank => true}, { class: 'form-control' } %>
+            <%= f.select :blanket_endorsements, GlobalConstants::ATM_BLANKET_ENDORSEMENTS.map {|e| e[1]}, {:include_blank => true}, { class: 'form-control' } %>
         </div>
     </div>
     <br>
