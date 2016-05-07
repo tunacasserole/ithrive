@@ -2,6 +2,10 @@ require 'open-uri'
 
 class Bot
 
+  def initialize(quote)
+    @quote = quote
+  end
+
   def login_url
     'http://binddesk.atminsurance.com/login/login.asp'
   end
@@ -34,6 +38,7 @@ class Bot
     @browser.goto rater_url
     @browser.select_list(:name, "new_agency_id").select_value("3589")
     @browser.select_list(:name, "new_user_id").select_value("7670")
+
     @browser.text_field(name: 'applicant_company_name').set('TEST')
     @browser.select_list(:name, "applicant_state").select_value("CA")
     @browser.select_list(:name, "classification_id_1").select_value("11207")
@@ -73,6 +78,7 @@ class Bot
   end
 
   def get_rate
+    binding.pry
     headless = Headless.new
     headless.start
     @browser = Watir::Browser.new :phantomjs

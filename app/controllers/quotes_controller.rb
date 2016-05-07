@@ -27,10 +27,8 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
-    b=Bot.new
+    b=Bot.new(@quote)
     rates = b.get_rate
-    @quote.premium =  b.premium
-    @quote.total_policy_cost = b.total_policy_cost
 
     respond_to do |format|
       if @quote.save
