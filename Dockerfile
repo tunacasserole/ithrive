@@ -2,8 +2,6 @@ FROM ubuntu:trusty
 RUN apt-get update
 RUN apt-get install -y firefox xvfb python-pip
 RUN pip install selenium
-ADD xvfb.init /etc/init.d/xvfb
-RUN chmod +x /etc/init.d/xvfb
 RUN update-rc.d xvfb defaults
 CMD (service xvfb start; export DISPLAY=:10; python /root/selenium_wd_tests/sel_wd_new_user.py)
 
