@@ -1,3 +1,5 @@
+FROM ubuntu:14.04
+RUN apt-get update
 RUN apt-get -y install firefox
 RUN apt-get -y install xvfb
 
