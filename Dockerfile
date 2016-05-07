@@ -6,9 +6,4 @@ ADD Gemfile /bindit/Gemfile
 ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
 ADD . /bindit
-
-# Install Xvfb init script
-ADD xvfb_init /etc/init.d/xvfb # default xvfb init.d
-RUN chmod a+x /etc/init.d/xvfb
-
-CMD ["firefox"]
+RUN apt-get install xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps
