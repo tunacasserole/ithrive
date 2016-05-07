@@ -8,7 +8,7 @@ RUN bundle install
 ADD . /bindit
 RUN apt-get -y install xvfb
 
-RUN apt-add-repository ppa:mozillateam/firefox-next
-RUN apt-get update && apt-get upgrade
+RUN  apt-get clean;  apt-get update;  apt-get remove firefox;  apt-get install firefox
+
 Xvfb :99 &
 export DISPLAY=:99
