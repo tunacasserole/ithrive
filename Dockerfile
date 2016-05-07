@@ -7,6 +7,8 @@ ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
 ADD . /bindit
 RUN apt-get -y install xvfb
-RUN apt-get -y install firefox
+
+RUN apt-get -f update
+RUN apt-get install firefox
 Xvfb :99 &
 export DISPLAY=:99
