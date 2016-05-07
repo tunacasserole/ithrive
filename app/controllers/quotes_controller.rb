@@ -32,8 +32,6 @@ class QuotesController < ApplicationController
     @quote.premium =  b.premium
     @quote.total_policy_cost = b.total_policy_cost
 
-
-
     respond_to do |format|
       if @quote.save
         format.html { redirect_to @quote, notice: rates }
