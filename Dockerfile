@@ -1,3 +1,16 @@
+FROM ubuntu:trusty
+RUN echo “deb http://ppa.launchpad.net/mozillateam/firefox-next/ubuntu trusty main” > /etc/apt/sources.list.d//mozillateam-firefox-next-trusty.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CE49EC21
+RUN apt-get update
+RUN apt-get install -y firefox xvfb python-pip
+RUN pip install selenium
+RUN mkdir -p /root/selenium_wd_tests
+ADD sel_wd_new_user.py /root/selenium_wd_tests
+ADD xvfb.init /etc/init.d/xvfb
+RUN chmod +x /etc/init.d/xvfb
+RUN update-rc.d xvfb defaults
+CMD (service xvfb start; export DISPLAY=:10; python /root/selenium_wd_tests/sel_wd_new_user.py)
+
 FROM ruby:2.2.1
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 RUN mkdir /bindit
@@ -6,25 +19,3 @@ ADD Gemfile /bindit/Gemfile
 ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
 ADD . /bindit
-
-FROM realyze/google-chrome-30.0.1599.101
-
-MAINTAINER Keyvan Fatehi <keyvanfatehi@gmail.com>
-
-RUN apt-get update -y -q
-RUN apt-get install -y -q unzip xvfb
-
-# Install Chromedriver 2.8
-ADD chromedriver_linux64.zip /srv/
-RUN unzip /srv/chromedriver_linux64.zip -d /usr/local/bin && rm /srv/chromedriver_linux64.zip
-
-ENV DISPLAY :99
-
-# Install Xvfb init script
-ADD xvfb_init /etc/init.d/xvfb
-RUN chmod a+x /etc/init.d/xvfb
-ADD xvfb-daemon-run /usr/bin/xvfb-daemon-run
-RUN chmod a+x /usr/bin/xvfb-daemon-run
-
-# Allow root to execute Google Chrome by replacing launch script
-ADD google-chrome-launcher /usr/bin/goo
