@@ -34,20 +34,33 @@ class Bot
     sleep 1
   end
 
-  def fill_out_rapid_rater
+  def fill_defaults
     @browser.goto rater_url
     @browser.select_list(:name, "new_agency_id").select_value("3589")
     @browser.select_list(:name, "new_user_id").select_value("7670")
+  end
 
-    @browser.text_field(name: 'applicant_company_name').set('TEST')
-    @browser.select_list(:name, "applicant_state").select_value("CA")
-    @browser.select_list(:name, "classification_id_1").select_value("11207")
-    @browser.text_field(name: 'gross_receipts_1').set('30000')
-    @browser.select_list(:name, "limit_requested").select_value("1000/1000/1000")
-    @browser.select_list(:name, "sir_box").select_value("2500")
-    @browser.select_list(:name, "loss_runs_available").select_value("Yes")
-    @browser.select_list(:name, "years_as_current").select_value("5")
-    @browser.select_list(:name, "years_experience").select_value("5")
+  def fill_class_codes
+    @browser.text_field(name: 'gross_receipts_1').set(@quote.cc1_receipts)
+    @browser.text_field(name: 'gross_receipts_2').set(@quote.cc2_receipts)
+    @browser.text_field(name: 'gross_receipts_3').set(@quote.cc3_receipts)
+    @browser.text_field(name: 'gross_receipts_4').set(@quote.cc4_receipts)
+    @browser.select_list(:name, "classification_id_1").select_value(@quote.cc1)
+    @browser.select_list(:name, "classification_id_2").select_value(@quote.cc2)
+    @browser.select_list(:name, "classification_id_3").select_value(@quote.cc3)
+    @browser.select_list(:name, "classification_id_4").select_value(@quote.cc4)
+  end
+
+  def fill_rapid_rater
+    fill_defaults
+    fill_class_codes
+    @browser.text_field(name: 'applicant_company_name').set(@quote.insured_name)
+    @browser.select_list(:name, "applicant_state").select_value(@quote.something)
+    @browser.select_list(:name, "limit_requested").select_value(@quote.something)
+    @browser.select_list(:name, "sir_box").select_value(@quote.something)
+    @browser.select_list(:name, "loss_runs_available").select_value(@quote.something)
+    @browser.select_list(:name, "years_as_current").select_value(@quote.something)
+    @browser.select_list(:name, "years_experience").select_value(@quote.something)
     @browser.text_field(name: 'perc_subout').set('10')
     sleep 1
     @browser.text_field(name: 'broker_fee_box').set('50')
@@ -83,7 +96,7 @@ class Bot
     headless.start
     @browser = Watir::Browser.new :phantomjs
     login
-    fill_out_rapid_rater
+    fill_rapid_rater
     extract_rates
   end
 
