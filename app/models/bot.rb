@@ -64,12 +64,21 @@ class Bot
 
   end
 
+  def extract_rates
+    rates = []
+    (1..15).each do |c|
+      rates << @browser.input(name: "QuoteCharge#{c.to_s}").value unless [9,10,11,12,13,14].include? c
+    end
+    rates
+  end
+
   def get_rate
     headless = Headless.new
     headless.start
     @browser = Watir::Browser.new :phantomjs
     login
     fill_out_rapid_rater
+    extract_rates
   end
 
 end

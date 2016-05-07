@@ -28,7 +28,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     b=Bot.new
-    b.get_rate
+    rates = b.get_rate
     @quote.premium =  b.premium
     @quote.total_policy_cost = b.total_policy_cost
 
@@ -36,7 +36,7 @@ class QuotesController < ApplicationController
 
     respond_to do |format|
       if @quote.save
-        format.html { redirect_to @quote, notice: b.total_policy_cost }
+        format.html { redirect_to @quote, notice: rates }
         format.json { render :show, status: :created, location: @quote }
       else
         format.html { render :new }
