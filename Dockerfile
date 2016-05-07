@@ -1,6 +1,5 @@
 FROM ubuntu:trusty
 RUN echo “deb http://ppa.launchpad.net/mozillateam/firefox-next/ubuntu trusty main” > /etc/apt/sources.list.d//mozillateam-firefox-next-trusty.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CE49EC21
 RUN apt-get update
 RUN apt-get install -y firefox xvfb python-pip
 RUN pip install selenium
