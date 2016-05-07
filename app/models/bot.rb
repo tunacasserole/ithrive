@@ -59,6 +59,11 @@ class Bot
     @browser.input(name: 'QuoteCharge15').value
   end
 
+  def to_price(fee_string)
+    fee_string
+
+  end
+
   def get_rate
     headless = Headless.new
     headless.start

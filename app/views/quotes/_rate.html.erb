@@ -1,9 +1,5 @@
 <%= form_for(@quote, url: (@quote.new_record? ? quotes_path : quote_path(id: @quote.id)), method: (@quote.new_record? ? :post : :patch)) do |f| %>
     <% disabled = !@quote.new_record? %>
-    <h4>General Information</h4>
-    <p >
-        Complete the details below to receive a quote from ATM Insurance.
-    </p>
     <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">
@@ -14,22 +10,22 @@
     <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">
-            <%= f.label :effective_date %>
-            <%= f.date_field(:effective_date, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
+            <%= f.label :program_fee %>
+            <%= f.text_field(:program_fee, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
         </div>
     </div>
    <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">
-            <%= f.label :insured_name %>
-            <%= f.text_field :insured_name, class: 'form-control', placeholder: 'full name of the insured' %>
+            <%= f.label :inspection_fee  %>
+            <%= f.text_field :inspection_fee    , class: 'form-control', placeholder: 'full name of the insured' %>
         </div>
     </div>
     <div class="input-group m-b-10">
         <span class="input-group-addon"></span>
         <div class="fg-line">
-            <%= f.label :effective_date %>
-            <%= f.date_field(:effective_date, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
+            <%= f.label :surplus_lines_tax %>
+            <%= f.text_field(:surplus_lines_tax, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
         </div>
     </div>
     <br>
