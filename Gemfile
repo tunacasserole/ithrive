@@ -25,8 +25,6 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
 end
 
 group :development, :test do
