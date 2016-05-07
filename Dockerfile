@@ -1,10 +1,7 @@
 FROM ubuntu:trusty
-RUN echo “deb http://ppa.launchpad.net/mozillateam/firefox-next/ubuntu trusty main” > /etc/apt/sources.list.d//mozillateam-firefox-next-trusty.list
 RUN apt-get update
 RUN apt-get install -y firefox xvfb python-pip
 RUN pip install selenium
-RUN mkdir -p /root/selenium_wd_tests
-ADD sel_wd_new_user.py /root/selenium_wd_tests
 ADD xvfb.init /etc/init.d/xvfb
 RUN chmod +x /etc/init.d/xvfb
 RUN update-rc.d xvfb defaults
