@@ -6,4 +6,6 @@ ADD Gemfile /bindit/Gemfile
 ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
 ADD . /bindit
-RUN apt-get install xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps
+RUN apt-get -y install xvfb firefox
+Xvfb :99 &
+export DISPLAY=:99
