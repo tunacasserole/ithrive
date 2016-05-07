@@ -23,4 +23,4 @@ RUN \
   ln -s /srv/var/casperjs/bin/casperjs /usr/bin/casperjs && \
   apt-get autoremove -y && \
   apt-get clean all
-CMD ["/usr/bin/phantomjs"]
+
