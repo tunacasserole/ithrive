@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 RUN apt-get update
-RUN apt-get install git
+RUN apt-get install -y git
 RUN apt-get install -y firefox
 RUN apt-get install -y build-essential chrpath git-core libssl-dev libfontconfig1-dev
 RUN git clone git://github.com/ariya/phantomjs.git && cd phantomjs
