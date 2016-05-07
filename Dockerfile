@@ -2,8 +2,7 @@ FROM ubuntu:trusty
 RUN apt-get update
 RUN apt-get install -y firefox xvfb python-pip
 RUN pip install selenium
-RUN update-rc.d xvfb defaults
-CMD (service xvfb start; export DISPLAY=:10; python /root/selenium_wd_tests/sel_wd_new_user.py)
+CMD (Xvfb :99 &)
 
 FROM ruby:2.2.1
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
