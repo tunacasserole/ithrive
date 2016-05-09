@@ -11,7 +11,7 @@ class Quote < ActiveRecord::Base
 
 
   def set_default_values
-    self.state = 'new' unless self.state
+    self.state = 'in progress' unless self.state
     self.effective_date = Date.today unless self.effective_date
     self.agency = 'BindDesk' unless self.agency
     self.limits = '1000/1000/1000' unless self.limits
