@@ -1,13 +1,3 @@
-FROM ruby:2.2.1
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
-RUN mkdir /bindit
-WORKDIR /bindit
-ADD Gemfile /bindit/Gemfile
-ADD Gemfile.lock /bindit/Gemfile.lock
-RUN bundle install
-ADD . /bindit
-RUN cd /bindit && rake db:migrate
-
 FROM ubuntu:trusty
 ENV TERM linux
 
@@ -20,3 +10,12 @@ ADD run.sh /run.sh
 RUN chmod a+x /run.sh
 CMD /run.sh
 
+FROM ruby:2.2.1
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
+RUN mkdir /bindit
+WORKDIR /bindit
+ADD Gemfile /bindit/Gemfile
+ADD Gemfile.lock /bindit/Gemfile.lock
+RUN bundle install
+RUN cd /bindit && rake db:migrate
+ADD . /bindit
