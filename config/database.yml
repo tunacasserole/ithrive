@@ -8,7 +8,6 @@ development:
   database: development
   username: root
 
-
 test:
   <<: *default
   database: test
@@ -17,5 +16,3 @@ production:
   adapter: mysql2
   database: production
   url: localhost
-
-
