@@ -17,5 +17,6 @@ WORKDIR /bindit
 ADD Gemfile /bindit/Gemfile
 ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
+RUN pwd
 RUN cd /bindit && rake db:migrate
 ADD . /bindit
