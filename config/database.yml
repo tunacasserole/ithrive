@@ -16,3 +16,4 @@ production:
   adapter: mysql2
   database: production
   url: localhost
+  port: 3306

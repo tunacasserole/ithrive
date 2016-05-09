@@ -1,10 +1,9 @@
 FROM ubuntu:trusty
 ENV TERM linux
-
-RUN apt-get update && apt-get install -y git xorg xvfb firefox dbus-x11 xfonts-100dpi xfonts-75dpi xfonts-cyrillic build-essential chrpath git-core libssl-dev libfontconfig1-dev
 ENV DISPLAY :99
 ENV DEBIAN_FRONTEND noninteractive
 RUN git config --global user.name "Aaron Henderson" && git config --global user.email "aaron@buildit.io"
+RUN apt-get update && apt-get install -y git xorg xvfb firefox dbus-x11 xfonts-100dpi xfonts-75dpi xfonts-cyrillic build-essential chrpath git-core libssl-dev libfontconfig1-dev
 RUN git clone git://github.com/ariya/phantomjs.git && cd phantomjs
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
