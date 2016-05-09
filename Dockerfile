@@ -19,4 +19,3 @@ ADD Gemfile.lock /bindit/Gemfile.lock
 RUN bundle install
 RUN pwd
 ADD . /bindit
-RUN rake db:migrate
