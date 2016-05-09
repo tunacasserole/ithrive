@@ -8,6 +8,7 @@ development:
   database: development
   username: root
 
+
 test:
   <<: *default
   database: test
@@ -15,5 +16,5 @@ test:
 production:
   adapter: mysql2
   database: production
-  url: localhost
+  url: <%= ENV['DATABASE_URL'] %>
   port: 3306

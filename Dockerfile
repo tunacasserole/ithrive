@@ -3,7 +3,7 @@ ENV TERM linux
 ENV DISPLAY :99
 ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /bindit
-RUN apt-get update && apt-get install -y git xorg xvfb firefox dbus-x11 xfonts-100dpi xfonts-75dpi xfonts-cyrillic build-essential chrpath git-core libssl-dev libfontconfig1-dev
+RUN apt-get update && apt-get install -y apt-utils git xorg xvfb firefox dbus-x11 xfonts-100dpi xfonts-75dpi xfonts-cyrillic build-essential chrpath git-core libssl-dev libfontconfig1-dev
 RUN git clone git://github.com/ariya/phantomjs.git && cd phantomjs
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
