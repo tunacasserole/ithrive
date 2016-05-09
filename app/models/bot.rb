@@ -91,16 +91,8 @@ class Bot
     fill_endorsements
   end
 
-  def set_premium
-    @browser.input(name: 'QuoteCharge1').value.gsub(',','_').split('$')[1].to_f
-  end
-
-  def set_total_policy_cost
-    @browser.input(name: 'QuoteCharge15').value.gsub(',','_').split('$')[1].to_f
-  end
-
   def to_price(fee_string)
-    fee_string
+    fee_string.gsub(',','_').split('$')[1].to_f
   end
 
   def extract_rates
@@ -114,6 +106,10 @@ class Bot
     rates << @browser.input(name: "QuoteCharge7").value if @browser.input(name: "QuoteCharge7").exists? # broker fee or retail producer fee
     rates << @browser.input(name: "QuoteCharge8").value if @browser.input(name: "QuoteCharge8").exists? # retail producer fee
     rates << @browser.input(name: "QuoteCharge15").value if @browser.input(name: "QuoteCharge15").exists?# total cost of policy
+    # set quote rating fields
+    @quote.premium = to_price(@browser.input(name: 'QuoteCharge1').value)
+    @quote.total_policy_cost = to_price(@browser.input(name: 'QuoteCharge15').value)
+    @quote.save
     rates
   end
 

@@ -32,9 +32,6 @@ class QuotesController < ApplicationController
       if @quote.save
         b=Bot.new(@quote)
         rates = b.get_rates
-        @quote.premium = b.set_premium
-        @quote.total_policy_cost = b.set_total_policy_cost
-        @quote.save
         format.html { redirect_to @quote, notice: rates }
         format.json { render :show, status: :created, location: @quote }
       else
