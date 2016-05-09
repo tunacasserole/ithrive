@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   def show
     puts current_user.name
     # @quotes = Quote.find_by_user_id current_user.id
-    @quotes = Quote.all
+    @quotes = Quote.all.reverse_order
   end
 
 

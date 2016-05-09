@@ -16,8 +16,8 @@
  *= require formvalidationio/formValidation.min
 
  *= require app
- *= require application
  *= require overrides
+ *= require hub
  */
 
 label {

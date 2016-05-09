@@ -7,13 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body p-25">
-                        <div class="alert alert-dismissable alert-info">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <h4>Rate!</h4>
-                            <% notice.each do |r| %>
-                                <p id="notice"><%= r %></p>
-                            <% end %>
-                        </div>
+                        <%= render partial: 'rate' if @quote.premium %>
                         <%= render partial: 'form' %>
                     </div>
                 </div>

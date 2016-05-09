@@ -1,33 +1,99 @@
-<%= form_for(@quote, url: (@quote.new_record? ? quotes_path : quote_path(id: @quote.id)), method: (@quote.new_record? ? :post : :patch)) do |f| %>
-    <% disabled = !@quote.new_record? %>
-    <div class="input-group m-b-10">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :premium %>
-            <%= f.text_field :premium, class: 'form-control', placeholder: 'full name of the insured' %>
-        </div>
-    </div>
-    <div class="input-group m-b-10">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :program_fee %>
-            <%= f.text_field(:program_fee, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
-        </div>
-    </div>
-   <div class="input-group m-b-10">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :inspection_fee  %>
-            <%= f.text_field :inspection_fee    , class: 'form-control', placeholder: 'full name of the insured' %>
-        </div>
-    </div>
-    <div class="input-group m-b-10">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :surplus_lines_tax %>
-            <%= f.text_field(:surplus_lines_tax, class: 'form-control', placeholder: 'Date the policy goes into effect', disabled: disabled) %>
-        </div>
-    </div>
-    <br>
-<% end %>
+<div class="alert alert-dismissable alert-info">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4>Rate!</h4>
+  <% if notice %>
+    <% notice.each do |r| %>
+        <p id="notice"><%= r %></p>
+    <% end %>
+  <% end %>
+</div>
 
+<div class="content block-content ready"><div class="blocks-parent"><!-- ngRepeat: (k, section) in sections --><!-- ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><div ng-repeat="(k, section) in sections" data-pos="0" ng-if="is_sidebar === undefined || is_sidebar == !!section.sidebar" class="block section ng-scope"><div ng-switch="section.type"><!-- ngSwitchWhen: textarea --><div ng-switch-when="textarea" class="ng-scope"><div marked="section.text" class="ng-isolate-scope"><h2 id="section-simple-transparent">Fast &amp; Easy<a class="fa fa-anchor fa-left" href="#section-simple-transparent"></a></h2>
+<p>The rates below are only estimates, and can change based on the full application.</p>
+</div></div><!-- TODO: Make this generic using 'default' --><!-- ngSwitchWhen: api-header --><!-- ngSwitchWhen: code --><!-- ngSwitchWhen: image --><!-- ngSwitchWhen: embed --><!-- ngSwitchWhen: callout --><!-- ngSwitchWhen: parameters --><!-- ngSwitchWhen: html --></div></div><!-- end ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><!-- end ngRepeat: (k, section) in sections --><!-- ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><div ng-repeat="(k, section) in sections" data-pos="1" ng-if="is_sidebar === undefined || is_sidebar == !!section.sidebar" class="block section ng-scope"><div ng-switch="section.type"><!-- ngSwitchWhen: textarea --><!-- TODO: Make this generic using 'default' --><!-- ngSwitchWhen: api-header --><!-- ngSwitchWhen: code --><!-- ngSwitchWhen: image --><!-- ngSwitchWhen: embed --><!-- ngSwitchWhen: callout --><!-- ngSwitchWhen: parameters --><!-- ngSwitchWhen: html --><div ng-switch-when="html" class="ng-scope"><div class="block-html block-display-html ng-isolate-scope ng-pristine ng-valid" type="section.type" ng-model="section.data"><section style="margin-top: 60px;">
+    <div class="container">
+        <div class="col-sm-3 col-md-3 klausbg hvr-float">
+          <div class="klausheader">
+              <h5>Atlas</h5>
+              <div class="klaus_package">General Liability</div>
+              <div class="klaus_price">?</div>
+              <p>annual premium</p>
+          </div>
+
+          <div class="klaus_features skinoneklaus_features">
+              <li><i class="fa fa-check-circle"></i> <strong> cost1 </strong></li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i>cost2</li>
+              <li><i class="fa fa-check-circle"></i> cost3 </li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost4</li>
+              <li><i class="fa fa-check-circle"></i> cost5</li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost6</li>
+              <li><i class="fa fa-info-circle"></i> <strong> monthly payment: ?</strong></li>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3 klausbg skinoneultimate hvr-float">
+            <div class="klausheader skinoneucolor">
+                <h5>ATM </h5>
+                <div class="klaus_package" style="color:#fff">Guardian GL</div>
+                <div class="klaus_price">$<%= @quote.premium %></div>
+                <p>estimated annual premium</p>
+            </div>
+
+            <div class="klaus_features skinoneklaus_features skinoneucolor">
+              <li><i class="fa fa-check-circle"></i> <strong>$<%= @quote.premium %></strong></li>
+              <li class="skinoneklaus_plancolor"><i class="fa fa-check-circle"></i>$<%= @quote.total_policy_cost %></li>
+              <li><i class="fa fa-check-circle"></i> cost2</li>
+              <li class="skinoneklaus_plancolor"><i class="fa fa-check-circle"></i> cost3 </li>
+              <li><i class="fa fa-check-circle"></i> cost4</li>
+              <li class="skinoneklaus_plancolor"><i class="fa fa-check-circle"></i> cost5</li>
+              <li><i class="fa fa-info-circle"></i> <strong> monthly payment: </strong></li>
+            </div>
+        </div>
+
+
+        <div class="col-sm-3 col-md-3 klausbg hvr-float">
+            <div class="klausheader">
+              <h5>PCIC</h5>
+              <div class="klaus_package">GL</div>
+              <div class="klaus_price">?</div>
+              <p>annual premium</p>
+            </div>
+
+             <div class="klaus_features skinoneklaus_features">
+              <li><i class="fa fa-check-circle"></i> <strong>cost1</strong></li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i>cost2</li>
+              <li><i class="fa fa-check-circle"></i> cost3 </li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost4</li>
+              <li><i class="fa fa-check-circle"></i> cost5</li>
+              <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost6</li>
+              <li><i class="fa fa-info-circle"></i> <strong> monthly payment: ?</strong></li>
+          </div>
+      </div>
+
+
+
+        <div class="col-sm-3 col-md-3 klausbg hvr-float">
+            <div class="klausheader">
+              <h5>UCIC</h5>
+              <div class="klaus_package">GL</div>
+              <div class="klaus_price">?</div>
+              <p>annual premium</p>
+            </div>
+
+            <div class="klaus_features skinoneklaus_features">
+                <li><i class="fa fa-check-circle"></i> <strong> cost1</strong></li>
+                <li class="klaus_plancolor"><i class="fa fa-check-circle"></i>cost2</li>
+                <li><i class="fa fa-check-circle"></i> cost3 </li>
+                <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost4</li>
+                <li><i class="fa fa-check-circle"></i> cost5</li>
+                <li class="klaus_plancolor"><i class="fa fa-check-circle"></i> cost6</li>
+                <li><i class="fa fa-info-circle"></i> <strong> monthly payment: ?</strong></li>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div></div></div></div><!-- end ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><!-- end ngRepeat: (k, section) in sections --><!-- ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><div ng-repeat="(k, section) in sections" data-pos="2" ng-if="is_sidebar === undefined || is_sidebar == !!section.sidebar" class="block section ng-scope"><div ng-switch="section.type"><!-- ngSwitchWhen: textarea --><div ng-switch-when="textarea" class="ng-scope"><div marked="section.text" class="ng-isolate-scope"><blockquote>
+<p>Don't see a quote that fits your need? We'd be happy to discuss and see what alternatives we may be able to offer.</p>
+</blockquote>
+</div></div><!-- TODO: Make this generic using 'default' --><!-- ngSwitchWhen: api-header --><!-- ngSwitchWhen: code --><!-- ngSwitchWhen: image --><!-- ngSwitchWhen: embed --><!-- ngSwitchWhen: callout --><!-- ngSwitchWhen: parameters --><!-- ngSwitchWhen: html --></div></div><!-- end ngIf: is_sidebar === undefined || is_sidebar == !!section.sidebar --><!-- end ngRepeat: (k, section) in sections --></div></div>

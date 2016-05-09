@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506103931) do
+ActiveRecord::Schema.define(version: 20160509120002) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "type_of",      limit: 255
@@ -96,22 +96,22 @@ ActiveRecord::Schema.define(version: 20160506103931) do
     t.string   "insured_name",                   limit: 255
     t.string   "state_of_residence",             limit: 255
     t.string   "cc1",                            limit: 255
-    t.decimal  "cc1_receipts",                               precision: 8, scale: 2
+    t.decimal  "cc1_receipts",                               precision: 11, scale: 2
     t.string   "cc2",                            limit: 255
-    t.decimal  "cc2_receipts",                               precision: 8, scale: 2
+    t.decimal  "cc2_receipts",                               precision: 11, scale: 2
     t.string   "cc3",                            limit: 255
-    t.decimal  "cc3_receipts",                               precision: 8, scale: 2
+    t.decimal  "cc3_receipts",                               precision: 11, scale: 2
     t.string   "cc4",                            limit: 255
-    t.decimal  "cc4_receipts",                               precision: 8, scale: 2
+    t.decimal  "cc4_receipts",                               precision: 11, scale: 2
     t.string   "limits",                         limit: 255
     t.string   "self_insured_retentions",        limit: 255
     t.boolean  "has_loss_runs"
     t.string   "years_in_business",              limit: 255
     t.string   "years_in_trade",                 limit: 255
     t.boolean  "is_guardian_renewal"
-    t.decimal  "sub_out_percentage",                         precision: 8, scale: 2
-    t.decimal  "broker_fee",                                 precision: 8, scale: 2
-    t.decimal  "retail_producer_fee",                        precision: 8, scale: 2
+    t.decimal  "sub_out_percentage",                         precision: 8,  scale: 2
+    t.decimal  "broker_fee",                                 precision: 11, scale: 2
+    t.decimal  "retail_producer_fee",                        precision: 11, scale: 2
     t.date     "effective_date"
     t.string   "blanket_endorsements",           limit: 255
     t.boolean  "ai"
@@ -126,16 +126,18 @@ ActiveRecord::Schema.define(version: 20160506103931) do
     t.boolean  "torch_down"
     t.boolean  "tract_homes"
     t.boolean  "waiver"
-    t.datetime "created_at",                                                         null: false
-    t.datetime "updated_at",                                                         null: false
+    t.datetime "created_at",                                                          null: false
+    t.datetime "updated_at",                                                          null: false
     t.string   "user_id",                        limit: 255
     t.string   "state",                          limit: 255
-    t.decimal  "premium",                                    precision: 8, scale: 2
-    t.decimal  "program_fee",                                precision: 8, scale: 2
-    t.decimal  "inspection_fee",                             precision: 8, scale: 2
-    t.decimal  "surplus_lines_tax",                          precision: 8, scale: 2
-    t.decimal  "stamping_fee",                               precision: 8, scale: 2
-    t.decimal  "total_policy_cost",                          precision: 8, scale: 2
+    t.decimal  "premium",                                    precision: 11, scale: 2
+    t.decimal  "program_fee",                                precision: 11, scale: 2
+    t.decimal  "inspection_fee",                             precision: 11, scale: 2
+    t.decimal  "surplus_lines_tax",                          precision: 11, scale: 2
+    t.decimal  "stamping_fee",                               precision: 11, scale: 2
+    t.decimal  "total_policy_cost",                          precision: 11, scale: 2
+    t.string   "old_policy_number",              limit: 255
+    t.boolean  "renewal_loss_free"
   end
 
   create_table "users", force: :cascade do |t|

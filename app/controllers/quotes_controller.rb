@@ -15,8 +15,8 @@ class QuotesController < ApplicationController
 
   # GET /quotes/new
   def new
-    @quote = Quote.new(insured_name: 'TEST', effective_date: Date.today, cc1: "91111 Air Conditioning Systems", cc2: "91127 Alarm Installation &amp; Repair (no monitori", cc3: "91523 Cleaning - Outside Building", cc4: "91340 Carpentry Framing", cc1_receipts: 10000, cc2_receipts: 10000, cc3_receipts: 10000, cc4_receipts: 10000, state_of_residence: 'CA', limits: '500/1000/500', self_insured_retentions: '5000', has_loss_runs: true, years_in_business: '5', years_in_trade: '5', sub_out_percentage: '10', broker_fee: '100', retail_producer_fee: '50', blanket_endorsements: 'Blanket Additional Insured - Completed Ops - Commercial Work Only $250' )
-    @user=current_user
+    @quote = Quote.new
+    @user = current_user
   end
 
   # GET /quotes/1/edit
@@ -27,11 +27,14 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
-    b=Bot.new(@quote)
-    rates = b.get_rates
 
     respond_to do |format|
       if @quote.save
+        b=Bot.new(@quote)
+        rates = b.get_rates
+        @quote.premium = b.set_premium
+        @quote.total_policy_cost = b.set_total_policy_cost
+        @quote.save
         format.html { redirect_to @quote, notice: rates }
         format.json { render :show, status: :created, location: @quote }
       else
@@ -73,6 +76,6 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:program, :mga, :mga_contact, :agency, :agent, :effective_date, :insured_name, :state_of_residence, :cc1, :cc1_receipts, :cc1_receipts, :cc2, :cc2_receipts, :cc2_receipts, :cc3, :cc3_receipts, :cc3_receipts, :cc4, :cc4_receipts, :cc4_receipts, :limits, :self_insured_retentions, :has_loss_runs, :years_in_business, :years_in_trade, :is_guardian_renewal, :sub_out_percentage, :sub_out_percentage, :broker_fee, :broker_fee, :retail_producer_fee, :retail_producer_fee, :blanket_endorsements, :ai, :ai_completed_ops_commercial, :ai_permit_endorsement, :exclusion_work_for_association, :other_entity_exclusion, :per_project_aggregate, :plex_endorsement, :primary_wording, :terrorism, :torch_down, :tract_homes, :waiver)
+      params.require(:quote).permit(:program, :mga, :mga_contact, :agency, :agent, :effective_date, :insured_name, :state_of_residence, :cc1, :cc1_receipts, :cc1_receipts, :cc2, :cc2_receipts, :cc2_receipts, :cc3, :cc3_receipts, :cc3_receipts, :cc4, :cc4_receipts, :cc4_receipts, :limits, :self_insured_retentions, :has_loss_runs, :years_in_business, :years_in_trade, :is_guardian_renewal, :sub_out_percentage, :sub_out_percentage, :broker_fee, :broker_fee, :retail_producer_fee, :retail_producer_fee, :blanket_endorsements, :ai, :ai_completed_ops_commercial, :ai_permit_endorsement, :exclusion_work_for_association, :other_entity_exclusion, :per_project_aggregate, :plex_endorsement, :primary_wording, :terrorism, :torch_down, :tract_homes, :waiver, :user_id, :state, :premium, :program_fee, :inspection_fee, :surplus_lines_tax, :stamping_fee, :total_policy_cost, :old_policy_number, :renewal_loss_free)
     end
 end

@@ -35,59 +35,9 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <!-- Recent Items -->
-                <div class="card">
-                    <div class="card-header m-b-20 bgm-bluegray">
-                        <h2>Recent Quotes <small>Here is a list of your most recent quoting activity</small></h2>
-                            <a href="<%= new_quote_path %>">
-                                <button class="btn bgm-pink btn-float waves-effect"><i class="zmdi zmdi-plus"></i></button>
-                            </a>
-
-                        <ul class="actions">
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href="">Refresh</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Other Settings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body m-t-0">
-                        <table class="table table-inner table-vmiddle">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th style="width: 60px">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% @quotes.each do |q| %>
-                                    <tr>
-                                        <td class="f-500 c-cyan"><%= q.id %></td>
-                                        <td><%= q.insured_name %></td>
-                                        <td class="f-500 c-cyan"><%= q.state %></td>
-                                    </tr>
-                                <% end %>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="recent-items-chart" class="flot-chart"></div>
-                </div>
+              <%= render partial: 'quotes/grid' %>
             </div>
-                       <div class="col-md-6">
+             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
                         <h2>Sales History <small>Recent sales by salesperson</small></h2>

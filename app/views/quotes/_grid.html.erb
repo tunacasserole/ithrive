@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header m-b-20 bgm-bluegray">
+    <h2>Manage quotes <small>quotes are individuals granted access to the system. The level of access for each quote will be determined by the enabled roles.</small></h2>
+    <a href="<%= new_quote_path %>">
+        <button class="btn bgm-pink btn-float waves-effect"><i class="zmdi zmdi-plus"></i></button>
+    </a>
+  </div>
+  <div class="table-responsive">
+    <table id="quotes-grid" class="table table-hover">
+      <thead>
+          <tr>
+            <th data-column-id="agencyName">Id</th>
+            <th data-column-id="agencyName">Name</th>
+            <th data-column-id="agencyName">Premium</th>
+            <th data-column-id="agencyName">Total Cost</th>
+            <th data-column-id="agencyName">Status</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @quotes.each do |quote| %>
+          <tr>
+            <td class="f-500 c-cyan"><%= quote.id %></td>
+            <td><%= quote.insured_name %></td>
+            <td><%= quote.premium %></td>
+            <td><%= quote.total_policy_cost %></td>
+            <td><%= quote.state %></td>
+            <td><%= link_to 'Show', quote %></td>
+            <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+            <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
