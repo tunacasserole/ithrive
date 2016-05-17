@@ -1,0 +1,7 @@
+<!-- Top Search Content -->
+<div id="top-search-wrap" class="bgm-pink">
+	<%= form_tag("/search", method: "get", id: "top-search-form") do %>
+	<%= text_field_tag(:criteria, "", id: "top-search-input", placeholder: 'enter global search criteria', label: :hidden) %>
+	<% end %>
+	<i id="top-search-close">&times;</i>
+</div>

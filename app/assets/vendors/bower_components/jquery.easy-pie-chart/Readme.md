@@ -233,7 +233,7 @@ new EasyPieChart(element, {
 
 #### AngularJS
 
-For a value binding you need to add the `percent` attribute and bind it to your controller.
+For a value binding you need to add the `percent` attribute and iThrive to your controller.
 
 #### RequireJS
 

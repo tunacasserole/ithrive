@@ -30,8 +30,8 @@ class AgenciesController < ApplicationController
 
     respond_to do |format|
       if @agency.save
-        format.html { redirect_to @agency, notice: 'Agency was successfully created.' }
-        format.json { render :show, status: :created, location: @agency }
+        format.html { redirect_to edit_agency_path(@agency), notice: 'Agency was successfully created.' }
+        format.json { render :edit, status: :created, location: @agency }
       else
         format.html { render :new }
         format.json { render json: @agency.errors, status: :unprocessable_entity }
@@ -44,8 +44,8 @@ class AgenciesController < ApplicationController
   def update
     respond_to do |format|
       if @agency.update(agency_params)
-        format.html { redirect_to @agency, notice: 'Agency was successfully updated.' }
-        format.json { render :show, status: :ok, location: @agency }
+        format.html { redirect_to edit_agency_path(@agency), notice: 'Agency was successfully updated.' }
+        format.json { render :edit, status: :ok, location: @agency }
       else
         format.html { render :edit }
         format.json { render json: @agency.errors, status: :unprocessable_entity }
@@ -71,6 +71,6 @@ class AgenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
-      params.require(:agency).permit(:id, :type_of, :name, :dba, :display_name, :address1, :address2, :zip, :email, :phone, :fax)
+      params.require(:agency).permit(:id, :name, :dba, :type_of, :display_name, :address1, :address2, :zip, :email, :phone, :fax)
     end
 end

@@ -75,7 +75,7 @@ ga('send', 'pageview');
 
 .klausbg {
   background:#fff;
-  height:570px;
+  height:520px;
   text-align:center;
   font-family: 'Titillium Web', sans-serif;
   cursor:default;
@@ -84,13 +84,13 @@ ga('send', 'pageview');
   border-right:1px solid #f0f0f0;
 }
 
-.klausheader {height:236px;border-bottom:1px solid #f0f0f0;}
+.klausheader {height:200px;border-bottom:1px solid #f0f0f0;}
 .klausbg h5 {color:#2d2f37;font-size:30px;font-weight:700;text-transform:uppercase;float:left;width:100%;margin:0;padding-top:40px;padding-bottom:10px;}
 .klausbg p {color:#9fa5ae;font-size:16px;font-weight:300;float:left;width:100%;margin-top:-10px}
 .klaus_package {color:#2d2f37;font-size:16px;font-weight:300;text-transform:uppercase;float:left;width:100%;}
-.klaus_price {font-size:46px;font-weight:300;float:left;width:100%;margin-top:10px;}
+.klaus_price {font-size:36px;font-weight:300;float:left;width:100%;margin-top:10px;}
 .klaus_featured {
-  width:130px;
+  width:200px;
   height:25px;
   position:absolute;
   top:0;
@@ -231,7 +231,7 @@ ga('send', 'pageview');
 }
 
 .home-ci-features__button a {
-    width: 140px;
+    width: 200px;
     height: 36px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

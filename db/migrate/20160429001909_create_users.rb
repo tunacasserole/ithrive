@@ -17,12 +17,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :foreign_creds
       t.string :facebook_user
       t.string :twitter_handle
-      t.string :address_1
-      t.string :address_2
+      t.string :address1
+      t.string :address2
       t.string :city
       t.string :state
-      t.string :postal_code
-      t.string :phone_number
+      t.string :zip
+      t.string :phone
 
       t.timestamps null: false
     end

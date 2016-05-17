@@ -39,7 +39,7 @@ class CreateQuotes < ActiveRecord::Migration
       t.boolean :torch_down
       t.boolean :tract_homes
       t.boolean :waiver
-
+      t.text :rates
       t.timestamps null: false
     end
   end

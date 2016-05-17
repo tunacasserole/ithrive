@@ -4,13 +4,26 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all.reverse_order
+    puts "***********params#{params}"
+    @quotes = Quote.search(params[:search])
   end
 
   # GET /quotes/1
   # GET /quotes/1.json
   def show
 
+  end
+
+  # GET /quotes/1
+  # GET /quotes/1.json
+  def search
+    puts "searching"
+    @quotes = [Quote.first]
+    # redirect_to , status: :found
+    # respond_to do |format|
+    #   format.html { redirect_to quotes_path, notice: "#{Quotes.all.count} quotes found matching your search criteria" }
+    #   format.json { render :show, status: :created, location: @quote }
+    # end
   end
 
   # GET /quotes/new
@@ -27,7 +40,7 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
-
+    @quote.user_id = current_user
     respond_to do |format|
       if @quote.save
         b=Bot.new(@quote)
@@ -46,7 +59,7 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to @quote, notice: 'Quote was successfully updated.' }
+        format.html { redirect_to edit_quote_path(@quote), notice: 'Quote was successfully updated.' }
         format.json { render :show, status: :ok, location: @quote }
       else
         format.html { render :edit }

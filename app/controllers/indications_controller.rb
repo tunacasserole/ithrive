@@ -4,7 +4,7 @@ class IndicationsController < ApplicationController
   # GET /indications
   # GET /indications.json
   def index
-    @indications = Indication.all
+    @indications = Atlas::Indication.index
   end
 
   # GET /indications/1

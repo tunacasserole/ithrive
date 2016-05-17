@@ -1,5 +1,33 @@
-<h1>New Indication</h1>
+<section id="content">
+    <div class="container">
+        <% if @indication.errors.count > 0 %>
+        <div class="alert alert-dismissable alert-info">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>Oops!</h4>
+            <% @indication.errors.full_messages.each do |e| %>
+              <p id="notice"><%= e %></p>
+            <% end %>
+        </div>
+        <% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', indications_path %>
+        <div class="block-header">
+            <h2>New ATM Indication<small>This form allows you to get an indication from ATM's Guardian GL program instantly.</small></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body p-25">
+                        <%= render partial: 'rate' if @indication.premium%>
+                        <%= render partial: 'form' %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Creating Indications</h5>
+              <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
+              <h6>Sub-Heading Here</h6>
+              <p>This form allows you to get an indication from ATM's Guardian GL program instantly./p>
+            </div>
+        </div>
+    </div>
+</section>

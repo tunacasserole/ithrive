@@ -1,87 +1,132 @@
+
 <section id="content">
-    <div class="container">
-        <div class="block-header">
-            <h2>Dashboard</h2>
-            <ul class="actions">
-                <li>
-                    <a href="">
-                        <i class="zmdi zmdi-trending-up"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="zmdi zmdi-check-all"></i>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="" data-toggle="dropdown">
-                        <i class="zmdi zmdi-more-vert"></i>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li>
-                            <a href="">Refresh</a>
-                        </li>
-                        <li>
-                            <a href="">Manage Widgets</a>
-                        </li>
-                        <li>
-                            <a href="">Widgets Settings</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-              <%= render partial: 'quotes/grid' %>
-            </div>
-             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Sales History <small>Recent sales by salesperson</small></h2>
-
-                        <ul class="actions">
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-refresh-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="zmdi zmdi-download"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li>
-                                        <a href="">Change Date Range</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Change Graph Type</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Other Settings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="chart-edge">
-                            <div id="curved-line-chart" class="flot-chart "></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+  <div class="container">
+    <div class="row">
+    <div class="block-header">
+      <h2>Aaron's Dashboard</h2>
     </div>
+
+      <div class="block-header">
+        <h2>Your Thrivers!</h2>
+      </div>
+
+      <div class="col-md-6">
+        <%= render partial: 'users/grid' %>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card wall-posting">
+          <div class="card-body card-padding">
+            <textarea class="wp-text" data-auto-size="" placeholder="Write Something..."></textarea>
+
+            <div class="tab-content p-0">
+              <div class="wp-media tab-pane" id="wpm-image">
+                Images - Coming soon...
+              </div>
+
+              <div class="wp-media tab-pane" id="wpm-video">
+                Video Links - Coming soon...
+              </div>
+
+              <div class="wp-media tab-pane" id="wpm-link">
+                Links - Coming soon...
+              </div>
+            </div>
+          </div>
+
+          <ul class="list-unstyled clearfix wpb-actions">
+            <li class="wpba-attrs">
+                <ul class="list-unstyled list-inline m-l-0 m-t-5">
+                    <li><a data-wpba="image" data-toggle="tab" href="" data-target="#wpm-image"><i class="zmdi zmdi-image"></i></a></li>
+                    <li><a data-wpba="video" data-toggle="tab" href="" data-target="#wpm-video"><i class="zmdi zmdi-play-circle"></i></a></li>
+                    <li><a data-wpba="link" data-toggle="tab" href="" data-target="#wpm-link"><i class="zmdi zmdi-link"></i></a></li>
+                </ul>
+            </li>
+
+            <li class="pull-right"><button class="btn btn-primary btn-sm waves-effect">Post</button></li>
+          </ul>
+          </div>
+      </div>
+        <div class="container">
+          <div class="mini-charts">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="mini-charts-item bgm-cyan">
+                  <div class="clearfix">
+                    <div class="chart stats-bar"><canvas width="60" height="45" style="display: inline-block; width: 60px; height: 45px; vertical-align: top;"></canvas></div>
+                    <div class="count">
+                      <small>Current Thrivers</small>
+                      <h2>852</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="mini-charts-item bgm-lightgreen">
+                  <div class="clearfix">
+                    <div class="chart stats-line"><canvas width="60" height="45" style="display: inline-block; width: 60px; height: 45px; vertical-align: top;"></canvas></div>
+                    <div class="count">
+                      <small>Pending Invites </small>
+                        <h2>76</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="block-header">
+          <h2>Action Step Usage by Strategy <small>The widgets below represent the percentage of total steps taken by strategy.</small></h2>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="epc-item bgm-pink">
+                <div class="easy-pie main-pie" data-percent="25">
+                    <div class="percent">25</div>
+                    <h2 class="pie-title">Movement</h2>
+                <canvas height="250" width="250" style="height: 110px; width: 110px;"></canvas></div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="epc-item bgm-orange">
+                <div class="easy-pie main-pie" data-percent="18">
+                    <div class="percent">18</div>
+                    <h2 class="pie-title">Rejuvenation</h2>
+                <canvas height="250" width="250" style="height: 110px; width: 110px;"></canvas></div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="epc-item bgm-green">
+                <div class="easy-pie main-pie" data-percent="25">
+                    <div class="percent">25</div>
+                    <h2 class="pie-title">Spirit</h2>
+                <canvas height="250" width="250" style="height: 110px; width: 110px;"></canvas></div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="epc-item bgm-purple">
+                <div class="easy-pie main-pie" data-percent="12">
+                    <div class="percent">12</div>
+                    <h2 class="pie-title">Diet</h2>
+                <canvas height="250" width="250" style="height: 110px; width: 110px;"></canvas></div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="epc-item bgm-indigo">
+                <div class="easy-pie main-pie" data-percent="20">
+                    <div class="percent">20</div>
+                    <h2 class="pie-title">Environment</h2>
+                <canvas height="250" width="250" style="height: 110px; width: 110px;"></canvas></div>
+            </div>
+        </div>
+      </div>
+
+    </row>
+  </div>
 </section>

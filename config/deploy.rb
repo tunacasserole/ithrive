@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :application, 'bindit'
-set :repo_url, 'git@github.com:tunacasserole/bindit.git'
+set :application, 'iThrive'
+set :repo_url, 'git@github.com:tunacasserole/iThrive.git'
 set :stages, %w(development staging qa)
 set :repository, "git@gitlab.optum.com:optum-cloud/messenger.git"
 set :deploy_via, :copy
 set :copy_exclude, %w(.git/* .svn/* .DS_Store _design)
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/bindit'
+set :deploy_to, '/var/www/iThrive'
 # Default value for :scm is :git
 set :scm, :git
 set :branch, "master"

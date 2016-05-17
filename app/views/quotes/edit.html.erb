@@ -1,25 +1,29 @@
+<ol class="breadcrumb">
+  <li><a href="<%= quotes_path %>">Quotes</a></li>
+  <li class="active">Edit Quote</li>
+</ol>
 <section id="content">
-    <div class="container">
-        <div class="block-header">
-            <h2>Viewing your Indication</small></h2>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body p-25">
-                        <%= render partial: 'rate' if @quote.premium %>
-                        <%= render partial: 'form' %>
-                    </div>
+  <div class="container">
+    <div class="block-header">
+        <h2>Viewing your Indication</small></h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body p-25">
+                    <%= render partial: 'rate' if @quote.premium %>
+                    <%= render partial: 'form' %>
                 </div>
             </div>
-            <div class="col-md-4">
-                <h5>Creating Quotes</h5>
-                <p>This form allows you to review the details of your quote.</p>
-                <h6>Sub-Heading Here</h6>
-                <p>This form allows you to review the details of your quote.</p>
-            </div>
+        </div>
+        <div class="col-md-4">
+            <h5>Creating Quotes</h5>
+            <p>This form allows you to review the details of your quote.</p>
+            <h6>Additional Info.</h6>
+            <p>All rates provided are estimates only until receipt of the final application.</p>
         </div>
     </div>
+    <%= link_to 'Back', quotes_path %>
+  </div>
 </section>
 
-<%= link_to 'Back', quotes_path %>

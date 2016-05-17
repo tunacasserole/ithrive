@@ -18,6 +18,9 @@ gem 'mechanize'
 gem 'watir'
 gem 'watir-webdriver'
 gem 'headless'
+gem 'activeresource'
+gem 'rest_client'
+
 
 group :development do
   gem 'web-console', '~> 2.0'

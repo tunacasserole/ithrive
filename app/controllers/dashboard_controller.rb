@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @quotes = Quote.all.reverse_order
+    @users = User.all.reverse_order
   end
 
 

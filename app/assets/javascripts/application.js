@@ -36,3 +36,4 @@
 //= require functions/bookmarks
 //= require functions/notes
 //= require jquery_ujs
+//= require charts.js

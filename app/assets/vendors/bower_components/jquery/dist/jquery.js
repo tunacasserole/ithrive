@@ -7582,7 +7582,7 @@ var
 	// Segment location into parts
 	ajaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];
 
-// BindIt "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
+// iThrive "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
 
 	// dataTypeExpression is optional and defaults to "*"
@@ -7614,7 +7614,7 @@ function addToPrefiltersOrTransports( structure ) {
 	};
 }
 
-// BindIt inspection function for prefilters and transports
+// iThrive inspection function for prefilters and transports
 function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
 
 	var inspected = {},

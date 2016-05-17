@@ -1,5 +1,10 @@
 module GlobalConstants
 
+  AGENCY_TYPES =
+    ["retail",
+      "wholesale",
+      "mgu"]
+
   US_STATES =
     [ ["AK", "Alaska"],
       ["AL", "Alabama"],

@@ -109,6 +109,7 @@ class Bot
     # set quote rating fields
     @quote.premium = to_price(@browser.input(name: 'QuoteCharge1').value)
     @quote.total_policy_cost = to_price(@browser.input(name: 'QuoteCharge15').value)
+    @quote.rates = rates
     @quote.save
     rates
   end
@@ -116,7 +117,7 @@ class Bot
   def get_rates
     # headless = Headless.new
     # headless.start
-    @browser = Watir::Browser.new :phantomjs
+    @browser = Watir::Browser.new #:phantomjs
     login
     fill_rapid_rater
     @browser.button(alt: 'Get Rate').click

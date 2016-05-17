@@ -5,33 +5,32 @@
 
       <ul class="actions">
         <li>
-            <a href="">
-                <i class="zmdi zmdi-refresh"></i>
-            </a>
+          <a href="">
+            <i class="zmdi zmdi-refresh"></i>
+          </a>
         </li>
         <li class="dropdown">
-            <a href="" data-toggle="dropdown">
-                <i class="zmdi zmdi-more-vert"></i>
-            </a>
+          <a href="" data-toggle="dropdown">
+            <i class="zmdi zmdi-more-vert"></i>
+          </a>
 
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                    <a href="<%= new_user_path %>">New Quote</a>
-                </li>
-                <li>
-                    <a href="">Import from CSV</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="">Export to CSV</a>
-                </li>
-
-            </ul>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a href="<%= new_user_path %>">New Quote</a>
+            </li>
+            <li>
+              <a href="">Import from CSV</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="">Export to CSV</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
-        <div class="col-md-12">
-            <%= render partial: 'quotes/grid' %>
-        </div>
+      <div class="col-md-12">
+        <%= render partial: 'quotes/grid' %>
+      </div>
   </div>
 </section>

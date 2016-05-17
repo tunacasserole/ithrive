@@ -4,9 +4,10 @@ class CreateAgencies < ActiveRecord::Migration
       t.string :type_of
       t.string :name
       t.string :dba
-      t.string :display_name
       t.string :address1
       t.string :address2
+      t.string :city
+      t.string :state
       t.string :zip
       t.string :email
       t.string :phone

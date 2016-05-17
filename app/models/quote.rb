@@ -54,4 +54,13 @@ class Quote < ActiveRecord::Base
     errors.add(:base, "Additional endorsements not valid with the selected blanket endorsement") if invalid_endorsements
   end
 
+  def rates_array
+    clean_rates = (rates.gsub(/"/,'').gsub('[','').gsub(']','')).split(', ')
+    clean_rates.shift
+    clean_rates
+  end
+
+  def self.search(search)
+    search ? where('insured_name LIKE ? or id like ?', "%#{search}%", "%#{search}%").reverse_order : all.reverse_order
+  end
 end

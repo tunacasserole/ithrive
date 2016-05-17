@@ -1,68 +1,38 @@
+<ol class="breadcrumb">
+  <li><a href="<%= agencies_path %>">Users</a></li>
+  <li class="active">Edit User</li>
+</ol>
 <section id="content">
   <div class="container">
-    <div class="card">
-      <div class="container-fluid" style="margin-top: 20px">
-        <div class="panel panel-default">
-          <div class="panel-heading" style="background-color: #F44336;">
-            <h3 class="panel-title"  style="color: #fff;">  <%= @agency.name %>  </h3>
-          </div>
-        </div>
-        <p>
-          <strong>Type:</strong>
-          <%= @agency.type_of %>
-        </p>
+    <div class="card" id="profile-main">
+      <%= render partial: "agencies/summary", locals: { agency: @agency } %>
 
-        <p>
-          <strong>Name:</strong>
-          <%= @agency.name %>
-        </p>
-
-        <p>
-          <strong>Dba:</strong>
-          <%= @agency.dba %>
-        </p>
-
-        <p>
-          <strong>Display name:</strong>
-          <%= @agency.display_name %>
-        </p>
-
-        <p>
-          <strong>Address1:</strong>
-          <%= @agency.address1 %>
-        </p>
-
-        <p>
-          <strong>Address2:</strong>
-          <%= @agency.address2 %>
-        </p>
-
-        <p>
-          <strong>Zip:</strong>
-          <%= @agency.zip %>
-        </p>
-
-        <p>
-          <strong>Email:</strong>
-          <%= @agency.email %>
-        </p>
-
-        <p>
-          <strong>Phone:</strong>
-          <%= @agency.phone %>
-        </p>
-
-        <p>
-          <strong>Fax:</strong>
-          <%= @agency.fax %>
-        </p>
-
-        <%= link_to 'Edit', edit_agency_path(@agency) %> |
-        <%= link_to 'Back', agencies_path %>
+      <div class="pm-body clearfix">
+        <ul id="agency-tabs" class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+          <li role="presentation" class="active">
+            <a class="col-sx-4" href="#tab-profile" aria-controls="tab-1" role="tab" data-toggle="tab">
+              Profile
+            </a>
+          </li>
+          <li role="presentation">
+            <a class="col-sx-4" href="#tab-users" aria-controls="tab-1" role="tab" data-toggle="tab">
+              Agents
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content" style="min-height: 600px; padding-left: 20px;">
+          <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-profile"><%= render partial: "agencies/form", locals: { agency: @agency } %></div>
+          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-users"><%= render partial: "users/grid", locals: { agency: @agency, users: @agency.users } %></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-  <%= render 'users/index' %>
+<%= content_for :body_end  do %>
+  <script>
+    $(function() {
+      registerTabPanel('#agency-tabs');
+    });
+  </script>
+<% end %>
