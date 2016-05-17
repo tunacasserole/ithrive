@@ -8,6 +8,7 @@
   "scripts": {
     "dokku": {
       "postdeploy": "bundle exec rake db:migrate"
+      "postdeploy": "bundle exec rake cleanup:user"
     }
   }
 }
