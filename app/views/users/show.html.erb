@@ -2,43 +2,4 @@
   <li><a href="<%= users_path %>">Users</a></li>
   <li class="active">Edit User</li>
 </ol>
-<section id="content">
-  <div class="container">
-    <div class="card" id="profile-main">
-      <%= render partial: "users/summary", locals: { user: @user } %>
-
-      <div class="pm-body clearfix">
-        <ul id="user-tabs" class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
-          <li role="presentation" class="active">
-            <a class="col-sx-4" href="#tab-profile" aria-controls="tab-1" role="tab" data-toggle="tab">
-              Profile
-            </a>
-          </li>
-          <li role="presentation">
-            <a class="col-sx-4" href="#tab-account" aria-controls="tab-1" role="tab" data-toggle="tab">
-              Account
-            </a>
-          </li>
-          <li role="presentation">
-            <a class="col-sx-4" href="#tab-user-roles" aria-controls="tab-1" role="tab" data-toggle="tab">
-              Roles
-            </a>
-          </li>
-        </ul>
-        <div class="tab-content" style="min-height: 600px; padding-left: 20px;">
-          <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-profile"><%= render partial: "users/form", locals: { user: @user } %></div>
-          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-account"><%= render partial: "devise/registrations/form", locals: { user: @user } %></div>
-          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-user-roles"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<%= content_for :body_end  do %>
-  <script>
-    $(function() {
-      registerTabPanel('#user-tabs');
-    });
-  </script>
-<% end %>
+<%= render partial: "users/tabs", locals: { user: @user } %>

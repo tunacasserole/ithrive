@@ -16,25 +16,26 @@
       <% end %>
     </div>
     <div class="pmo-stat bgm-cyan">
-      <h2 class="m-0 c-white"><%= @user.quotes.count %></h2>
-        Total Quotes
+      <h2 class="m-0 c-white"><%= 87 %></h2>
+        Action Steps Completed
     </div>
   </div>
   <div class="pmo-block pmo-contact hidden-xs c-white">
     <h2 class="c-white">Contact</h2>
     <ul>
-      <li><i class="zmdi zmdi-phone"></i> <%= @user.phone_number %></li>
-      <li><i class="zmdi zmdi-email"></i> <%= @user.email %></li>
-      <li><i class="zmdi zmdi-facebook-box"></i>  <%= @user.facebook_user %></li>
-      <li><i class="zmdi zmdi-twitter"></i> <%= @user.twitter_handle %></li>
-      <li>
-        <i class="zmdi zmdi-pin"></i>
-        <address class="m-b-0 ng-binding">
-          <%= @user.address_1 %><br>
-          <%= @user.address_2 %><br>
-          <%= @user.city %>, <%= @user.state.upcase %><br>
-        </address>
-      </li>
+      <% if @user.profile %>
+        <li><i class="zmdi zmdi-phone"></i> <%= @user.profile.first_name %></li>
+        <li><i class="zmdi zmdi-phone"></i> <%= @user.profile.last_name %></li>
+        <li><i class="zmdi zmdi-email"></i> <%= @user.profile.age %></li>
+        <li>
+          <i class="zmdi zmdi-pin"></i>
+          <address class="m-b-0 ng-binding">
+            stuff <br>
+            stuff <br>
+            stuff <br>
+          </address>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

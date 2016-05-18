@@ -11,160 +11,102 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509120002) do
+ActiveRecord::Schema.define(version: 20160518140000) do
 
-  create_table "agencies", force: :cascade do |t|
-    t.string   "type_of",      limit: 255
-    t.string   "name",         limit: 255
-    t.string   "dba",          limit: 255
-    t.string   "display_name", limit: 255
-    t.string   "address1",     limit: 255
-    t.string   "address2",     limit: 255
-    t.string   "zip",          limit: 255
-    t.string   "email",        limit: 255
-    t.string   "phone",        limit: 255
-    t.string   "fax",          limit: 255
+  create_table "health_attributes", force: :cascade do |t|
+    t.integer  "user_id",                                          limit: 4
+    t.boolean  "experiences_joint_pain"
+    t.boolean  "feel_distressed"
+    t.boolean  "disruptive_fatigue"
+    t.boolean  "pain_limits_daily_activities"
+    t.boolean  "troubled_by_constipation"
+    t.boolean  "experiences_hot_flashes_or_night_sweats_daily"
+    t.boolean  "has_trouble_sleeping"
+    t.boolean  "experiences_loss_of_interest_in_daily_activities"
+    t.boolean  "wants_to_harm_self_or_others"
+    t.boolean  "feels_anxiety_frequently"
+    t.boolean  "memory_problems_interfere_with_daily_life"
+    t.boolean  "has_unexplained_weight_loss"
+    t.boolean  "has_been_recommended_low_fiber_diet"
+    t.boolean  "has_had_gall_bladder_removed"
+    t.boolean  "has_difficulty_swallowing"
+    t.boolean  "has_lymphedema"
+    t.boolean  "experiences_increased_size_of_legs_or_abdomen"
+    t.boolean  "has_lower_than_desired_sexual_desire"
+    t.boolean  "intercourse_is_painful"
+    t.boolean  "has_insufficient_social_support"
+    t.boolean  "experiences_diarrhea"
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+  end
+
+  add_index "health_attributes", ["user_id"], name: "index_health_attributes_on_user_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",                          limit: 4
+    t.string   "first_name",                       limit: 255
+    t.string   "last_name",                        limit: 255
+    t.string   "age",                              limit: 255
+    t.string   "cancer_type",                      limit: 255
+    t.integer  "sex",                              limit: 4
+    t.string   "time_since_diagnosis",             limit: 255
+    t.boolean  "received_chemotherapy"
+    t.boolean  "received_radiation_therapy"
+    t.boolean  "active_cancer"
+    t.boolean  "metastatic_cancer"
+    t.boolean  "receiving_cancer_treatment"
+    t.boolean  "has_kidney_disease"
+    t.boolean  "has_liver_disease"
+    t.boolean  "has_congestive_heart_failure"
+    t.boolean  "has_atrial_fibrillation"
+    t.boolean  "has_dementia"
+    t.boolean  "cannot_maintain_balance"
+    t.boolean  "has_diabetes"
+    t.boolean  "increased_bowel_obstruction_risk"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "responses", force: :cascade do |t|
+    t.integer  "user_id",         limit: 4
+    t.integer  "survey_id",       limit: 4
+    t.text     "response_record", limit: 65535, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "responses", ["survey_id"], name: "index_responses_on_survey_id", using: :btree
+  add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
+
+  create_table "surveys", force: :cascade do |t|
+    t.text     "schema",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
-  create_table "indications", force: :cascade do |t|
-    t.integer  "underwriter_id",            limit: 4
-    t.string   "state",                     limit: 255
-    t.date     "effective_date"
-    t.date     "expire_date"
-    t.integer  "wholesale_agency_id",       limit: 4
-    t.integer  "retail_agency_id",          limit: 4
-    t.integer  "placement_fee",             limit: 4
-    t.integer  "employee_payroll",          limit: 4
-    t.integer  "owner_payroll",             limit: 4
-    t.integer  "total_payroll",             limit: 4
-    t.boolean  "sub_out_commercial"
-    t.boolean  "sub_out_residential"
-    t.integer  "gross_receipts_current",    limit: 4
-    t.string   "description_of_operations", limit: 255
-    t.string   "type_of_contractor",        limit: 255
-    t.string   "type_al_requested",         limit: 255
-    t.string   "limits_selected",           limit: 255
-    t.string   "insured_ops",               limit: 255
-    t.string   "limits",                    limit: 255
-    t.string   "rating_factor",             limit: 255
-    t.string   "dba",                       limit: 255
-    t.string   "name",                      limit: 255
-    t.string   "zip",                       limit: 255
-    t.string   "address1",                  limit: 255
-    t.string   "address2",                  limit: 255
-    t.string   "city",                      limit: 255
-    t.string   "email",                     limit: 255
-    t.string   "fax",                       limit: 255
-    t.string   "phone",                     limit: 255
-    t.string   "state_code",                limit: 255
-    t.string   "gf_comments",               limit: 255
-    t.string   "approval_comments",         limit: 255
-    t.string   "pdf_natural_url",           limit: 255
-    t.string   "pdf_tracking_url",          limit: 255
-    t.integer  "mgu_id",                    limit: 4
-    t.decimal  "total_policy_cost",                     precision: 8, scale: 2
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
-  end
-
-  create_table "policies", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.string   "state",            limit: 255
-    t.string   "number",           limit: 255
-    t.string   "dba",              limit: 255
-    t.string   "phone",            limit: 255
-    t.string   "email",            limit: 255
-    t.integer  "wholesale_id",     limit: 4
-    t.integer  "wholesale_rep_id", limit: 4
-    t.integer  "retail_id",        limit: 4
-    t.integer  "retail_rep_id",    limit: 4
-    t.integer  "uw_id",            limit: 4
-    t.integer  "mgu_id",           limit: 4
-    t.integer  "program_id",       limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "quotes", force: :cascade do |t|
-    t.string   "program",                        limit: 255
-    t.string   "mga",                            limit: 255
-    t.string   "mga_contact",                    limit: 255
-    t.string   "agency",                         limit: 255
-    t.string   "agent",                          limit: 255
-    t.string   "insured_name",                   limit: 255
-    t.string   "state_of_residence",             limit: 255
-    t.string   "cc1",                            limit: 255
-    t.decimal  "cc1_receipts",                               precision: 11, scale: 2
-    t.string   "cc2",                            limit: 255
-    t.decimal  "cc2_receipts",                               precision: 11, scale: 2
-    t.string   "cc3",                            limit: 255
-    t.decimal  "cc3_receipts",                               precision: 11, scale: 2
-    t.string   "cc4",                            limit: 255
-    t.decimal  "cc4_receipts",                               precision: 11, scale: 2
-    t.string   "limits",                         limit: 255
-    t.string   "self_insured_retentions",        limit: 255
-    t.boolean  "has_loss_runs"
-    t.string   "years_in_business",              limit: 255
-    t.string   "years_in_trade",                 limit: 255
-    t.boolean  "is_guardian_renewal"
-    t.decimal  "sub_out_percentage",                         precision: 8,  scale: 2
-    t.decimal  "broker_fee",                                 precision: 11, scale: 2
-    t.decimal  "retail_producer_fee",                        precision: 11, scale: 2
-    t.date     "effective_date"
-    t.string   "blanket_endorsements",           limit: 255
-    t.boolean  "ai"
-    t.boolean  "ai_completed_ops_commercial"
-    t.boolean  "ai_permit_endorsement"
-    t.boolean  "exclusion_work_for_association"
-    t.boolean  "other_entity_exclusion"
-    t.boolean  "per_project_aggregate"
-    t.boolean  "plex_endorsement"
-    t.boolean  "primary_wording"
-    t.boolean  "terrorism"
-    t.boolean  "torch_down"
-    t.boolean  "tract_homes"
-    t.boolean  "waiver"
-    t.datetime "created_at",                                                          null: false
-    t.datetime "updated_at",                                                          null: false
-    t.string   "user_id",                        limit: 255
-    t.string   "state",                          limit: 255
-    t.decimal  "premium",                                    precision: 11, scale: 2
-    t.decimal  "program_fee",                                precision: 11, scale: 2
-    t.decimal  "inspection_fee",                             precision: 11, scale: 2
-    t.decimal  "surplus_lines_tax",                          precision: 11, scale: 2
-    t.decimal  "stamping_fee",                               precision: 11, scale: 2
-    t.decimal  "total_policy_cost",                          precision: 11, scale: 2
-    t.string   "old_policy_number",              limit: 255
-    t.boolean  "renewal_loss_free"
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255
-    t.string   "encrypted_password",     limit: 255
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                      limit: 255, default: "", null: false
+    t.string   "encrypted_password",         limit: 255, default: "", null: false
+    t.string   "reset_password_token",       limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4
+    t.integer  "sign_in_count",              limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "name",                   limit: 255
-    t.string   "role",                   limit: 255
-    t.string   "agency_id",              limit: 255
-    t.string   "foreign_creds",          limit: 255
-    t.string   "facebook_user",          limit: 255
-    t.string   "twitter_handle",         limit: 255
-    t.string   "address_1",              limit: 255
-    t.string   "address_2",              limit: 255
-    t.string   "city",                   limit: 255
-    t.string   "state",                  limit: 255
-    t.string   "postal_code",            limit: 255
-    t.string   "phone_number",           limit: 255
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "current_sign_in_ip",         limit: 255
+    t.string   "last_sign_in_ip",            limit: 255
+    t.boolean  "terms_of_service_agreement"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "health_attributes", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "responses", "surveys"
+  add_foreign_key "responses", "users"
 end

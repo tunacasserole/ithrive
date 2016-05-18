@@ -1,39 +1,39 @@
 <section id="content">
-    <div class="container ">
-        <div class="block-header">
-            <h2>Users</h2>
+  <div class="container ">
+    <div class="block-header">
+      <h2>Users</h2>
 
-            <ul class="actions">
-                <li>
-                    <a href="">
-                        <i class="zmdi zmdi-refresh"></i>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="" data-toggle="dropdown">
-                        <i class="zmdi zmdi-more-vert"></i>
-                    </a>
+      <ul class="actions">
+        <li>
+          <a href="">
+            <i class="zmdi zmdi-refresh"></i>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="" data-toggle="dropdown">
+            <i class="zmdi zmdi-more-vert"></i>
+          </a>
 
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li>
-                            <a href="<%= new_user_path %>">New User</a>
-                        </li>
-                        <li>
-                            <a href="">Import from CSV</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="">Export to CSV</a>
-                        </li>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a href="<%= new_user_path %>">New User</a>
+            </li>
+            <li>
+              <a href="">Import from CSV</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="">Export to CSV</a>
+            </li>
 
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <%= render partial: 'users/grid' %>
-            </div>
-        </div>
+          </ul>
+        </li>
+      </ul>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: 'users/grid' %>
+      </div>
+    </div>
+  </div>
 </section>

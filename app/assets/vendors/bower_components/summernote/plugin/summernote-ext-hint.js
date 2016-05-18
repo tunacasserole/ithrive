@@ -253,7 +253,7 @@
     throttle : 50,
 
     // FIXME Summernote doesn't support event pipeline yet.
-    //  - Plugin -> iThrive Code
+    //  - Plugin -> Thrive Code
     events: {
       ENTER: function (e, editor, layoutInfo) {
 

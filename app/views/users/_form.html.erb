@@ -1,118 +1,54 @@
-<% if @user.errors.count > 0 %>
-    <div class="alert alert-dismissable alert-info">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <h4>Oops!</h4>
-        <% @user.errors.full_messages.each do |e| %>
-          <p id="notice"><%= e %></p>
+<%= form_for(@user, :as => @user, :url => registration_path(@user), :html => { :method => :put, :role => 'form'}) do |f| %>
+  <h2>Maintain Account</h2>
+  <p>Use this form to update your password or cancel your account</p>
+  <br>
+  <fieldset>
+    <div class="input-group m-b-20">
+        <span class="input-group-addon"></span>
+        <div class="fg-line">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control input-lg' %>
+        </div>
+        <%- if devise_mapping.confirmable? && @user.pending_reconfirmation? %>
+          <div>Currently awaiting confirmation for: <%= @user.unconfirmed_email %></div>
         <% end %>
     </div>
-  <% end %>
-
-<%= form_for(@user, url: (@user.new_record? ? users_path : user_path(id: @user.id)), method: (@user.new_record? ? :post : :patch)) do |f| %>
-
-    <h4>General Information</h4>
-    <p class="p-b-20">
-      Complete the details below to create and maintain a @user.
-    </p>
+  </fieldset>
+  <fieldset>
+    <p>To change your current password, enter the new password below.</p>
     <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control input-lg', required: true %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :email %>
-            <%= f.text_field :email, class: 'form-control input-lg', required: true %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :password %>
-            <%= f.text_field :password, class: 'form-control input-lg' %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :role %>
-            <%= f.select :role, ['consumer','retailer','wholesaler','underwriter'], {:include_blank => true}, {class: 'form-control input-lg floating-label', placeholder: 'Role' } %>
-        </div>
-    </div>
-    <% if current_user.admin? %>
-      <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-          <%= f.label :agency_id %>
-          <%= f.select :agency_id, Agency.order(:name).collect {|a| [ a.name, a.id ] }, {:include_blank => true}, {class: 'form-control input-lg floating-label', placeholder: 'Agency',  required: true }%>
-        </div>
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :password %>
+        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
       </div>
-    <% else %>
-      <%= f.text_field :agency_id, class: 'form-control input-lg hidden' %>
-    <% end %>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :facebook_user %>
-            <%= f.text_field :facebook_user, class: 'form-control input-lg' %>
-        </div>
     </div>
     <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :twitter_handle %>
-            <%= f.text_field :twitter_handle, class: 'form-control input-lg' %>
-        </div>
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
     </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :phone_number %>
-            <%= f.text_field :phone_number, class: 'form-control input-lg' %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :address_1 %>
-            <%= f.text_field :address_1, class: 'form-control input-lg' %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :address_2 %>
-            <%= f.text_field :address_2, class: 'form-control input-lg' %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :city %>
-            <%= f.text_field :city, class: 'form-control input-lg' %>
-        </div>
-    </div>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :state %>
-            <%= f.text_field :state, class: 'form-control input-lg' %>
-        </div>
-    </div>
+  </fieldset>
 
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-            <%= f.label :postal_code %>
-            <%= f.text_field :postal_code, class: 'form-control input-lg' %>
-        </div>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+  <br>
+  <h4>Cancel Account</h4>
+  <p>Unhappy? We'll be sad to see you go.</p>
+  <div class="form-actions">
+    <%= f.button :cancel, class: "btn btn-primary", :data => { :confirm => "Are you sure?" }, :method => :delete %>
+  </div>
 <% end %>
-<br>
+
+<%= content_for :body_end  do %>
+<script>
+$(function() {
+registerTabPanel('#user-tabs');
+});
+</script>
+<% end %>
+
+

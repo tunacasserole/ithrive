@@ -1,0 +1,40 @@
+<%= form_for(@profile, url: (@profile.new_record? ? profiles_path : profile_path(id: @profile.id)), method: (@profile.new_record? ? :post : :patch)) do |f| %>
+<h2>Maintain Account</h2>
+<p>Use this form to update your password or cancel your account</p>
+<br>
+<p>To change your current password, enter the new password below.</p>
+<div class="input-group m-b-20">
+  <span class="input-group-addon"></span>
+  <div class="fg-line">
+    <%= f.label :password %>
+    <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+  </div>
+</div>
+<div class="input-group m-b-20">
+  <span class="input-group-addon"></span>
+  <div class="fg-line">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<br>
+<h4>Cancel Account</h4>
+<p>Unhappy? We'll be sad to see you go.</p>
+<div class="form-actions">
+  <%= f.button :cancel, class: "btn btn-primary", :data => { :confirm => "Are you sure?" }, :method => :delete %>
+</div>
+<% end %>
+
+<%= content_for :body_end  do %>
+<script>
+  $(function() {
+    registerTabPanel('#profile-tabs');
+  });
+</script>
+<% end %>
+
+

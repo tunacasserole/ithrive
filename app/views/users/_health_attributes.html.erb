@@ -1,0 +1,36 @@
+<%= form_for(@health_attributes, url: (@health_attributes.new_record? ? profiles_path : profile_path(id: @health_attributes.id)), method: (@health_attributes.new_record? ? :post : :patch)) do |f| %>
+
+<% GlobalConstants::BOOLEAN_HEALTH_ATTRIBUTE_QUESTIONS.each do |q| %>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label q %>
+      <label class="radio radio-inline m-r-20">
+        <%= f.radio_button q, true %>
+        <i class="input-helper"></i>
+        Yes
+      </label>
+      <label class="radio radio-inline m-r-20">
+        <%= f.radio_button q, false %>
+        <i class="input-helper"></i>
+        No
+      </label>
+    </div>
+  </div>
+<% end %>
+
+<div class="form-actions">
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>
+
+
+<%= content_for :body_end  do %>
+<script>
+  $(function() {
+    registerTabPanel('#profile-tabs');
+  });
+</script>
+<% end %>
+
+

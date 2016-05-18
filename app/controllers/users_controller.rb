@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @profile = Profile.first
+    @health_attributes = HealthAttribute.first
   end
 
   # GET /users/new

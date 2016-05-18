@@ -13,13 +13,6 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'simple_form'
-gem 'nokogiri'
-gem 'mechanize'
-gem 'watir'
-gem 'watir-webdriver'
-gem 'headless'
-gem 'activeresource'
-gem 'rest_client'
 
 
 group :development do

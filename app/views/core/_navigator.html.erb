@@ -1,3 +1,4 @@
+        <% if user_signed_in? %>
 <aside id="sidebar" class="sidebar c-overflow">
   <ul class="main-menu">
     <div class="profile-menu">
@@ -10,10 +11,8 @@
     <li class="sub-menu" data-menu-id="my_settings">
       <a href=""><i class="zmdi zmdi-settings"></i>Settings</a>
       <ul>
-        <% if user_signed_in? %>
           <li><%= link_to("<i class='zmdi zmdi-assignment-account'></i> Profile".html_safe, edit_user_path(current_user, anchor: "tab-profile")) %></li>
           <li><%= link_to("<i class='zmdi zmdi-power'></i> Sign Out".html_safe, destroy_user_session_path, :method=>'delete') %></li>
-        <% end %>
       </ul>
     </li>
     <% if user_signed_in? %>
@@ -40,3 +39,4 @@
     <% end %>
   </ul>
 </aside>
+        <% end %>

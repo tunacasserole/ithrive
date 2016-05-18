@@ -5,11 +5,7 @@ Rails.application.routes.draw do
     # post 'users/admin_edit' => 'users#admin_edit'
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :quotes
-  get    'search',  to: 'search#execute'
   resources :users
+  resources :profiles
   resources :dashboard
-  resources :policies
-  resources :indications
-  resources :agencies
 end
