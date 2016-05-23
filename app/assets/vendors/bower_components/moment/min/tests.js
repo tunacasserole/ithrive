@@ -32682,7 +32682,7 @@
         assert.equal(moment('+002012-05-25', 'YYYYY-MM-DD', true).isValid(), true, 'valid six-digit year');
         assert.equal(moment('+2012-05-25', 'YYYYY-MM-DD', true).isValid(), false, 'invalid four-digit year');
 
-        //thse are kinda pointless, but they should work as expected
+        //thse are type_ofa pointless, but they should work as expected
         assert.equal(moment('1', 'S', true).isValid(), true, 'valid one-digit milisecond');
         assert.equal(moment('12', 'S', true).isValid(), false, 'invalid two-digit milisecond');
         assert.equal(moment('123', 'S', true).isValid(), false, 'invalid three-digit milisecond');

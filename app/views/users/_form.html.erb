@@ -1,53 +1,83 @@
 <%= form_for(@user, :as => @user, :url => registration_path(@user), :html => { :method => :put, :role => 'form'}) do |f| %>
-  <h2>Maintain Account</h2>
-  <p>Use this form to update your password or cancel your account</p>
-  <br>
-  <fieldset>
-    <div class="input-group m-b-20">
-        <span class="input-group-addon"></span>
-        <div class="fg-line">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control input-lg' %>
-        </div>
-        <%- if devise_mapping.confirmable? && @user.pending_reconfirmation? %>
-          <div>Currently awaiting confirmation for: <%= @user.unconfirmed_email %></div>
-        <% end %>
+<h2>Maintain Account</h2>
+<p>Use this form to update your password or cancel your account</p>
+<br>
+<fieldset>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control input-lg' %>
     </div>
-  </fieldset>
-  <fieldset>
-    <p>To change your current password, enter the new password below.</p>
-    <div class="input-group m-b-20">
-      <span class="input-group-addon"></span>
-      <div class="fg-line">
-        <%= f.label :password %>
-        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
-      </div>
+  </div>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control input-lg' %>
     </div>
-    <div class="input-group m-b-20">
-      <span class="input-group-addon"></span>
-      <div class="fg-line">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
+  </div>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>`
+    <div class="fg-line">
+      <%= f.label :sex, 'Sex' %>
+      <%= f.select :sex, GlobalConstants::GENDERS, { class: 'form-control input-lg select2' } %>
     </div>
-  </fieldset>
+  </div>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :age, 'Your current age (in years)' %>
+      <%= f.select :age, GlobalConstants::AGE_RANGES, { class: 'form-control input-lg select2' } %>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control input-lg' %>
+    </div>
+    <%- if devise_mapping.confirmable? && @user.pending_reconfirmation? %>
+    <div>Currently awaiting confirmation for: <%= @user.unconfirmed_email %></div>
+    <% end %>
+  </div>
+</fieldset>
+<fieldset>
+  <p>To change your current password, enter the new password below.</p>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :password %>
+      <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="input-group m-b-20">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+  </div>
+</fieldset>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-  <br>
-  <h4>Cancel Account</h4>
-  <p>Unhappy? We'll be sad to see you go.</p>
-  <div class="form-actions">
-    <%= f.button :cancel, class: "btn btn-primary", :data => { :confirm => "Are you sure?" }, :method => :delete %>
-  </div>
+<div class="form-actions">
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<br>
+<h4>Cancel Account</h4>
+<p>Unhappy? We'll be sad to see you go.</p>
+<div class="form-actions">
+  <%= f.button :cancel, class: "btn btn-primary", :data => { :confirm => "Are you sure?" }, :method => :delete %>
+</div>
 <% end %>
 
 <%= content_for :body_end  do %>
 <script>
-$(function() {
-registerTabPanel('#user-tabs');
-});
+  $(function() {
+    registerTabPanel('#user-tabs');
+  });
 </script>
 <% end %>
 

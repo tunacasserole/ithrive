@@ -1,35 +1,35 @@
 class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
   # has_many :user_action_steps, dependent: :destroy
   # has_many :action_steps, through: :user_action_steps
-  # has_many :filters_users, dependent: :destroy
-  # has_many :filters, through: :filters_users
+  has_many :filters_users, dependent: :destroy
+  has_many :filters, through: :filters_users
   # has_many :responses, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
-  validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  # validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-  validates :password, presence: true,
-                       confirmation: true,
-                       length: { within: 8..40 },
-                       on: :create
-  validates :password, confirmation: true,
-                       length: { within: 8..40 },
-                       allow_blank: true,
-                       on: :update
+  # validates :password, presence: true,
+  #                      confirmation: true,
+  #                      length: { within: 8..40 },
+  #                      on: :create
+  # validates :password, confirmation: true,
+  #                      length: { within: 8..40 },
+  #                      allow_blank: true,
+  #                      on: :update
 
-  validates :email, uniqueness: true
+  # validates :email, uniqueness: true
 
   validates_acceptance_of :terms_of_service_agreement,
     accept: true,
     message: 'must be accepted',
     on: :create
 
-  # before_create :create_profile
+  before_create :build_profile
 
 
   def name
@@ -104,18 +104,10 @@ class User < ActiveRecord::Base
 
 
   private
-    def build_default_profile
-    # build default profile instance. Will use default params.
-    # The foreign key to the owning User model is set automatically
-    # build_profile
-    true # Always return true in callbacks as the normal 'continue' state
-         # Assumes that the default_profile can **always** be created.
-         # or
-         # Check the validation of the profile. If it is not valid, then
-         # return false from the callback. Best to use a before_validation
-         # if doing this. View code should check the errors of the child.
-         # Or add the child's errors to the User model's error array of the :base
-         # error item
+    def build_profile
+
+
+      true
     end
 
 end

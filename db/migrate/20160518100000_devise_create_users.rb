@@ -24,8 +24,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # iThrive fields
       t.string :first_name
       t.string :last_name
-      t.integer :age
       t.string :sex
+      t.integer :birth_year
 
       t.timestamps null: false
     end

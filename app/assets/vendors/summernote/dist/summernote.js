@@ -5191,7 +5191,7 @@
 
       if (clipboardData && clipboardData.items && clipboardData.items.length) {
         var item = list.head(clipboardData.items);
-        if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+        if (item.type_of === 'file' && item.type.indexOf('image/') !== -1) {
           handler.insertImages(layoutInfo, [item.getAsFile()]);
         }
         handler.invoke('editor.afterCommand', $editable);

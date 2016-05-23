@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20160522060000) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
-    t.integer  "tenant_id_id", limit: 4
-    t.integer  "sequence",     limit: 4
+    t.integer  "tenant_id", limit: 4
     t.integer  "question_id",  limit: 4
+    t.integer  "sequence",     limit: 4
     t.string   "answer",       limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 20160522060000) do
     t.boolean  "terms_of_service_agreement"
     t.string   "first_name",                 limit: 255
     t.string   "last_name",                  limit: 255
-    t.integer  "age",                        limit: 4
     t.string   "sex",                        limit: 255
+    t.integer  "birth_year",                 limit: 4
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end

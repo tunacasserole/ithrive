@@ -1,47 +1,7 @@
-<% @profile = @user.profile %>
+<% @profile = @user.profile || Profile.new(user: @user) %>
 <%= form_for(@profile, url: (@profile.new_record? ? profiles_path : profile_path(id: @profile.id)), method: (@profile.new_record? ? :post : :patch)) do |f| %>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control input-lg' %>
-  </div>
-</div>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control input-lg' %>
-  </div>
-</div>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>`
-  <div class="fg-line">
-    <%= f.label :sex, 'Sex' %>
-    <%= f.select :sex, GlobalConstants::GENDERS, { class: 'form-control input-lg select2' } %>
-  </div>
-</div>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <%= f.label :age, 'Your current age (in years)' %>
-    <%= f.select :age, GlobalConstants::AGE_RANGES, { class: 'form-control input-lg select2' } %>
-  </div>
-</div>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <%= f.label :cancer_type, 'Cancer Type (most recent diagnosis if you have had more than one cancer diagnosis):' %>
-    <%= f.select :cancer_type, GlobalConstants::CANCER_TYPES, { class: 'form-control input-lg select2' } %>
-  </div>
-</div>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <%= f.label :time_since_diagnosis %>
-    <%= f.select :time_since_diagnosis, GlobalConstants::TIME_SINGE_DIAGNOSIS, { class: 'form-control input-lg select2' } %>
-  </div>
-</div>
+
+
 <h1> slider style </h1>
 <p> </p>
 <% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each_with_index do |q,i| %>

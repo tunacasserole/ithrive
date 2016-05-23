@@ -4,11 +4,11 @@ namespace :db do
   task seed: :environment do
     Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].each do |filename|
       puts "seeding - #{filename} for reals, yo!"
-      load(filename) #if File.exist?(filename)
+      load(filename)
     end
   end
 
-  task build: :environment do
+  task rebuild: :environment do
     Rake::Task["db:drop"].invoke
     Rake::Task["db:create"].invoke
     Rake::Task["db:migrate"].invoke

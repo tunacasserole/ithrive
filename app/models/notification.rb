@@ -8,7 +8,7 @@ class Notification < ActiveRecord::Base
 
   scope :unread, -> { where(state: 'new') }
   scope :sorted, -> { order(created_at: :desc) }
-  scope :broadcast, -> { where(kind: 'broadcast') }
+  scope :broadcast, -> { where(type_of: 'broadcast') }
 
   def short_content
     self.content.truncate 30, :separator => /\w/
@@ -37,7 +37,7 @@ class Notification < ActiveRecord::Base
   def broadcast
     if self.user_id.nil?
       User.all.each do |u|
-        Notification.create(user_id: u.id, kind: 'broadcast', state: 'new', content: self.content)
+        Notification.create(recipient: u, type_of: 'broadcast', state: 'new', content: self.content)
       end
     end
   end

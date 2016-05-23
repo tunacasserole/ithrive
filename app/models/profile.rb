@@ -12,7 +12,7 @@ class Profile < ActiveRecord::Base
   protected
     def notify
       recipients.each do |r|
-        Notification.create(user_id: r.id, thriver_id: self.user.id, kind: 'health_attribute', content: self.health_attribute.notify_text)
+        Notification.create(recipient: r, thriver_id: self.user.id, type_of: 'health_attribute', content: self.health_attribute.notify_text)
       end
     end
 
