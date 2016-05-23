@@ -20,8 +20,9 @@ class SeedHealthAttributes < ActiveRecord::Migration
     :has_lower_than_desired_sexual_desire,
     :intercourse_is_painful,
     :has_insufficient_social_support,
-    :experiences_diarrhea].each_with_index do |q,i|
+    :experiences_diarrhea]
 
-      HealthAttribute.create(name: q, sequence: i)
+    BOOLEAN_HEALTH_ATTRIBUTE_QUESTIONS.each_with_index do |q,i|
+      Question.create(name: q, sequence: i*10, type_of: 'health-attribute')
     end
 end

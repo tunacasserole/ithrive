@@ -7,7 +7,7 @@ class CreateEmailMessages < ActiveRecord::Migration
     t.string :bcc
     t.string :subject
     t.string :body
-    t.string :kind
+    t.string :type
     t.string :state
     t.timestamps null: false
   end
