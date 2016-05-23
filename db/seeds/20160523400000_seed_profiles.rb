@@ -5,7 +5,7 @@ class SeedUserProfiles < ActiveRecord::Migration
       # u=User.first
       # q=Question.first
       # p=Profile.create( user_id: u, question_id: q.id, answer: (i.even? ? true : false) )
-      Profile.create( user_id: u, question_id: q.id, answer: (i.even? ? true : false) )
+      Profile.create( user_id: u.id, question_id: q.id, sequence: i, answer: (i.even? ? true : false) )
     end
   end
 end
