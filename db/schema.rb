@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160522195901) do
     t.string   "bcc",        limit: 255
     t.string   "subject",    limit: 255
     t.string   "body",       limit: 255
-    t.string   "type",       limit: 255
+    t.string   "type_of",       limit: 255
     t.string   "state",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160522195901) do
     t.string   "bcc",        limit: 255
     t.string   "subject",    limit: 255
     t.string   "body",       limit: 255
-    t.string   "type",       limit: 255
+    t.string   "type_of",       limit: 255
     t.string   "state",      limit: 255
     t.boolean  "is_default"
     t.datetime "created_at",             null: false

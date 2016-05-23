@@ -10,6 +10,7 @@ class CreateQuestions < ActiveRecord::Migration
     t.string :recipients
     t.boolean :do_notify
     t.boolean :is_filter
+    t.boolean :is_required
     t.timestamps null: false
   end
 

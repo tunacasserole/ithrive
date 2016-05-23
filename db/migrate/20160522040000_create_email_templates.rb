@@ -8,7 +8,7 @@ class CreateEmailTemplates < ActiveRecord::Migration
     t.string :bcc
     t.string :subject
     t.string :body
-    t.string :type
+    t.string :type_of
     t.string :state
     t.boolean :is_default
     t.timestamps null: false

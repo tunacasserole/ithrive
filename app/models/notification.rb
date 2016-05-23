@@ -1,7 +1,7 @@
 class Notification < ActiveRecord::Base
   has_one :sender, :class_name => "User", :foreign_key => "sender_id"
   has_one :recipient, :class_name => "User", :foreign_key => "recipient_id"
-  has_one :requester, :class_name => "User", :foreign_key => "requester_id"
+  has_one :thriver, :class_name => "User", :foreign_key => "thriver_id"
 
   after_initialize :defaults
   after_save :broadcast
