@@ -1,11 +1,9 @@
-<% @profile = @user.profile || Profile.new(user: @user) %>
-<%= form_for(@profile, url: (@profile.new_record? ? profiles_path : profile_path(id: @profile.id)), method: (@profile.new_record? ? :post : :patch)) do |f| %>
-
+<%= form_for(@user, url: (@user.new_record? ? users_path : user_path(id: @user.id)), method: (@user.new_record? ? :post : :patch)) do |f| %>
 
 <h1> slider style </h1>
 <p> </p>
-<% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each_with_index do |q,i| %>
-<% if i < 8 %>
+<% @user.profiles.each_with_index do |q,i| %>
+<% if i < 8 and q.question.type_of == 'profile' %>
 <div class="input-group m-b-20">
   <span class="input-group-addon"></span>
   <div class="fg-line">
@@ -24,8 +22,8 @@
 
 
 <h1> radio button style </h1>
-<% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each_with_index do |q,i| %>
-<% if i < 8 %>
+<% @user.profiles.each_with_index do |q,i| %>
+<% if i < 8 and q.question.type_of == 'profile' %>
 <div class="input-group m-b-20">
   <span class="input-group-addon"></span>
   <div class="fg-line">

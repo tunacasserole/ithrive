@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20160522060000) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
-    t.integer  "tenant_id", limit: 4
-    t.integer  "question_id",  limit: 4
+    t.integer  "tenant_id_id", limit: 4
     t.integer  "sequence",     limit: 4
+    t.integer  "question_id",  limit: 4
     t.string   "answer",       limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

@@ -4,8 +4,8 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @users = User.all.reverse_order
-    @profiles = Profile.all.name_sort
+    @users = User.all.name_sort
+    @profiles = Profile.all
     @notification = User.current.notifications.broadcast.unread.first
   end
 

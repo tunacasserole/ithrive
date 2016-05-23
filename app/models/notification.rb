@@ -10,7 +10,7 @@ class Notification < ActiveRecord::Base
   scope :sorted, -> { order(created_at: :desc) }
   scope :broadcast, -> { where(type_of: 'broadcast') }
 
-  def short_content
+  def short_body
     self.content.truncate 30, :separator => /\w/
   end
 

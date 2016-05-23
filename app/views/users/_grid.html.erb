@@ -23,15 +23,15 @@
     <table id="users-grid" class="table table-hover">
       <thead>
         <tr>
-          <th data-column-id="agencyName">Name</th>
-          <th data-column-id="agencyName">Email</th>
+          <th data-column-id="Name">Name</th>
+          <th data-column-id="Email">Email</th>
         </tr>
       </thead>
       <tbody>
-        <% @profiles.each do |profile| %>
+        <% @users.each do |user| %>
         <tr>
-          <td class="f-500 c-cyan"><%= link_to "#{profile.display_name}", edit_profile_path(profile) %></td>
-          <td><%= profile.user.email %></td>
+          <td class="f-500 c-cyan"><%= link_to "#{user.display_name}", edit_user_path(user) %></td>
+          <td><%= user.email %></td>
         </tr>
         <% end %>
       </tbody>

@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
+  has_many :profiles, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
   # has_many :user_action_steps, dependent: :destroy
   # has_many :action_steps, through: :user_action_steps
@@ -31,6 +30,7 @@ class User < ActiveRecord::Base
 
   before_create :build_profile
 
+  scope :name_sort, -> { order(last_name: :asc, first_name: :asc) }
 
   def name
     self.profile.display_name
@@ -100,6 +100,10 @@ class User < ActiveRecord::Base
 
   def mark_all_as_read
     self.notifications.each {|n| n.mark_as_read }
+  end
+
+  def display_name
+    "#{last_name}, #{first_name}"
   end
 
 

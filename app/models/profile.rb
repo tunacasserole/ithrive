@@ -3,16 +3,10 @@ class Profile < ActiveRecord::Base
 
   after_save :notify, if: :notifiable?
 
-  scope :name_sort, -> { order(last_name: :asc, first_name: :asc) }
-
-  def display_name
-    "#{last_name}, #{first_name}"
-  end
-
   protected
     def notify
       recipients.each do |r|
-        Notification.create(recipient: r, thriver_id: self.user.id, type_of: 'health_attribute', content: self.health_attribute.notify_text)
+        Notification.create(recipient: r, thriver_id: self.user.id, type_of: 'health_alert', content: self.question.notify_text)
       end
     end
 
@@ -21,7 +15,7 @@ class Profile < ActiveRecord::Base
     end
 
     def notifiable?
-      self.answer == true && self.health_attribute.notify
+      self.answer == true && self.question.notify
     end
 end
 

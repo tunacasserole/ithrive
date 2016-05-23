@@ -36,25 +36,23 @@
       <tbody>
         <% User.current.notifications.sorted.each do |notification| %>
         <% if notification.read? %>
-        <tr class="p-t-25"><span><td><div class="col-sm-4" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-circle-o"></i></p></div></td></span>
-          <% else %>
+          <tr class="p-t-25"><span><td><div class="col-sm-4" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-circle-o"></i></p></div></td></span>
+        <% else %>
           <tr class="c-black p-t-25"><span><td><div class="col-sm-4" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-dot-circle"></i></p></div></td></span>
             <% end %>
 
             <td class="f-500 c-cyan">
-            <a class="email-button btn bgm-lightblue btn-icon waves-effect waves-circle waves-float" href="<%= new_email_message_path %>">
-              <i class="zmdi zmdi-email"></i>
-            </a>
-
+              <a class="email-button btn bgm-lightblue btn-icon waves-effect waves-circle waves-float" href="<%= new_email_message_path %>">
+                <i class="zmdi zmdi-email"></i>
+              </a>
             </td>
             <span class="col-sm-4" ><td><%= notification.received %></td></span>
             <span><td><%= notification.subject_display %></td></span>
             <td><%= notification.content %></td>
           </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

@@ -23,10 +23,10 @@
   <div class="pmo-block pmo-contact hidden-xs c-white">
     <h2 class="c-white">Contact</h2>
     <ul>
-      <% if @user.profile %>
+      <% if @user %>
         <li><i class="zmdi zmdi-face"></i>
-          <%= @user.profile.first_name %>
-          <%= @user.profile.last_name %>
+          <%= @user.first_name %>
+          <%= @user.last_name %>
         </li>
         <li><i class="zmdi zmdi-email"></i> <%= @user.email %></li>
       <% end %>
@@ -35,14 +35,14 @@
     <br>
     <h2 class="c-white">Profile</h2>
      <ul>
-      <% if @user.profile %>
+      <% if @user %>
         <li><i class="zmdi zmdi-face"></i>
           Age
-          <%= @user.profile.age %>
+          <%= @user.birth_year %>
         </li>
         <li><i class="zmdi zmdi-face"></i>
           Sex
-          <%= @user.profile.sex %>
+          <%= @user.sex %>
         </li>
       <% end %>
     </ul>
