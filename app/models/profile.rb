@@ -1,11 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
 
-  belongs_to :user
-  belongs_to :health_attribute
-
-  after_create :notify, if: :notifiable?
-  after_update :notify, if: :notifiable?
+  after_save :notify, if: :notifiable?
 
   scope :name_sort, -> { order(last_name: :asc, first_name: :asc) }
 

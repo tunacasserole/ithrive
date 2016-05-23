@@ -1,4 +1,4 @@
-class SeedHealthAttributes < ActiveRecord::Migration
+class SeedQuestions < ActiveRecord::Migration
   BOOLEAN_HEALTH_ATTRIBUTE_QUESTIONS = [
     :experiences_joint_pain,
     :feel_distressed,

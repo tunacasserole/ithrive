@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
-  has_many :user_health_attributes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   # has_many :user_action_steps, dependent: :destroy
   # has_many :action_steps, through: :user_action_steps
@@ -30,52 +29,46 @@ class User < ActiveRecord::Base
     message: 'must be accepted',
     on: :create
 
-  before_create :create_profile
-  after_create :create_health_attribute
+  # before_create :create_profile
 
 
   def name
     self.profile.display_name
   end
 
-  def create_health_attribute
-    ha = self.user_health_attributes.create
-    ha.save(validate: false)
-  end
-
   def profile_completed?
     !profile.nil?
   end
 
-  def onboarding_completed?
-    profile_completed? && health_attributes_completed? && first_survey_submitted?
-  end
+  # def onboarding_completed?
+  #   profile_completed? && health_attributes_completed? && first_survey_submitted?
+  # end
 
-  def health_attributes_completed?
-    health_attributes.any?
-  end
+  # def health_attributes_completed?
+  #   health_attributes.any?
+  # end
 
-  def first_survey_submitted?
-    responses.any?
-  end
+  # def first_survey_submitted?
+  #   responses.any?
+  # end
 
-  def latest_response
-    responses.last
-  end
+  # def latest_response
+  #   responses.last
+  # end
 
-  def current_top_recommendations
-    return [] unless latest_response.present?
+  # def current_top_recommendations
+  #   return [] unless latest_response.present?
 
-    top_recs = latest_response.top_recommendations.map(&:action_step)
-    top_recs - active_action_steps
-  end
+  #   top_recs = latest_response.top_recommendations.map(&:action_step)
+  #   top_recs - active_action_steps
+  # end
 
-  def current_additional_recommendations
-    return [] unless latest_response.present?
+  # def current_additional_recommendations
+  #   return [] unless latest_response.present?
 
-    current_recs = latest_response.additional_recommendations.map(&:action_step)
-    current_recs - active_action_steps
-  end
+  #   current_recs = latest_response.additional_recommendations.map(&:action_step)
+  #   current_recs - active_action_steps
+  # end
 
   def active_user_action_steps
     user_action_steps.active
@@ -114,7 +107,7 @@ class User < ActiveRecord::Base
     def build_default_profile
     # build default profile instance. Will use default params.
     # The foreign key to the owning User model is set automatically
-    build_profile
+    # build_profile
     true # Always return true in callbacks as the normal 'continue' state
          # Assumes that the default_profile can **always** be created.
          # or

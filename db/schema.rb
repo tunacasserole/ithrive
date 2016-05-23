@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522195901) do
+ActiveRecord::Schema.define(version: 20160522060000) do
 
   create_table "email_messages", force: :cascade do |t|
     t.integer  "tenant_id",  limit: 4
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160522195901) do
     t.string   "bcc",        limit: 255
     t.string   "subject",    limit: 255
     t.string   "body",       limit: 255
-    t.string   "type_of",       limit: 255
+    t.string   "type_of",    limit: 255
     t.string   "state",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160522195901) do
     t.string   "bcc",        limit: 255
     t.string   "subject",    limit: 255
     t.string   "body",       limit: 255
-    t.string   "type_of",       limit: 255
+    t.string   "type_of",    limit: 255
     t.string   "state",      limit: 255
     t.boolean  "is_default"
     t.datetime "created_at",             null: false
@@ -77,25 +77,9 @@ ActiveRecord::Schema.define(version: 20160522195901) do
     t.string   "recipients",  limit: 255
     t.boolean  "do_notify"
     t.boolean  "is_filter"
+    t.boolean  "is_required"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.integer  "user_id",         limit: 4
-    t.integer  "survey_id",       limit: 4
-    t.text     "response_record", limit: 65535, null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  add_index "responses", ["survey_id"], name: "index_responses_on_survey_id", using: :btree
-  add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
-
-  create_table "surveys", force: :cascade do |t|
-    t.text     "schema",     limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,6 +106,4 @@ ActiveRecord::Schema.define(version: 20160522195901) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "profiles", "users"
-  add_foreign_key "responses", "surveys"
-  add_foreign_key "responses", "users"
 end

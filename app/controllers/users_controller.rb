@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @health_attributes = HealthAttribute.all
-    @user_health_attributes = User.current.user_health_attributes
+    # @health_attributes = HealthAttribute.all
+    # @user_health_attributes = User.current.user_health_attributes
   end
 
   # GET /users/new
@@ -19,11 +19,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # GET /users/login
+  def login
+    sign_in(User.current) unless User.current
+    redirect_to 'devise/sessions#new'
+  end
+
   # GET /users/1/edit
   def edit
     @user = User.current
-    @health_attributes = HealthAttribute.all
-    @user_health_attributes = @user.user_health_attributes
+    # @health_attributes = HealthAttribute.all
+    # @user_health_attributes = @user.user_health_attributes
     @user.notifications.update_all(:state => 'read')
   end
 
