@@ -1,3 +1,4 @@
+<% @profile = @user.profile %>
 <%= form_for(@profile, url: (@profile.new_record? ? profiles_path : profile_path(id: @profile.id)), method: (@profile.new_record? ? :post : :patch)) do |f| %>
 <div class="input-group m-b-20">
   <span class="input-group-addon"></span>
@@ -41,24 +42,47 @@
     <%= f.select :time_since_diagnosis, GlobalConstants::TIME_SINGE_DIAGNOSIS, { class: 'form-control input-lg select2' } %>
   </div>
 </div>
-
-<% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each do |q| %>
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"></span>
-    <div class="fg-line">
-      <%= f.label q %>
-      <label class="radio radio-inline m-r-20">
-        <%= f.radio_button q, true %>
-        <i class="input-helper"></i>
-        Yes
-      </label>
-      <label class="radio radio-inline m-r-20">
-        <%= f.radio_button q, false %>
-        <i class="input-helper"></i>
-        No
-      </label>
+<h1> slider style </h1>
+<p> </p>
+<% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each_with_index do |q,i| %>
+<% if i < 8 %>
+<div class="input-group m-b-20">
+  <span class="input-group-addon"></span>
+  <div class="fg-line">
+    <span style="padding-right: 10px;">no</span>
+    <div class="toggle-switch" data-ts-color="blue">
+      <input id= <%= i %> type="checkbox" hidden="hidden">
+      <label for=<%= i %> class="ts-helper"></label>
+      <label for=<%= i %> class="ts-label" style="padding-left: 10px;">yes</label>
+      <label for=<%= i %> class="ts-label" style="padding-left: 10px;"><%= f.label q %></label>
     </div>
+
   </div>
+</div>
+<% end %>
+<% end %>
+
+
+<h1> radio button style </h1>
+<% GlobalConstants::BOOLEAN_PROFILE_QUESTIONS.each_with_index do |q,i| %>
+<% if i < 8 %>
+<div class="input-group m-b-20">
+  <span class="input-group-addon"></span>
+  <div class="fg-line">
+    <label class="radio radio-inline m-r-20">
+      <%= f.radio_button q, false %>
+      <i class="input-helper"></i>
+      No
+    </label>
+    <label class="radio radio-inline m-r-20">
+      <%= f.radio_button q, true %>
+      <i class="input-helper"></i>
+      Yes
+    </label>
+    <%= f.label q %>
+  </div>
+</div>
+<% end %>
 <% end %>
 
 <div class="form-actions">

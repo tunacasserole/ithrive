@@ -1,27 +1,20 @@
-<%= form_for(@health_attributes, url: (@health_attributes.new_record? ? profiles_path : profile_path(id: @health_attributes.id)), method: (@health_attributes.new_record? ? :post : :patch)) do |f| %>
+<% @user_health_attributes.each_with_index do |uha, i| %>
+<div class="input-group m-b-20">
+  <span class="input-group-addon"></span>
+  <div class="fg-line">
+    <span style="padding-right: 10px;">no</span>
+    <div class="toggle-switch" data-ts-color="blue">
 
-<% GlobalConstants::BOOLEAN_HEALTH_ATTRIBUTE_QUESTIONS.each do |q| %>
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"></span>
-    <div class="fg-line">
-      <%= f.label q %>
-      <label class="radio radio-inline m-r-20">
-        <%= f.radio_button q, true %>
-        <i class="input-helper"></i>
-        Yes
-      </label>
-      <label class="radio radio-inline m-r-20">
-        <%= f.radio_button q, false %>
-        <i class="input-helper"></i>
-        No
-      </label>
+      <%= form_for(uha, url: (uha.new_record? ? uhas_path : user_health_attribute_path(id: uha.id)), method: (uha.new_record? ? :post : :patch)) do |f| %>
+      <input id= f.answer type="checkbox" checked="true" hidden="hidden">
+      <label for=f.answer class="ts-helper"></label>
+      <label for=f.answer class="ts-label" style="padding-left: 10px;">yes </label>
+      <span> <%= uha.health_attribute.name.humanize %>: </span>
+      <% end %>
     </div>
   </div>
-<% end %>
-
-<div class="form-actions">
-  <%= f.button :submit, class: "btn btn-primary" %>
 </div>
+
 <% end %>
 
 

@@ -2,7 +2,7 @@
 
 ## 3.1.13
 
-* Update copyright notice and license to remove years
+* Update copyright notification and license to remove years
 * Create the correct compressed version
 * Remove the obsolete jQuery Plugin Registry file
 

@@ -1,0 +1,26 @@
+<% @notification = Notification.new %>
+<%= form_for(@notification, url: notifications_path, method: :post) do |f| %>
+  <div class="card wall-posting">
+    <div class="card-body card-padding">
+
+      <%= f.text_area :content, :cols => 5, :rows => 3, :class => 'wp-text', :placeholder => "Broadcast a message to your Thrivers..." %>
+      <div class="tab-content p-0">
+        <div class="wp-media tab-pane" id="wpm-link">
+          Links - Coming soon...
+        </div>
+      </div>
+    </div>
+
+    <ul class="list-unstyled clearfix wpb-actions">
+      <li class="wpba-attrs">
+        <ul class="list-unstyled list-inline m-l-0 m-t-5">
+          <li><a data-wpba="link" data-toggle="tab" href="" data-target="#wpm-link"><i class="zmdi zmdi-link"></i></a></li>
+        </ul>
+      </li>
+
+      <li class="pull-right" >
+        <%= f.submit 'Post', class: "btn btn-primary btn-sm waves-effect", style: "background-color: crimson" %>
+      </li>
+    </ul>
+  </div>
+<% end %>

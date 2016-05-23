@@ -20,6 +20,9 @@ class Profile < ActiveRecord::Base
 
   after_save :update_user_filters
 
+  scope :name_sort, -> { order(last_name: :asc, first_name: :asc) }
+
+
   FILTERABLE_ATTRIBUTES = %w(
     received_chemotherapy
     received_radiation_therapy
@@ -40,4 +43,7 @@ class Profile < ActiveRecord::Base
     # FilterUpdater.new(FILTERABLE_ATTRIBUTES, self, user).run
   end
 
+  def display_name
+    "#{last_name}, #{first_name}"
+  end
 end

@@ -9,7 +9,7 @@
           <button class="btn bgm-green btn-float"><i class="zmdi zmdi-mail-send"></i></button>
         </div>
       </div>
-      <% if @user == current_user %>
+      <% if @user == User.current %>
         <a data-toggle="modal" href="#users-avatar-gallery" class="pmop-edit">
           <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
         </a>
@@ -24,16 +24,25 @@
     <h2 class="c-white">Contact</h2>
     <ul>
       <% if @user.profile %>
-        <li><i class="zmdi zmdi-phone"></i> <%= @user.profile.first_name %></li>
-        <li><i class="zmdi zmdi-phone"></i> <%= @user.profile.last_name %></li>
-        <li><i class="zmdi zmdi-email"></i> <%= @user.profile.age %></li>
-        <li>
-          <i class="zmdi zmdi-pin"></i>
-          <address class="m-b-0 ng-binding">
-            stuff <br>
-            stuff <br>
-            stuff <br>
-          </address>
+        <li><i class="zmdi zmdi-face"></i>
+          <%= @user.profile.first_name %>
+          <%= @user.profile.last_name %>
+        </li>
+        <li><i class="zmdi zmdi-email"></i> <%= @user.email %></li>
+      <% end %>
+    </ul>
+    <br>
+    <br>
+    <h2 class="c-white">Profile</h2>
+     <ul>
+      <% if @user.profile %>
+        <li><i class="zmdi zmdi-face"></i>
+          Age
+          <%= @user.profile.age %>
+        </li>
+        <li><i class="zmdi zmdi-face"></i>
+          Sex
+          <%= @user.profile.sex %>
         </li>
       <% end %>
     </ul>

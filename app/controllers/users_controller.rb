@@ -4,14 +4,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @profiles = Profile.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @profile = Profile.first
-    @health_attributes = HealthAttribute.first
+    @health_attributes = HealthAttribute.all
+    @user_health_attributes = User.current.user_health_attributes
   end
 
   # GET /users/new
@@ -21,7 +21,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    @user = User.current
+    @health_attributes = HealthAttribute.all
+    @user_health_attributes = @user.user_health_attributes
+    @user.notifications.update_all(:state => 'read')
   end
 
   # POST /users

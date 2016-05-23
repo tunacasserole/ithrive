@@ -44,5 +44,5 @@ proto.localeData     = localeData;
 // Deprecations
 import { deprecate } from '../utils/deprecate';
 
-proto.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', toISOString);
+proto.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notification the capitals)', toISOString);
 proto.lang = lang;

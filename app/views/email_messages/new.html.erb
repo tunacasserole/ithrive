@@ -1,0 +1,33 @@
+<section id="content">
+  <div class="container">
+    <% if @email_message.errors.count > 0 %>
+      <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>Oops!</h4>
+          <% @email_message.errors.full_messages.each do |e| %>
+            <p id="notice"><%= e %></p>
+          <% end %>
+      </div>
+    <% end %>
+
+    <div class="block-header">
+      <h2>New Email Message<small>This form allows you to email any participant</small></h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body p-25">
+            <%= render partial: 'form' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Creating Email Messages</h5>
+        <p>Select your template, then email the participant.</p>
+        <h6>Customize or Create new templates</h6>
+        <p>If you don't see an acceptible template, create your own.</p>
+      </div>
+    </div>
+  </div>
+</section>

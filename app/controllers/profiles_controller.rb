@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to dashboard_path(1), notice: 'User was successfully updated.' }
+        format.html { redirect_to dashboard_path(1), notification: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   def destroy
     @profile.destroy
     respond_to do |format|
-      format.html { redirect_to profiles_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to profiles_url, notification: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -52,6 +52,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:email, :password, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :name, :role, :agency_id, :foreign_creds, :facebook_profile, :twitter_handle, :address_1, :address_2, :city, :state, :postal_code, :phone_number)
+      params.require(:profile).permit(:first_name, :last_name, :user_id, :age, :cancer_type, :sex, :time_since_diagnosis, :received_chemotherapy, :received_radiation_therapy, :active_cancer, :metastatic_cancer, :receiving_cancer_treatment, :has_kidney_disease, :has_liver_disease, :has_congestive_heart_failure, :has_atrial_fibrillation, :has_dementia, :cannot_maintain_balance, :has_diabetes, :increased_bowel_obstruction_risk)
     end
 end

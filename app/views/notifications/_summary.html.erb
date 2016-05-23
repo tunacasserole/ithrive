@@ -1,0 +1,61 @@
+<% unread_notifications = User.current.notifications.unread %>
+<li class="dropdown">
+  <a data-toggle="dropdown" href="">
+    <i class="tm-icon zmdi zmdi-notifications"></i>
+    <% if unread_notifications.count > 0  %>
+      <% @notification = unread_notifications.first %>
+    <i class="tmn-counts"><%= unread_notifications.count %></i>
+    <% end %>
+  </a>
+  <div class="dropdown-menu dropdown-menu-lg pull-right">
+    <div class="listview" id="notifications">
+      <div class="lv-header">
+        Notifications
+        <ul class="actions">
+          <li class="dropdown">
+          <%= link_to notifications_path do %>
+              <i class="zmdi zmdi-check-all"></i>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="lv-body">
+        <% User.current.notifications.sorted.each_with_index do |n,i| %>
+          <% if i < 10 %>
+            <a class="lv-item" href="<%= notifications_path %>">
+              <div class="media">
+                <div class="pull-left p-r-5">
+                  <% if n.read? %>
+                    <tr>
+                      <span>
+                        <td>
+                          <div class="col-sm-4 p-t-10 p-l-0" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-circle-o"></i></p></div>
+                        </td>
+                      </span>
+                  <% else %>
+                    <tr class="c-black">
+                      <span>
+                        <td>
+                          <div class="col-sm-4 p-t-10 p-l-0" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-dot-circle"></i></p></div>
+                        </td>
+                      </span>
+                  <% end %>
+                  <img class="lv-img-sm p-l-0" src= <%= asset_path("profile-pics/#{rand(1..4)}.jpg") %>  alt="">
+                </div>
+                <div class="media-body p-l-0">
+                  <div class="lv-title"><%= n.subject_display %>
+                  </div>
+                  <small class="lv-small"><%= n.short_content %></small>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        <% end %>
+      </div>
+      <div class='lv-footer' style='color:royalblue'>
+        <%= link_to 'view all', notifications_path %>
+      </div>
+    </div>
+
+  </div>
+</li>

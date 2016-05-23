@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
-  has_many :health_attributes, dependent: :destroy
+  has_many :user_health_attributes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   # has_many :user_action_steps, dependent: :destroy
   # has_many :action_steps, through: :user_action_steps
   # has_many :filters_users, dependent: :destroy
@@ -33,8 +34,12 @@ class User < ActiveRecord::Base
   after_create :create_health_attribute
 
 
+  def name
+    self.profile.display_name
+  end
+
   def create_health_attribute
-    ha = self.health_attributes.create
+    ha = self.user_health_attributes.create
     ha.save(validate: false)
   end
 
@@ -95,6 +100,15 @@ class User < ActiveRecord::Base
   def admin?
     return ['aaron@buildit.io','jason@buildit.io'].include? self.email
   end
+
+  def self.current
+    User.find_by_email 'aaron@buildit.io'
+  end
+
+  def mark_all_as_read
+    self.notifications.each {|n| n.mark_as_read }
+  end
+
 
   private
     def build_default_profile

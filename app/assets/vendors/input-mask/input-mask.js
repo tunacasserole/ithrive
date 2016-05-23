@@ -18,7 +18,7 @@
  * Software is furnished to do so, subject to the following
  * conditions:
  *
- * The above copyright notice and this permission notice shall be
+ * The above copyright notification and this permission notification shall be
  * included in all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -80,12 +80,12 @@
                     sel = dSel.createRange ();
                     sel.moveStart ('character', -ctrl.value.length);
                     pos = sel.text.length;
-                } 
+                }
                 // Firefox support
                 else if (cSelStart || cSelStart === '0') {
                     pos = cSelStart;
                 }
-                
+
                 return pos;
             },
             setCaret: function(pos) {
@@ -118,23 +118,23 @@
             },
             val: function(v) {
                 var isInput = el.get(0).tagName.toLowerCase() === "input";
-                return arguments.length > 0 
-                    ? (isInput ? el.val(v) : el.text(v)) 
+                return arguments.length > 0
+                    ? (isInput ? el.val(v) : el.text(v))
                     : (isInput ? el.val() : el.text());
             },
             behaviour: function(e) {
                 e = e || window.event;
                 if ($.inArray(e.keyCode || e.which, jMask.byPassKeys) === -1) {
-                    
+
                     var changeCaret, caretPos = p.getCaret();
                     if (caretPos < p.val().length) {
                         changeCaret = true;
                     }
-                    
+
                     p.val(p.getMasked());
-                    
+
                     if (changeCaret) {
-                        p.setCaret(caretPos);     
+                        p.setCaret(caretPos);
                     }
 
                     return p.callbacks(e);
@@ -195,7 +195,7 @@
                         if (!skipMaskChars) {
                             buf[addMethod](maskDigit);
                         }
-                        
+
                         if (valDigit === maskDigit) {
                             v += offset;
                         }
@@ -203,12 +203,12 @@
                         m += offset;
                     }
                 }
-                
+
                 var lastMaskCharDigit = mask.charAt(lastMaskChar);
                 if (maskLen === valLen + 1 && !jMask.translation[lastMaskCharDigit]) {
                     buf.push(lastMaskCharDigit);
                 }
-                
+
                 return buf.join("");
             },
             callbacks: function (e) {

@@ -10,14 +10,14 @@
               Profile
             </a>
           </li>
-          <li role="presentation">
+          <li role="presentation" >
             <a class="col-sx-4" href="#tab-health-attributes" aria-controls="tab-1" role="tab" data-toggle="tab">
               Health Attributes
             </a>
           </li>
           <li role="presentation">
-            <a class="col-sx-4" href="#tab-strengths-assessment" aria-controls="tab-1" role="tab" data-toggle="tab">
-              Strengths Assessment
+            <a class="col-sx-4" href="#tab-notifications" aria-controls="tab-1" role="tab" data-toggle="tab">
+              Notifications
             </a>
           </li>
           <li role="presentation">
@@ -28,8 +28,8 @@
         </ul>
         <div class="tab-content" style="min-height: 600px; padding-left: 20px;">
           <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-profile"><%= render partial: "users/profile", locals: { user: @user } %></div>
-          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-health-attributes"><%= render partial: "users/health_attributes", locals: { user: @user } %>```</div>
-          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-strengths-assessment"><%= render partial: "users/strengths_assessment", locals: { user: @user } %></div>
+          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-health-attributes"><%= render partial: "users/health_attributes", locals: { user: @user } %></div>
+          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-notifications"><%= render partial: "notifications/grid", locals: { user: @user } %></div>
           <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-account-maintenance"><%= render partial: "devise/registrations/form", locals: { user: @user } %></div>
         </div>
       </div>

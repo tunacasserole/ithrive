@@ -1,0 +1,48 @@
+<%= simple_form_for(@email_message) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="input-group m-b-10">
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :to %>
+        <%= f.text_field :to, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-inputs">
+    <div class="input-group m-b-10">
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :cc %>
+        <%= f.text_field :cc, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-inputs">
+    <div class="input-group m-b-10">
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :subject %>
+        <%= f.text_field :subject, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-inputs">
+    <div class="input-group m-b-10">
+      <span class="input-group-addon"></span>
+      <div class="fg-line">
+        <%= f.label :body %>
+        <%= f.text_area(:body, placeholder: 'Say Something...', class: 'form-control auto-size', :rows => 10, :cols => 25 ) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>

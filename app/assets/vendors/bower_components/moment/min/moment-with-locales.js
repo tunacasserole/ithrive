@@ -3134,7 +3134,7 @@
     duration_prototype__proto.localeData     = localeData;
 
     // Deprecations
-    duration_prototype__proto.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', iso_string__toISOString);
+    duration_prototype__proto.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notification the capitals)', iso_string__toISOString);
     duration_prototype__proto.lang = lang;
 
     // Side effect imports

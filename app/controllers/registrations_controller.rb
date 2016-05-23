@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     respond_to do |format|
       if @user.update(account_update_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notification: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new(sign_up_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notification: 'User was successfully created.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

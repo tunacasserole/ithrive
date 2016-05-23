@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="container-fluid">
+    <div class="card-header m-b-20 bgm-blue">
+      <h2>Manage Notifications <small>Notifications appear when thrivers answer yes to particular health profile questions.</small></h2>
+      <a href="<%= new_notification_path %>">
+        <button class="btn bgm-orange btn-float waves-effect"><i class="zmdi zmdi-plus"></i></button>
+      </a>
+    </div>
+  </div>
+
+  <div id="data-table-basic-header" class="bootgrid-header container-fluid">
+    <div class="row">
+      <div class="col-sm-12 actionBar">
+        <div class="ha-search">
+          <%= button_tag(type: 'submit', name: nil, class: "btn bgm-orange btn-float waves-effect") do %><i class="zmdi zmdi-search"></i><% end %>
+          <div class="fg-line m-l-30 m-r-20">
+            <%= form_tag notifications_path, :method => 'get', class: 'm-l-30 m-r-20' do |f| %>
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: 'search notifications' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table id="notifications-grid" class="table table-hover">
+      <thead>
+        <tr>
+          <th data-column-id="email thriver"></th>
+          <th data-column-id="new/read"></th>
+          <th data-column-id="received">Received</th>
+          <th data-column-id="subject">Subject</th>
+          <th data-column-id="content">Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% User.current.notifications.sorted.each do |notification| %>
+        <% if notification.read? %>
+        <tr class="p-t-25"><span><td><div class="col-sm-4" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-circle-o"></i></p></div></td></span>
+          <% else %>
+          <tr class="c-black p-t-25"><span><td><div class="col-sm-4" data-name="circle" data-code="f26d"><p><i class="zmdi zmdi-dot-circle"></i></p></div></td></span>
+            <% end %>
+
+            <td class="f-500 c-cyan">
+            <a class="email-button btn bgm-lightblue btn-icon waves-effect waves-circle waves-float" href="<%= new_email_message_path %>">
+              <i class="zmdi zmdi-email"></i>
+            </a>
+
+            </td>
+            <span class="col-sm-4" ><td><%= notification.received %></td></span>
+            <span><td><%= notification.subject_display %></td></span>
+            <td><%= notification.content %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

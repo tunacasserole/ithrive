@@ -1,0 +1,16 @@
+<%= form_for(@notification, url: (@notification.new_record? ? notifications_path : notification_path(id: @notification.id)), method: (@notification.new_record? ? :post : :patch)) do |f| %>
+  <h4>Email Thriver</h4>
+  <p>Complete the details below to send an email to the participant.</p>
+  <div class="input-group m-b-10">
+    <span class="input-group-addon"></span>
+    <div class="fg-line">
+      <%= f.label :body %>
+      <%= f.text_field :body, class: 'form-control', placeholder: 'body of the email' %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <%= f.submit(("Submit"), :class => 'btn bgm-red float-right') %>
+<% end %>
+

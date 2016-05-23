@@ -5,7 +5,7 @@ Farbtastic is a [jQuery](http://jquery.com/) plug-in that can add one or more co
 
 Farbtastic 2 uses the html5 canvas element to render a saturation/luminance gradient inside of a hue circle. In order to work with Internet Explorer, which does not currently support the canvas element, [Explorer Canvas](http://code.google.com/p/explorercanvas) is needed to translate the canvas usage into features native to Internet Explorer.
 
-**Notice:** *The 2.x branch is under development and considered not production ready. If you are interested in a production tested version see the 1.x branch.*
+**notification:** *The 2.x branch is under development and considered not production ready. If you are interested in a production tested version see the 1.x branch.*
 
 Farbtastic was originally written by [Steven Wittens](http://acko.net/) and is licensed under the GPL.
 
@@ -38,7 +38,7 @@ Advanced Usage
 
 	$(...).farbtastic()
 	$(...).farbtastic(callback)
-    
+
 This creates color pickers in the selected objects. `callback` is optional and can be a:
 
 * DOM Node, jQuery object or jQuery selector: the color picker will be linked to the selected element(s) by syncing the value (for form elements) and color (all elements).
@@ -48,7 +48,7 @@ This creates color pickers in the selected objects. `callback` is optional and c
 
 	$.farbtastic(placeholder)
 	$.farbtastic(placeholder, callback)
-    
+
 Invoking `$.farbtastic(placeholder)` is the same as using `$(placeholder).farbtastic()` except that the Farbtastic object is returned instead of the jQuery object. This allows you to use the Farbtastic methods and properties below.
 Note that there is only one Farbtastic object per placeholder. If you call `$.farbtastic(placeholder)` twice with the same placeholder, you will get the same object back each time.
 
