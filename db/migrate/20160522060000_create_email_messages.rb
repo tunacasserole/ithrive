@@ -1,6 +1,8 @@
 class CreateEmailMessages < ActiveRecord::Migration
   create_table :email_messages do |t|
     t.integer :tenant_id
+    t.integer :sender_id
+    t.integer :recipient_id
     t.string :from
     t.string :to
     t.string :cc

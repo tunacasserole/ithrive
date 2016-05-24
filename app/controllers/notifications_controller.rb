@@ -15,21 +15,22 @@ class NotificationsController < ApplicationController
   # GET /profiles/1.json
   def show
     @notification=Notification.find params[:id]
-    respond_to do |format|
+    # respond_to do |format|
 
-      if @notification.mark_as_read
-        format.html { redirect_to dashboard_path(1), notice: 'marked as read' }
-        format.json { render :show, status: :created, location: @notification }
-      else
-        format.html { render :new }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
-    end
+    #   if @notification.mark_as_read
+    #     format.html { redirect_to @notification, notice: 'marked as read' }
+    #     format.json { render :show, status: :created, location: @notification }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @notification.errors, status: :unprocessable_entity }
+    #   end
+    # end
 
   end
 
   # GET /profiles/new
   def new
+    @notification = Notification.new
   end
 
   def create

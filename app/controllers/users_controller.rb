@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.current
     # @health_attributes = HealthAttribute.all
     # @user_health_attributes = @user.user_health_attributes
-    @user.notifications.update_all(:state => 'read')
+    # @user.notifications.unread.update_all(:state => 'read')
   end
 
   # POST /users

@@ -1,31 +1,31 @@
-<% unread_notifications = User.current.notifications.unread %>
+<% unread_email_messages = User.current.email_messages.unread %>
 <li class="dropdown">
   <a data-toggle="dropdown" href="">
-    <i class="tm-icon zmdi zmdi-notifications"></i>
-    <% if unread_notifications.count > 0  %>
-      <% @notification = unread_notifications.first %>
-    <i class="tmn-counts"><%= unread_notifications.count %></i>
+    <i class="tm-icon zmdi zmdi-email"></i>
+    <% if unread_email_messages.count > 0  %>
+      <% @email_message = unread_email_messages.first %>
+    <i class="tmn-counts"><%= unread_email_messages.count %></i>
     <% end %>
   </a>
   <div class="dropdown-menu dropdown-menu-lg pull-right">
-    <div class="listview" id="notifications">
+    <div class="listview" id="email_messages">
       <div class="lv-header">
-        Notifications
+        Email Messages
         <ul class="actions">
           <li class="dropdown">
-          <%= link_to notifications_path do %>
+          <%= link_to email_messages_path do %>
               <i class="zmdi zmdi-check-all"></i>
           <% end %>
           </li>
         </ul>
       </div>
       <div class="lv-body">
-        <% User.current.notifications.sorted.each_with_index do |n,i| %>
+        <% User.current.email_messages.sorted.each_with_index do |em,i| %>
           <% if i < 10 %>
-            <a class="lv-item" href="<%= notifications_path %>">
+            <a class="lv-item" href="<%= email_messages_path %>">
               <div class="media">
                 <div class="pull-left p-r-5">
-                  <% if n.read? %>
+                  <% if em.read? %>
                     <tr>
                       <span>
                         <td>
@@ -43,9 +43,9 @@
                   <img class="lv-img-sm p-l-0" src= <%= asset_path("profile-pics/#{rand(1..4)}.jpg") %>  alt="">
                 </div>
                 <div class="media-body p-l-0">
-                  <div class="lv-title"><%= n.thriver_display %>
+                  <div class="lv-title"><%= em.subject %>
                   </div>
-                  <small class="lv-small"><%= n.summary %></small>
+                  <small class="lv-small"><%= em.summary %></small>
                 </div>
               </div>
             </a>
@@ -53,7 +53,7 @@
         <% end %>
       </div>
       <div class='lv-footer' style='color:royalblue'>
-        <%= link_to 'view all', notifications_path %>
+        <%= link_to 'view all', email_messages_path %>
       </div>
     </div>
 

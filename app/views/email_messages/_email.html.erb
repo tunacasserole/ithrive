@@ -1,4 +1,4 @@
-<%= form_for(@notification, url: (@notification.new_record? ? notifications_path : notification_path(id: @notification.id)), method: (@notification.new_record? ? :post : :patch)) do |f| %>
+<%= form_for(@email_message, url: (@email_message.new_record? ? email_messages_path : notification_path(id: @email_message.id)), method: (@email_message.new_record? ? :post : :patch)) do |f| %>
   <h4>Email Thriver</h4>
   <p>Complete the details below to send an email to the participant.</p>
   <div class="input-group m-b-10">

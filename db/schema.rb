@@ -14,17 +14,19 @@
 ActiveRecord::Schema.define(version: 20160522060000) do
 
   create_table "email_messages", force: :cascade do |t|
-    t.integer  "tenant_id",  limit: 4
-    t.string   "from",       limit: 255
-    t.string   "to",         limit: 255
-    t.string   "cc",         limit: 255
-    t.string   "bcc",        limit: 255
-    t.string   "subject",    limit: 255
-    t.string   "body",       limit: 255
-    t.string   "type_of",    limit: 255
-    t.string   "state",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "tenant_id",    limit: 4
+    t.integer  "sender_id",    limit: 4
+    t.integer  "recipient_id", limit: 4
+    t.string   "from",         limit: 255
+    t.string   "to",           limit: 255
+    t.string   "cc",           limit: 255
+    t.string   "bcc",          limit: 255
+    t.string   "subject",      limit: 255
+    t.string   "body",         limit: 255
+    t.string   "type_of",      limit: 255
+    t.string   "state",        limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "email_templates", force: :cascade do |t|
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160522060000) do
     t.string   "sequence",    limit: 255
     t.string   "type_of",     limit: 255
     t.string   "section",     limit: 255
+    t.string   "survey",      limit: 255
     t.string   "strategy",    limit: 255
     t.string   "notify_text", limit: 255
     t.string   "recipients",  limit: 255

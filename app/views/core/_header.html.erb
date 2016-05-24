@@ -18,60 +18,35 @@
           <a href=""><i class="tm-icon zmdi zmdi-search"></i></a>
         </li>
 
-        <li class="dropdown">
-          <a data-toggle="dropdown" href="">
-            <i class="tm-icon zmdi zmdi-email"></i>
-            <i class="tmn-counts">2</i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg pull-right">
-            <div class="listview">
-              <div class="lv-header">
-                Messages
-              </div>
-              <div class="lv-body">
-                <a class="lv-item" href="">
-                  <div class="media">
-                    <div class="pull-left">
-                      <img class="lv-img-sm" src= <%= asset_path('profile-pics/1.jpg') %>  alt="">
-                    </div>
-                    <div class="media-body">
-                      <div class="lv-title">David Belle</div>
-                      <small class="lv-small">Cum sociis natoque penatibus et magnis dis parturient montes</small>
-                    </div>
-                  </div>
-                </a>
-                <a class="lv-item" href="">
-                  <div class="media">
-                    <div class="pull-left">
-                      <img class="lv-img-sm" src= <%= asset_path('profile-pics/2.jpg') %>  alt="">
-                    </div>
-                    <div class="media-body">
-                      <div class="lv-title">Jonathan Morris</div>
-                      <small class="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <a class="lv-footer" href="">View All</a>
-            </div>
-          </div>
-        </li>
+        <%= render partial: 'email_messages/summary', locals: {user: @user} %>
         <%= render partial: 'notifications/summary', locals: {user: @user} %>
 
         <li class="dropdown">
           <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-palette"></i></a>
           <ul class="dropdown-menu dm-icon pull-right">
             <li class="skin-switch hidden-xs">
+              <span class="ss-skin bgm-primary" data-skin="primary"></span>
+              <span class="ss-skin bgm-secondary" data-skin="secondary"></span>
+              <span class="ss-skin bgm-tertiary" data-skin="tertiary"></span>
+              <span class="ss-skin bgm-brown" data-skin="brown"></span>
               <span class="ss-skin bgm-red" data-skin="red"></span>
               <span class="ss-skin bgm-pink" data-skin="pink"></span>
               <span class="ss-skin bgm-purple" data-skin="purple"></span>
               <span class="ss-skin bgm-orange" data-skin="orange"></span>
               <span class="ss-skin bgm-yellow" data-skin="yellow"></span>
               <span class="ss-skin bgm-green" data-skin="green"></span>
-              <span class="ss-skin bgm-bluegray" data-skin="bluegray"></span>
-              <span class="ss-skin bgm-cyan" data-skin="cyan"></span>
+              <span class="ss-skin bgm-primary" data-skin="primary"></span>
               <span class="ss-skin bgm-teal" data-skin="teal"></span>
               <span class="ss-skin bgm-indigo" data-skin="indigo"></span>
+              <span class="ss-skin bgm-cyan" data-skin="cyan"></span>
+              <span class="ss-skin bgm-gray" data-skin="gray"></span>
+              <span class="ss-skin bgm-amber" data-skin="amber"></span>
+              <span class="ss-skin bgm-lightgreen" data-skin="lightgreen"></span>
+              <span class="ss-skin bgm-deeporange" data-skin="deeporange"></span>
+              <span class="ss-skin bgm-black" data-skin="black"></span>
+              <span class="ss-skin bgm-deeppurple" data-skin="deeppurple"></span>
+              <span class="ss-skin bgm-lime" data-skin="lime"></span>
+              <span class="ss-skin bgm-bluegray" data-skin="bluegray"></span>
             </li>
             <li class="divider hidden-xs"></li>
             <li class="hidden-xs">

@@ -1,6 +1,5 @@
-<%= form_for(@email_message, url: (@email_message.new_record? ? email_messages_path : notification_path(id: @email_message.id)), method: (@email_message.new_record? ? :post : :patch)) do |f| %>
-  <h4>Email Thriver</h4>
-  <p>Complete the details below to send an email to the participant.</p>
+<%= simple_form_for(@email_message) do |f| %>
+  <%= f.error_notification %>
 
   <div class="form-inputs">
     <div class="input-group m-b-10">
@@ -37,13 +36,13 @@
       <span class="input-group-addon"></span>
       <div class="fg-line">
         <%= f.label :body %>
-        <%= f.text_area(:body, placeholder: 'Write Something...', class: 'form-control auto-size', :rows => 10, :cols => 25 ) %>
+        <%= f.text_area(:body, placeholder: 'Say Something...', class: 'form-control auto-size', :rows => 10, :cols => 25 ) %>
       </div>
     </div>
   </div>
 
-  <br>
-  <br>
-  <%= f.submit(("Submit"), :class => 'btn bgm-tertiary float-right') %>
-<% end %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 
+<% end %>

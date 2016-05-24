@@ -1,9 +1,8 @@
 <%= form_for(@user, url: (@user.new_record? ? users_path : user_path(id: @user.id)), method: (@user.new_record? ? :post : :patch)) do |f| %>
 
-<h1> slider style </h1>
 <p> </p>
-<% @user.profiles.each_with_index do |q,i| %>
-<% if i < 8 and q.question.type_of == 'profile' %>
+<% @user.profiles.each_with_index do |p,i| %>
+<% if (i > 1 and i < 8) and p.question.type_of == 'profile' %>
 <div class="input-group m-b-20">
   <span class="input-group-addon"></span>
   <div class="fg-line">
@@ -12,7 +11,7 @@
       <input id= <%= i %> type="checkbox" hidden="hidden">
       <label for=<%= i %> class="ts-helper"></label>
       <label for=<%= i %> class="ts-label" style="padding-left: 10px;">yes</label>
-      <label for=<%= i %> class="ts-label" style="padding-left: 10px;"><%= f.label q %></label>
+      <label for=<%= i %> class="ts-label" style="padding-left: 10px;"><%= p.question.name.humanize %></label>
     </div>
 
   </div>
@@ -21,30 +20,8 @@
 <% end %>
 
 
-<h1> radio button style </h1>
-<% @user.profiles.each_with_index do |q,i| %>
-<% if i < 8 and q.question.type_of == 'profile' %>
-<div class="input-group m-b-20">
-  <span class="input-group-addon"></span>
-  <div class="fg-line">
-    <label class="radio radio-inline m-r-20">
-      <%= f.radio_button q, false %>
-      <i class="input-helper"></i>
-      No
-    </label>
-    <label class="radio radio-inline m-r-20">
-      <%= f.radio_button q, true %>
-      <i class="input-helper"></i>
-      Yes
-    </label>
-    <%= f.label q %>
-  </div>
-</div>
-<% end %>
-<% end %>
-
 <div class="form-actions">
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.button :submit, class: "btn bgm-tertiary" %>
 </div>
 <% end %>
 

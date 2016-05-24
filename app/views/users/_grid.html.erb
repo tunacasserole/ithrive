@@ -1,15 +1,15 @@
 <div class="card">
-  <div class="card-header m-b-20 bgm-blue">
+  <div class="card-header m-b-20 bgm-primary">
     <h2>Manage Thrivers <small>Thrivers are past and present patients from your center.</small></h2>
     <a href="<%= new_user_path %>">
-      <button class="btn bgm-orange btn-float waves-effect"><i class="zmdi zmdi-plus"></i></button>
+      <button class="btn bgm-secondary btn-float waves-effect"><i class="zmdi zmdi-plus"></i></button>
     </a>
   </div>
   <div id="data-table-basic-header" class="bootgrid-header container-fluid">
     <div class="row">
       <div class="col-sm-12 actionBar">
         <div class="ha-search">
-            <%= button_tag(type: 'submit', name: nil, class: "btn bgm-orange btn-float waves-effect") do %><i class="zmdi zmdi-search"></i><% end %>
+            <%= button_tag(type: 'submit', name: nil, class: "btn bgm-secondary btn-float waves-effect") do %><i class="zmdi zmdi-search"></i><% end %>
           <div class="fg-line m-l-30 m-r-20">
             <%= form_tag users_path, :method => 'get', class: 'm-l-30 m-r-20' do |f| %>
             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: 'search thrivers' %>

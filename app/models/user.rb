@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :profiles, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
+  has_many :email_messages, foreign_key: :recipient_id, dependent: :destroy
   # has_many :user_action_steps, dependent: :destroy
   # has_many :action_steps, through: :user_action_steps
   has_many :filters_users, dependent: :destroy

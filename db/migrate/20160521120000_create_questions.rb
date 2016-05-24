@@ -5,6 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
     t.string :sequence
     t.string :type_of
     t.string :section
+    t.string :survey
     t.string :strategy
     t.string :notify_text
     t.string :recipients

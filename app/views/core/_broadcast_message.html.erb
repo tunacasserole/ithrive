@@ -9,7 +9,7 @@
         <div class="col-md-11">
           <div class="alert alert-success alert-dismissible" role="alert">
             <%= form_for(@notification, url: notification_path(id: @notification.id), method: :patch) do |f| %>
-              <%= broadcast_notifications.map(&:content).join(', ') %>
+              <%= broadcast_notifications.map(&:body).join(', ') %>
               <%= f.button(type: "submit", class: "close") do %>
                   <span aria-hidden="true">×</span>
               <% end %>

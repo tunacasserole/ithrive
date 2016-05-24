@@ -2,7 +2,8 @@
 <%= form_for(@notification, url: notifications_path, method: :post) do |f| %>
   <div class="card wall-posting">
     <div class="card-body card-padding">
-
+    <%= f.hidden_field :type_of, value: 'broadcast' %>
+    <%= f.hidden_field :state, value: 'broadcast' %>
       <%= f.text_area :body, :cols => 5, :rows => 3, :class => 'wp-text', :placeholder => "Broadcast a message to your Thrivers..." %>
       <div class="tab-content p-0">
         <div class="wp-media tab-pane" id="wpm-link">
@@ -19,7 +20,7 @@
       </li>
 
       <li class="pull-right" >
-        <%= f.submit 'Post', class: "btn btn-primary btn-sm waves-effect", style: "background-color: crimson" %>
+        <%= f.submit 'Post', class: "btn btn-primary btn-sm waves-effect bgm-secondary" %>
       </li>
     </ul>
   </div>

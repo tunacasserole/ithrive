@@ -1,21 +1,25 @@
 class Notification < ActiveRecord::Base
-  has_one :sender, :class_name => "User", :foreign_key => "sender_id"
-  has_one :recipient, :class_name => "User", :foreign_key => "recipient_id"
-  has_one :thriver, :class_name => "User", :foreign_key => "thriver_id"
+  belongs_to :sender, :class_name => "User", :foreign_key => "sender_id"
+  belongs_to :recipient, :class_name => "User", :foreign_key => "recipient_id"
+  belongs_to :thriver, :class_name => "User", :foreign_key => "thriver_id"
 
   after_initialize :defaults
-  after_save :broadcast
+  after_save :send_broadcast, if: :broadcast?
 
   scope :unread, -> { where(state: 'new') }
   scope :sorted, -> { order(created_at: :desc) }
   scope :broadcast, -> { where(type_of: 'broadcast') }
 
-  def short_body
-    self.content.truncate 30, :separator => /\w/
+  def summary
+    self.body.truncate 30, :separator => /\w/
   end
 
   def read?
     state != 'new'
+  end
+
+  def broadcast?
+    state == 'broadcast'
   end
 
   def mark_as_read
@@ -30,21 +34,24 @@ class Notification < ActiveRecord::Base
     today? ? created_at.strftime('%R %p') : created_at.strftime('%D')
   end
 
-  def subject_display
-    self.subject ? self.subject.name : 'System Administrator'
+  def thriver_display
+    self.thriver ? self.thriver.name : 'System Administrator'
   end
 
-  def broadcast
-    if self.user_id.nil?
-      User.all.each do |u|
-        Notification.create(recipient: u, type_of: 'broadcast', state: 'new', content: self.content)
-      end
+  def sender_display
+    self.sender ? self.sender.name : 'System Administrator'
+  end
+
+  def send_broadcast
+    User.all.each do |u|
+      Notification.create(recipient_id: u.id, type_of: 'broadcast', state: 'new', body: self.body)
     end
+    self.update_attributes(state: 'read')
   end
 
   protected
     def defaults
-      state = 'new' unless state
+      self.state = 'new' unless state
     end
 
 end

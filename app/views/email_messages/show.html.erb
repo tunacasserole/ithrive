@@ -1,4 +1,28 @@
-<p id="notice"><%= notice %></p>
+<ol class="breadcrumb p-l-10">
+  <li class="p-l-20"><a href="<%= email_messages_path %>">Email Messages</a></li>
+  <li class="active">Email Email Message</li>
+</ol>
 
-<%= link_to 'Edit', edit_email_message_path(@email_message) %> |
-<%= link_to 'Back', email_messages_path %>
+<section id="content">
+  <div class="container">
+    <div class="block-header">
+      <h2>Email Email Message <small>Choose one of our pre-defined templates, or create your own to email the thriver based on the alert you received.</small></h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body p-25">
+                <%= render partial: 'email_messages/email' %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h5>Email Templates</h5>
+            <p>Select or create a template to email the thriver</p>
+            <h5>Don't see a template you like?</h5>
+            <p>Use the left hand menu to navigate to Setup Email Templates where you can add your owem.</p>
+        </div>
+    </div>
+    <%= link_to 'Back', email_messages_path %>
+  </div>
+</section>

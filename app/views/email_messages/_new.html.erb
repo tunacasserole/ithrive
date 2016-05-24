@@ -1,15 +1,15 @@
-<% unread_notifications = User.current.notifications.unread %>
+<% unread_email_messages = User.current.email_messages.unread %>
 <li class="dropdown">
   <a data-toggle="dropdown" href="">
-    <i class="tm-icon zmdi zmdi-notifications"></i>
-    <% if unread_notifications.count > 0  %>
-    <i class="tmn-counts"><%= unread_notifications.count %></i>
+    <i class="tm-icon zmdi zmdi-email_messages"></i>
+    <% if unread_email_messages.count > 0  %>
+    <i class="tmn-counts"><%= unread_email_messages.count %></i>
     <% end %>
   </a>
   <div class="dropdown-menu dropdown-menu-lg pull-right">
-    <div class="listview" id="notifications">
+    <div class="listview" id="email_messages">
       <div class="lv-header">
-        Notifications
+        Email Messages
         <ul class="actions">
           <li class="dropdown">
             <a href="" data-clear="notification">
@@ -19,12 +19,12 @@
         </ul>
       </div>
       <div class="lv-body">
-        <% User.current.notifications.sorted.each_with_index do |n,i| %>
+        <% User.current.email_messages.sorted.each_with_index do |n,i| %>
           <% if i < 10 %>
             <a class="lv-item" href="">
               <div class="media">
                 <div class="pull-left">
-                <% if n.read? %>
+                <% if em.read? %>
                   <tr>
                     <span>
                       <td>
@@ -42,9 +42,9 @@
                   <img class="lv-img-sm" src= <%= asset_path("profile-pics/#{i+1}.jpg") %>  alt="">
                 </div>
                 <div class="media-body">
-                  <div class="lv-title"><%= n.sender_display %>
+                  <div class="lv-title"><%= em.subject.name %>
                   </div>
-                  <small class="lv-small"><%= n.summary %></small>
+                  <small class="lv-small"><%= em.summary %></small>
                 </div>
               </div>
             </a>
@@ -52,7 +52,7 @@
         <% end %>
       </div>
 
-      <%= link_to("<a class='lv-footer' style='color:royalblue' href=''>View All".html_safe, edit_user_path(User.current, anchor: "tab-notifications")) %>
+      <%= link_to("<a class='lv-footer' style='color:royalblue' href=''>View All".html_safe, edit_user_path(User.current, anchor: "tab-email_messages")) %>
     </div>
 
   </div>
